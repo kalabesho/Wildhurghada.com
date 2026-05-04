@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wild Hurghada | Unforgettable Desert & Sea Adventures</title>
+<style>
+:root{--coral:#C1440E;--ocean:#0B3D6B;--sand:#FAF6F0;--gold:#E8A020;--dark:#111;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Segoe UI',sans-serif;background:var(--sand);color:var(--dark);overflow-x:hidden;}
+
+nav{position:fixed;top:0;width:100%;z-index:999;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;transition:all .4s;}
+nav.scrolled{background:rgba(11,61,107,.97);backdrop-filter:blur(12px);padding:12px 40px;box-shadow:0 4px 20px rgba(0,0,0,.2);}
+.logo{color:#fff;font-size:1.6rem;font-weight:900;letter-spacing:2px;}
+.logo span{color:var(--gold);}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.lang-opt{padding:11px 18px;cursor:pointer;font-size:.875rem;font-weight:600;color:#333;transition:background .2s;}
+.lang-opt:hover{background:#f5f5f5;color:#C1440E;}
+.nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.9rem;font-weight:600;transition:color .3s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--coral);color:#fff;padding:10px 24px;border-radius:30px;text-decoration:none;font-weight:700;font-size:.9rem;transition:all .3s;}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 7px 20px rgba(193,68,14,.5);}
+
+.hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.ken-burns-wrap{position:absolute;inset:-10%;width:120%;height:120%;}
+.kb-slide{position:absolute;inset:0;opacity:0;background-size:cover;background-position:center;transition:opacity 1.8s ease;}
+.kb-slide.active{opacity:1;}
+@keyframes kb1{0%{transform:scale(1) translate(0,0);}100%{transform:scale(1.15) translate(-3%,-2%);}}
+@keyframes kb2{0%{transform:scale(1.1) translate(2%,1%);}100%{transform:scale(1) translate(-1%,-1%);}}
+@keyframes kb3{0%{transform:scale(1) translate(-2%,0);}100%{transform:scale(1.12) translate(2%,2%);}}
+.kb-slide.active:nth-child(1){animation:kb1 8s ease-in-out forwards;}
+.kb-slide.active:nth-child(2){animation:kb2 8s ease-in-out forwards;}
+.kb-slide.active:nth-child(3){animation:kb3 8s ease-in-out forwards;}
+.kb-s1{background:url('https://drive.google.com/thumbnail?id=1d3aT-JeX7BYn9wK8TIKqm7g3dOa7AK9R&sz=w1600') center/cover;}
+.kb-s2{background:url('https://drive.google.com/thumbnail?id=1eyFv2TRTwLf1LCopEhNS-vA9wHa_J2bs&sz=w1600') center/cover;}
+.kb-s3{background:url('https://drive.google.com/thumbnail?id=1Eu6wkA4r7bJjLGbIx-hw2_bqLgR7Vum9&sz=w1600') center/cover;}
+
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.25) 0%,rgba(0,0,0,.55) 100%);z-index:1;}
+.hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 20px;max-width:900px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.hero-badge{display:inline-block;background:var(--gold);color:var(--dark);padding:7px 20px;border-radius:30px;font-size:.8rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:22px;animation:fadeUp .8s ease .2s both;}
+.hero h1{font-size:clamp(2.8rem,6.5vw,5.5rem);font-weight:900;line-height:1.05;margin-bottom:22px;animation:fadeUp .8s ease .5s both;}
+.hero h1 span{color:var(--gold);}
+.hero-sub{font-size:1.15rem;opacity:.9;margin-bottom:42px;animation:fadeUp .8s ease .8s both;}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s ease 1s both;}
+.btn-primary{background:var(--coral);color:#fff;padding:17px 38px;border-radius:50px;font-size:1rem;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all .3s;box-shadow:0 6px 20px rgba(193,68,14,.4);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(193,68,14,.55);}
+.btn-ghost{background:transparent;color:#fff;padding:17px 38px;border-radius:50px;font-size:1rem;font-weight:600;text-decoration:none;border:2px solid rgba(255,255,255,.7);cursor:pointer;transition:all .3s;}
+.btn-ghost:hover{background:#fff;color:var(--ocean);}
+.hero-stats{position:absolute;bottom:0;left:0;right:0;z-index:2;display:flex;justify-content:center;animation:fadeIn 1s ease 1.3s both;}
+.stat-item{flex:1;max-width:200px;text-align:center;padding:22px 10px;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border-top:3px solid transparent;transition:all .3s;}
+.stat-item:hover{background:rgba(255,255,255,.18);border-top-color:var(--gold);}
+.stat-num{font-size:2rem;font-weight:900;color:var(--gold);}
+.stat-lbl{font-size:.75rem;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px;}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+.scroll-ind{position:absolute;bottom:90px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.7);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;animation:fadeIn 1s ease 1.5s both;}
+.scroll-arrow{width:24px;height:24px;border-right:2px solid rgba(255,255,255,.6);border-bottom:2px solid rgba(255,255,255,.6);transform:rotate(45deg);animation:bounce 1.5s infinite;}
+
+.trust-bar{background:var(--ocean);padding:16px 40px;display:flex;justify-content:center;gap:35px;flex-wrap:wrap;align-items:center;}
+.trust-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.9);font-size:.85rem;font-weight:600;}
+
+.filter-section{background:#fff;padding:30px 40px;box-shadow:0 8px 30px rgba(0,0,0,.07);}
+.filter-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.filter-label{font-weight:700;color:var(--ocean);font-size:.9rem;margin-right:5px;}
+.filter-btn{padding:9px 22px;border-radius:30px;border:2px solid #e0e0e0;background:#fff;cursor:pointer;font-size:.85rem;font-weight:700;transition:all .25s;color:#666;}
+.filter-btn:hover,.filter-btn.active{background:var(--coral);color:#fff;border-color:var(--coral);transform:translateY(-2px);}
+
+.section-wrap{max-width:1200px;margin:0 auto;padding:90px 40px;}
+.section-tag{display:inline-block;color:var(--coral);font-weight:800;text-transform:uppercase;letter-spacing:3px;font-size:.8rem;margin-bottom:12px;}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--ocean);margin-bottom:14px;}
+.section-sub{color:#666;font-size:1rem;max-width:580px;line-height:1.7;}
+
+@keyframes revealUp{from{opacity:0;transform:translateY(50px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;}.reveal.visible{animation:revealUp .7s ease forwards;}
+
+.trips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:30px;margin-top:50px;}
+
+/* TRIP CARD */
+.trip-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 5px 25px rgba(0,0,0,.07);transition:all .35s;cursor:pointer;}
+.trip-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.14);}
+.trip-img{height:220px;position:relative;background-size:cover;background-position:center;overflow:hidden;}
+.trip-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 60%);transition:opacity .3s;}
+.trip-card:hover .trip-img::after{opacity:.7;}
+.trip-img-emoji{position:absolute;bottom:14px;left:16px;font-size:1.8rem;z-index:1;}
+.badge{position:absolute;top:14px;right:14px;padding:5px 14px;border-radius:20px;font-size:.72rem;font-weight:800;text-transform:uppercase;z-index:1;}
+.b-hot{background:var(--coral);color:#fff;}
+.b-val{background:var(--gold);color:var(--dark);}
+.b-fam{background:#2d8a6e;color:#fff;}
+.b-uni{background:var(--ocean);color:#fff;}
+
+/* Real photos */
+.ti-orange{background-image:url('https://drive.google.com/thumbnail?id=1XQOa2ITfhMQ2JvNh1HstjDwJ6wfrSsqG&sz=w800');}
+.ti-paradise{background-image:url('https://drive.google.com/thumbnail?id=1npvAUcVuP83o1Al7C7gK2IeoQtw7mmna&sz=w800');}
+.ti-dolphin{background-image:url('https://drive.google.com/thumbnail?id=1Gh9Gj3r74RwYIP507ukomvTtbHHZUK6Q&sz=w800');}
+.ti-dive{background-image:url('https://drive.google.com/thumbnail?id=1AJne-EJ_aKOmPes4Tu9TrcSBQ4UFPRCE&sz=w800');}
+.ti-safari{background-image:url('https://drive.google.com/thumbnail?id=1ga1yp7vm9e-PEcN4MtBIxdoJSH6FFEax&sz=w800');}
+.ti-quad{background-image:url('https://drive.google.com/thumbnail?id=1DDFbMNGAzPlaYYPRn-bw3v6qv2G9bXtQ&sz=w800');}
+.ti-scope{background-image:url('https://drive.google.com/thumbnail?id=1RjcbPj9JbDiGSHObOM76VX6WlW-ZoQzf&sz=w800');}
+.ti-sub{background-image:url('https://drive.google.com/thumbnail?id=1ItkGt9KxddPHgyafNMRZbDqvBkyQ5ymo&sz=w800');}
+.ti-dshow{background-image:url('https://drive.google.com/thumbnail?id=1hQAFt6r6FKSQ6SpnWDqOPjXojpdczOo_&sz=w800');}
+.ti-para{background-image:url('https://drive.google.com/thumbnail?id=10jQUo4V2aPvt6ixOv2wLtJyISB1xjrJd&sz=w800');}
+.ti-aqua{background-image:url('https://drive.google.com/thumbnail?id=1DPgOf-6hi-CNhzLWQEbEn4yGyHvatKi3&sz=w800');}
+.ti-horse{background-image:url('https://drive.google.com/thumbnail?id=1TLkGfXkulx-rPGPxfmBuRZ5hOpy3rm1Q&sz=w800');}
+
+.trip-body{padding:22px;}
+.trip-name{font-size:1.15rem;font-weight:800;color:var(--ocean);margin-bottom:6px;}
+.trip-desc{font-size:.855rem;color:#666;margin-bottom:14px;line-height:1.55;}
+.trip-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px;}
+.tag{background:#f0f4f8;color:#555;padding:4px 11px;border-radius:20px;font-size:.75rem;font-weight:600;}
+.trip-footer{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.trip-price{font-size:1.5rem;font-weight:900;color:var(--coral);}
+.trip-price small{font-size:.75rem;color:#aaa;font-weight:400;}
+.book-btn{background:var(--ocean);color:#fff;padding:10px 22px;border-radius:30px;border:none;cursor:pointer;font-weight:700;font-size:.875rem;transition:all .3s;}
+.book-btn:hover{background:var(--coral);}
+
+/* TOUR PLAN */
+.tour-plan-btn{width:100%;background:transparent;border:2px solid #e8eef5;color:var(--ocean);padding:10px;border-radius:10px;font-weight:700;font-size:.85rem;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.tour-plan-btn:hover{background:#f0f7ff;border-color:var(--ocean);}
+.tour-plan{display:none;margin-top:16px;border-top:2px dashed #f0f0f0;padding-top:16px;}
+.tour-plan.open{display:block;}
+.plan-title{font-size:.8rem;font-weight:800;color:var(--ocean);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+.plan-steps{display:flex;flex-direction:column;gap:0;}
+.plan-step{display:flex;gap:12px;position:relative;padding-bottom:12px;}
+.plan-step:last-child{padding-bottom:0;}
+.plan-step:last-child .step-line{display:none;}
+.step-left{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
+.step-dot{width:32px;height:32px;border-radius:50%;background:var(--ocean);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;z-index:1;}
+.step-line{width:2px;flex:1;background:#e0e8f0;margin:4px auto;}
+.step-content{padding-top:5px;flex:1;}
+.step-time{font-size:.72rem;color:var(--coral);font-weight:800;text-transform:uppercase;letter-spacing:.5px;}
+.step-text{font-size:.83rem;color:#444;line-height:1.5;margin-top:2px;}
+.includes-box{background:#f0f7ff;border-radius:10px;padding:12px 14px;margin-top:12px;}
+.includes-title{font-size:.75rem;font-weight:800;color:var(--ocean);text-transform:uppercase;margin-bottom:8px;}
+.includes-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
+.inc-item{font-size:.78rem;color:#444;display:flex;align-items:center;gap:5px;}
+.children-price{background:#fff8e8;border:1.5px solid var(--gold);border-radius:8px;padding:8px 12px;margin-top:10px;font-size:.8rem;color:#7a5500;font-weight:600;display:flex;align-items:center;gap:6px;}
+
+/* WHY US */
+.why-section{background:linear-gradient(135deg,var(--ocean) 0%,#1a5a8a 100%);padding:90px 40px;}
+.why-inner{max-width:1200px;margin:0 auto;}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:50px;}
+.why-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:30px 22px;text-align:center;transition:all .35s;}
+.why-card:hover{background:rgba(255,255,255,.14);transform:translateY(-6px);}
+.why-icon{font-size:2.2rem;margin-bottom:14px;}
+.why-title{font-size:1rem;font-weight:800;color:var(--gold);margin-bottom:10px;}
+.why-desc{font-size:.83rem;color:rgba(255,255,255,.75);line-height:1.6;}
+
+.parallax-strip{height:380px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#C1440E,#8B2500);}
+.parallax-content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 20px;}
+.parallax-content h2{font-size:clamp(1.8rem,4vw,3rem);font-weight:900;margin-bottom:16px;}
+.parallax-content p{font-size:1.1rem;opacity:.9;margin-bottom:30px;}
+
+/* MODAL */
+.modal{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.75);align-items:center;justify-content:center;padding:20px;}
+.modal.open{display:flex;animation:fadeIn .3s ease;}
+.modal-box{background:#fff;border-radius:24px;padding:40px;max-width:520px;width:100%;position:relative;max-height:90vh;overflow-y:auto;animation:fadeUp .4s ease;}
+.modal-close{position:absolute;top:16px;right:20px;font-size:1.4rem;cursor:pointer;color:#bbb;border:none;background:none;}
+.modal-close:hover{color:var(--coral);}
+.modal-title{font-size:1.5rem;font-weight:900;color:var(--ocean);margin-bottom:5px;}
+.modal-trip{color:var(--coral);font-weight:700;font-size:1rem;margin-bottom:28px;padding-bottom:18px;border-bottom:2px dashed #f0f0f0;}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-weight:700;font-size:.82rem;color:#555;margin-bottom:7px;text-transform:uppercase;letter-spacing:.5px;}
+.form-group input,.form-group select{width:100%;padding:13px 16px;border:2px solid #eee;border-radius:12px;font-size:.95rem;transition:border-color .3s;outline:none;background:#fafafa;}
+.form-group input:focus,.form-group select:focus{border-color:var(--ocean);background:#fff;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+.total-box{background:linear-gradient(135deg,#f0f7ff,#e8f4ff);border:2px solid var(--ocean);border-radius:12px;padding:14px 18px;margin-bottom:6px;font-weight:800;color:var(--ocean);font-size:.95rem;}
+.submit-btn{width:100%;padding:16px;background:var(--coral);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:800;cursor:pointer;transition:all .3s;margin-top:10px;}
+.submit-btn:hover{background:#a53500;transform:translateY(-2px);}
+.or-div{text-align:center;color:#ccc;font-size:.82rem;margin:14px 0;position:relative;}
+.or-div::before,.or-div::after{content:'';position:absolute;top:50%;width:43%;height:1px;background:#eee;}
+.or-div::before{left:0;}.or-div::after{right:0;}
+.wa-btn{width:100%;padding:14px;background:#25D366;color:#fff;border:none;border-radius:12px;font-size:.95rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .3s;text-decoration:none;}
+.wa-btn:hover{background:#1da851;}
+.success-box{display:none;text-align:center;padding:30px 20px;}
+.success-box.show{display:block;animation:fadeUp .4s ease;}
+.success-icon{font-size:4.5rem;margin-bottom:16px;}
+
+/* CHATBOT */
+@keyframes pulse{0%,100%{box-shadow:0 5px 20px rgba(193,68,14,.4);}50%{box-shadow:0 5px 30px rgba(193,68,14,.7);}}
+.chat-btn{position:fixed;bottom:28px;right:28px;z-index:1500;background:var(--coral);color:#fff;width:62px;height:62px;border-radius:50%;border:none;font-size:1.5rem;cursor:pointer;animation:pulse 2.5s infinite;display:flex;align-items:center;justify-content:center;}
+.chat-window{display:none;position:fixed;bottom:108px;right:28px;z-index:1500;width:340px;background:#fff;border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,.18);overflow:hidden;}
+.chat-window.open{display:block;animation:fadeUp .3s ease;}
+.chat-header{background:linear-gradient(135deg,var(--ocean),#1a5a8a);color:#fff;padding:16px 20px;display:flex;align-items:center;gap:12px;}
+.chat-avatar{width:38px;height:38px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.chat-name{font-weight:800;font-size:.95rem;}
+.chat-status{font-size:.72rem;opacity:.8;display:flex;align-items:center;gap:5px;margin-top:2px;}
+.online-dot{width:7px;height:7px;background:#4CAF50;border-radius:50%;}
+.chat-msgs{height:240px;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:#f7f7f7;}
+.msg{max-width:82%;padding:10px 14px;border-radius:18px;font-size:.855rem;line-height:1.45;}
+.msg-bot{background:#fff;color:var(--dark);align-self:flex-start;border-bottom-left-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.07);}
+.msg-user{background:var(--ocean);color:#fff;align-self:flex-end;border-bottom-right-radius:4px;}
+.typing{display:flex;gap:5px;padding:10px 14px;background:#fff;border-radius:18px;border-bottom-left-radius:4px;align-self:flex-start;box-shadow:0 2px 8px rgba(0,0,0,.07);}
+.typing span{width:8px;height:8px;background:#ccc;border-radius:50%;animation:typingDot 1.2s infinite;}
+.typing span:nth-child(2){animation-delay:.2s;}
+.typing span:nth-child(3){animation-delay:.4s;}
+@keyframes typingDot{0%,60%,100%{transform:translateY(0);}30%{transform:translateY(-6px);}}
+.quick-btns{display:flex;gap:7px;padding:10px 14px;flex-wrap:wrap;background:#fff;border-top:1px solid #f0f0f0;}
+.quick-btn{padding:6px 13px;border-radius:20px;border:1.5px solid var(--ocean);color:var(--ocean);font-size:.75rem;cursor:pointer;background:#fff;transition:all .2s;font-weight:700;}
+.quick-btn:hover{background:var(--ocean);color:#fff;}
+.chat-inp-row{display:flex;gap:8px;padding:12px 14px;background:#fff;border-top:1px solid #f0f0f0;}
+.chat-inp{flex:1;padding:10px 14px;border:1.5px solid #eee;border-radius:25px;font-size:.855rem;outline:none;}
+.chat-inp:focus{border-color:var(--ocean);}
+.chat-send{background:var(--coral);color:#fff;border:none;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+footer{background:#0a0a0a;color:#fff;padding:60px 40px 30px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:45px;max-width:1200px;margin:0 auto 50px;}
+.footer-logo{font-size:1.5rem;font-weight:900;letter-spacing:2px;margin-bottom:14px;}
+.footer-logo span{color:var(--gold);}
+.footer-desc{color:rgba(255,255,255,.5);font-size:.855rem;line-height:1.7;}
+.footer-head{font-weight:800;color:var(--gold);margin-bottom:16px;font-size:.82rem;text-transform:uppercase;letter-spacing:1.5px;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.855rem;transition:color .3s;}
+.footer-links a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;text-align:center;max-width:1200px;margin:0 auto;color:rgba(255,255,255,.4);font-size:.82rem;}
+
+@media(max-width:768px){
+  nav{padding:14px 20px;}.nav-links{display:none;}
+  .hero h1{font-size:2.3rem;}.hero-stats{flex-wrap:wrap;}.stat-item{min-width:120px;}
+  .section-wrap{padding:60px 20px;}.filter-section{padding:20px;}
+  .why-section{padding:60px 20px;}footer{padding:40px 20px 20px;}
+  .chat-window{width:calc(100vw - 40px);right:20px;}
+  .form-row{grid-template-columns:1fr;}.includes-grid{grid-template-columns:1fr;}
+  .trips-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <div class="logo">WILD<span>HURGHADA</span></div>
+  <ul class="nav-links">
+    <li><a href="#trips">Trips</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#trips" class="nav-cta">🔥 <span class="t" data-key="bookNow">Book Now</span></a>
+  <!-- Language Switcher -->
+  <div style="position:relative;margin-left:10px;" id="langMenu">
+    <button onclick="toggleLang()" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:8px 14px;border-radius:20px;cursor:pointer;font-weight:700;font-size:.85rem;display:flex;align-items:center;gap:6px;" id="langBtn">
+      🇬🇧 EN ▾
+    </button>
+    <div id="langDropdown" style="display:none;position:absolute;top:110%;right:0;background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.15);overflow:hidden;min-width:130px;z-index:100;">
+      <div onclick="setLang('en')" class="lang-opt">🇬🇧 English</div>
+      <div onclick="setLang('de')" class="lang-opt">🇩🇪 Deutsch</div>
+      <div onclick="setLang('nl')" class="lang-opt">🇳🇱 Nederlands</div>
+      <div onclick="setLang('ru')" class="lang-opt">🇷🇺 Русский</div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" style="padding:0;max-width:100%;">
+  <div class="ken-burns-wrap" id="kbWrap">
+    <div class="kb-slide kb-s1 active"></div>
+    <div class="kb-slide kb-s2"></div>
+    <div class="kb-slide kb-s3"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Hurghada's Premier Adventure Agency ✦</div>
+    <h1>Where <span>Desert</span> Meets<br>The <span>Red Sea</span></h1>
+    <p class="hero-sub">Book your dream adventure in 60 seconds. Pay on arrival. No hidden fees.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('trips').scrollIntoView({behavior:'smooth'})">🏄 Explore Adventures</button>
+      <a class="btn-ghost" href="https://wa.me/201551160195?text=Hi! I want to book a trip in Hurghada" target="_blank">💬 WhatsApp Us</a>
+    </div>
+  </div>
+  <div class="scroll-ind"><span>Scroll</span><div class="scroll-arrow"></div></div>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-num" data-target="500">0</div><div class="stat-lbl">Happy Tourists</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="12">0</div><div class="stat-lbl">Unique Trips</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="4" data-suffix=".9★">0</div><div class="stat-lbl">Avg Rating</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="24" data-suffix="/7">0</div><div class="stat-lbl">Support</div></div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item">⚡ Instant Confirmation</div>
+  <div class="trust-item">💳 Pay On Arrival</div>
+  <div class="trust-item">🔄 Free Cancellation 24h</div>
+  <div class="trust-item">🚐 Hotel Pickup Included</div>
+  <div class="trust-item">🌍 EN · DE · NL · RU</div>
+</div>
+
+<div class="filter-section">
+  <div class="filter-inner">
+    <span class="filter-label">🔍 Filter:</span>
+    <button class="filter-btn active" onclick="filterTrips('all',this)">All Trips</button>
+    <button class="filter-btn" onclick="filterTrips('sea',this)">🌊 Sea & Islands</button>
+    <button class="filter-btn" onclick="filterTrips('desert',this)">🏜️ Desert Safari</button>
+    <button class="filter-btn" onclick="filterTrips('dive',this)">🤿 Diving</button>
+    <button class="filter-btn" onclick="filterTrips('fun',this)">🎢 Fun</button>
+  </div>
+</div>
+
+<div class="section-wrap" id="trips">
+  <div class="reveal">
+    <div class="section-tag">Our Adventures</div>
+    <h2 class="section-title">Choose Your Experience</h2>
+    <p class="section-sub">All trips include hotel pickup, professional guides & instant WhatsApp confirmation.</p>
+  </div>
+  <div class="trips-grid" id="tripsGrid">
+
+    <!-- ORANGE BAY -->
+    <div class="trip-card reveal" data-cat="sea">
+      <div class="trip-img ti-orange"><div class="trip-img-emoji">🏝️</div><div class="badge b-hot">🔥 Most Popular</div></div>
+      <div class="trip-body">
+        <div class="trip-name">Orange Bay Island</div>
+        <div class="trip-desc">Egypt's Maldives! Crystal-clear waters, white sand & stunning coral reefs at Giftun Island National Park.</div>
+        <div class="trip-tags"><span class="tag">⏱️ Full Day</span><span class="tag">🍽️ Lunch</span><span class="tag">🤿 Snorkel</span><span class="tag">🚐 Transfer</span></div>
+        <div class="trip-footer"><div class="trip-price">€25<small>/adult</small></div><button class="book-btn" onclick="openModal('Orange Bay Island',25)">Book Now</button></div>
+        <button class="tour-plan-btn" onclick="togglePlan(this)">📋 View Tour Plan <span>▼</span></button>
+        <div class="tour-plan">
+          <div class="plan-title">📅 Your Day Step by Step</div>
+          <div class="plan-steps">
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚐</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">08:00 AM</div><div class="step-text">Hotel pickup from your Hurghada hotel lobby</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">⛵</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">09:00 AM</div><div class="step-text">Board the boat at Hurghada Marina. Welcome drinks served on deck</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🤿</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">10:00 AM</div><div class="step-text">First snorkeling stop at coral reef — equipment provided</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏝️</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">11:30 AM</div><div class="step-text">Arrive at Orange Bay Island — free time on the beach</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🍽️</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">01:30 PM</div><div class="step-text">Lunch on board — fresh Egyptian food + soft drinks</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🤿</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">02:30 PM</div><div class="step-text">Second snorkeling stop at Giftun Island coral reef</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏨</div></div><div class="step-content"><div class="step-time">04:30 PM</div><div class="step-text">Return to marina & hotel dropoff</div></div></div>
+          </div>
+          <div class="includes-box">
+            <div class="includes-title">✅ Everything Included</div>
+            <div class="includes-grid">
+              <div class="inc-item">🚐 Hotel transfers</div><div class="inc-item">⛵ Boat trip</div>
+              <div class="inc-item">🤿 Snorkel gear</div><div class="inc-item">🍽️ Lunch + drinks</div>
+              <div class="inc-item">🦺 Life jacket</div><div class="inc-item">📝 Entry permits</div>
+            </div>
+          </div>
+          <div class="children-price">👶 Children (4–11 yrs): €15 · Under 4: FREE</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARADISE ISLAND -->
+    <div class="trip-card reveal" data-cat="sea">
+      <div class="trip-img ti-paradise"><div class="trip-img-emoji">🌴</div><div class="badge b-val">⭐ Best Value</div></div>
+      <div class="trip-body">
+        <div class="trip-name">Paradise Island (Hula Hula)</div>
+        <div class="trip-desc">Soft white sand, turquoise waters & 2 snorkeling stops. The most Instagrammable island near Hurghada!</div>
+        <div class="trip-tags"><span class="tag">⏱️ Full Day</span><span class="tag">🍽️ Lunch</span><span class="tag">🎮 Water Games</span></div>
+        <div class="trip-footer"><div class="trip-price">€25<small>/adult</small></div><button class="book-btn" onclick="openModal('Paradise Island (Hula Hula)',25)">Book Now</button></div>
+        <button class="tour-plan-btn" onclick="togglePlan(this)">📋 View Tour Plan <span>▼</span></button>
+        <div class="tour-plan">
+          <div class="plan-title">📅 Your Day Step by Step</div>
+          <div class="plan-steps">
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚐</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">08:30 AM</div><div class="step-text">Hotel pickup & transfer to marina</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">⛵</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">09:30 AM</div><div class="step-text">Depart by boat — drinks & music on deck</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🤿</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">10:30 AM</div><div class="step-text">First snorkeling stop — coral reef with colorful fish</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏝️</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">11:30 AM</div><div class="step-text">Arrive Hula Hula Island — banana boat & sofa rides available</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🍽️</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">01:00 PM</div><div class="step-text">Lunch on board + soft drinks & coffee</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🤿</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">02:30 PM</div><div class="step-text">Second snorkeling stop + small party with staff 🎉</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏨</div></div><div class="step-content"><div class="step-time">04:30 PM</div><div class="step-text">Return & hotel dropoff</div></div></div>
+          </div>
+          <div class="includes-box">
+            <div class="includes-title">✅ Everything Included</div>
+            <div class="includes-grid">
+              <div class="inc-item">🚐 Hotel transfers</div><div class="inc-item">🍽️ Lunch + drinks</div>
+              <div class="inc-item">🤿 Snorkel gear</div><div class="inc-item">🏝️ Island entry</div>
+              <div class="inc-item">🎮 1 water game</div><div class="inc-item">🎉 Onboard party</div>
+            </div>
+          </div>
+          <div class="children-price">👶 Children (4–11 yrs): €15 · Under 4: FREE</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOLPHIN HOUSE -->
+    <div class="trip-card reveal" data-cat="sea dive">
+      <div class="trip-img ti-dolphin"><div class="trip-img-emoji">🐬</div><div class="badge b-fam">👨‍👩‍👧 Family Fav</div></div>
+      <div class="trip-body">
+        <div class="trip-name">Dolphin House Trip</div>
+        <div class="trip-desc">Swim with wild dolphins in their natural habitat at Sha'ab El Erg reef. A truly magical experience!</div>
+        <div class="trip-tags"><span class="tag">⏱️ Full Day</span><span class="tag">🐬 Wild Dolphins</span><span class="tag">🤿 Snorkel</span></div>
+        <div class="trip-footer"><div class="trip-price">€25<small>/adult</small></div><button class="book-btn" onclick="openModal('Dolphin House Trip',25)">Book Now</button></div>
+        <button class="tour-plan-btn" onclick="togglePlan(this)">📋 View Tour Plan <span>▼</span></button>
+        <div class="tour-plan">
+          <div class="plan-title">📅 Your Day Step by Step</div>
+          <div class="plan-steps">
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚐</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">07:30 AM</div><div class="step-text">Early hotel pickup — dolphins are most active in the morning!</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">⛵</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">08:30 AM</div><div class="step-text">Depart by speedboat toward Sha'ab El Erg (90 min journey)</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🐬</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">10:00 AM</div><div class="step-text">Snorkel with wild spinner dolphins — guide leads the experience</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🤿</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">11:30 AM</div><div class="step-text">Second snorkeling stop at stunning coral garden</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🍽️</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">01:00 PM</div><div class="step-text">Lunch on board + relaxation time</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏨</div></div><div class="step-content"><div class="step-time">04:00 PM</div><div class="step-text">Return to marina & hotel dropoff</div></div></div>
+          </div>
+          <div class="includes-box">
+            <div class="includes-title">✅ Everything Included</div>
+            <div class="includes-grid">
+              <div class="inc-item">🚐 Hotel transfers</div><div class="inc-item">⛵ Speedboat</div>
+              <div class="inc-item">🤿 Snorkel gear</div><div class="inc-item">🍽️ Lunch + drinks</div>
+              <div class="inc-item">🦺 Life jacket</div><div class="inc-item">🎓 Expert guide</div>
+            </div>
+          </div>
+          <div class="children-price">👶 Children (4–11 yrs): €15 · Under 4: FREE</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIVING -->
+    <div class="trip-card reveal" data-cat="dive sea">
+      <div class="trip-img ti-dive"><div class="trip-img-emoji">🤿</div><div class="badge b-hot">🔥 Top Rated</div></div>
+      <div class="trip-body">
+        <div class="trip-name">Diving Trip</div>
+        <div class="trip-desc">Explore 40+ dive sites! 2 dives with PADI-certified instructors. Beginners & experts welcome.</div>
+        <div class="trip-tags"><span class="tag">⏱️ 8 Hours</span><span class="tag">🍽️ Lunch</span><span class="tag">🎓 All Levels</span></div>
+        <div class="trip-footer"><div class="trip-price">€35<small>/adult</small></div><button class="book-btn" onclick="openModal('Diving Trip',35)">Book Now</button></div>
+        <button class="tour-plan-btn" onclick="togglePlan(this)">📋 View Tour Plan <span>▼</span></button>
+        <div class="tour-plan">
+          <div class="plan-title">📅 Your Day Step by Step</div>
+          <div class="plan-steps">
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚐</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">08:00 AM</div><div class="step-text">Hotel pickup & transfer to dive center</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">📋</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">08:30 AM</div><div class="step-text">Safety briefing & equipment fitting — wetsuit, tank, BCD</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🤿</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">09:30 AM</div><div class="step-text">First dive — 25 minutes exploring the reef wall</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">☕</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">11:00 AM</div><div class="step-text">Surface interval — tea, coffee & fruit on the boat</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🤿</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">12:00 PM</div><div class="step-text">Second dive — new site, 25 minutes</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🍽️</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">01:30 PM</div><div class="step-text">Lunch on board + snorkeling available for non-divers</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏨</div></div><div class="step-content"><div class="step-time">04:00 PM</div><div class="step-text">Return & hotel dropoff</div></div></div>
+          </div>
+          <div class="includes-box">
+            <div class="includes-title">✅ Everything Included</div>
+            <div class="includes-grid">
+              <div class="inc-item">🚐 Hotel transfers</div><div class="inc-item">🤿 Full dive gear</div>
+              <div class="inc-item">🎓 PADI instructor</div><div class="inc-item">🍽️ Lunch + drinks</div>
+              <div class="inc-item">📜 Dive certificate</div><div class="inc-item">📸 Underwater photos</div>
+            </div>
+          </div>
+          <div class="children-price">⚠️ Minimum age: 10 years · Medical form required</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPER SAFARI -->
+    <div class="trip-card reveal" data-cat="desert">
+      <div class="trip-img ti-safari"><div class="trip-img-emoji">🏜️</div><div class="badge b-val">🌙 Night Adventure</div></div>
+      <div class="trip-body">
+        <div class="trip-name">Super Safari</div>
+        <div class="trip-desc">Beach buggy, jeep, camel ride, Bedouin village, BBQ dinner & belly dance show under the stars!</div>
+        <div class="trip-tags"><span class="tag">⏱️ 7.5 Hours</span><span class="tag">🍖 BBQ Dinner</span><span class="tag">🐪 Camel Ride</span></div>
+        <div class="trip-footer"><div class="trip-price">€20<small>/adult</small></div><button class="book-btn" onclick="openModal('Super Safari',20)">Book Now</button></div>
+        <button class="tour-plan-btn" onclick="togglePlan(this)">📋 View Tour Plan <span>▼</span></button>
+        <div class="tour-plan">
+          <div class="plan-title">📅 Your Evening Step by Step</div>
+          <div class="plan-steps">
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚐</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">11:30 AM</div><div class="step-text">Hotel pickup & transfer to the desert</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏎️</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">12:30 PM</div><div class="step-text">Beach buggy ride through the desert — 30 minutes of pure fun!</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🛻</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">01:30 PM</div><div class="step-text">Jeep ride — 50km across the Egyptian desert</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🐪</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">03:00 PM</div><div class="step-text">Camel ride to the Bedouin village + reptile house visit</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🌅</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">04:30 PM</div><div class="step-text">Bedouin bread baking + sunset watching from the mountain</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🍖</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">05:30 PM</div><div class="step-text">BBQ dinner: chicken + kofta + rice + salad + drinks + fruit</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">💃</div></div><div class="step-content"><div class="step-time">06:30 PM</div><div class="step-text">Belly dance & tanoura show under the stars + hotel dropoff 07:00</div></div></div>
+          </div>
+          <div class="includes-box">
+            <div class="includes-title">✅ Everything Included</div>
+            <div class="includes-grid">
+              <div class="inc-item">🚐 Hotel transfers</div><div class="inc-item">🏎️ Beach buggy</div>
+              <div class="inc-item">🛻 Jeep 50km</div><div class="inc-item">🐪 Camel ride</div>
+              <div class="inc-item">🍖 BBQ dinner</div><div class="inc-item">💃 Live show</div>
+            </div>
+          </div>
+          <div class="children-price">👶 Children (4–11 yrs): €12 · Under 4: FREE</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUAD -->
+    <div class="trip-card reveal" data-cat="desert fun">
+      <div class="trip-img ti-quad"><div class="trip-img-emoji">🏎️</div><div class="badge b-hot">🔥 Adrenaline</div></div>
+      <div class="trip-body">
+        <div class="trip-name">Quad Safari 3 Hours</div>
+        <div class="trip-desc">Ride 25km through the Egyptian desert on a quad bike. Sunset views, Bedouin tea & camel ride included.</div>
+        <div class="trip-tags"><span class="tag">⏱️ 3 Hours</span><span class="tag">🏔️ 25km Desert</span><span class="tag">🐪 Camel Ride</span></div>
+        <div class="trip-footer"><div class="trip-price">€25<small>/adult</small></div><button class="book-btn" onclick="openModal('Quad Safari 3 Hours',25)">Book Now</button></div>
+        <button class="tour-plan-btn" onclick="togglePlan(this)">📋 View Tour Plan <span>▼</span></button>
+        <div class="tour-plan">
+          <div class="plan-title">📅 Your Adventure Step by Step</div>
+          <div class="plan-steps">
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚐</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">15:00 PM</div><div class="step-text">Hotel pickup & transfer to quad base camp</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🪖</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">15:30 PM</div><div class="step-text">Safety briefing, helmet fitting & quad bike practice</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏎️</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">16:00 PM</div><div class="step-text">Quad ride begins — 25km through the Eastern Desert</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🌅</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">17:00 PM</div><div class="step-text">Stop at mountain viewpoint — perfect sunset photos 📸</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🐪</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">17:30 PM</div><div class="step-text">Camel ride + Bedouin tea & shisha (optional)</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏨</div></div><div class="step-content"><div class="step-time">18:30 PM</div><div class="step-text">Return to base & hotel dropoff</div></div></div>
+          </div>
+          <div class="includes-box">
+            <div class="includes-title">✅ Everything Included</div>
+            <div class="includes-grid">
+              <div class="inc-item">🚐 Hotel transfers</div><div class="inc-item">🏎️ Quad bike</div>
+              <div class="inc-item">🪖 Helmet & goggles</div><div class="inc-item">🐪 Camel ride</div>
+              <div class="inc-item">☕ Bedouin tea</div><div class="inc-item">🎓 Safety guide</div>
+            </div>
+          </div>
+          <div class="children-price">⚠️ Minimum age: 8 years · Shared quad available for younger kids</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROYAL SEASCOPE -->
+    <div class="trip-card reveal" data-cat="sea dive">
+      <div class="trip-img ti-scope"><div class="trip-img-emoji">🔭</div><div class="badge b-fam">👨‍👩‍👧 Family</div></div>
+      <div class="trip-body">
+        <div class="trip-name">Royal Seascope</div>
+        <div class="trip-desc">1hr underwater panorama + diver show + snorkeling. See coral reefs without getting wet — perfect for all ages!</div>
+        <div class="trip-tags"><span class="tag">⏱️ 3 Hours</span><span class="tag">🐟 Stay Dry</span><span class="tag">🌊 All Ages</span></div>
+        <div class="trip-footer"><div class="trip-price">€20<small>/adult</small></div><button class="book-btn" onclick="openModal('Royal Seascope',20)">Book Now</button></div>
+        <button class="tour-plan-btn" onclick="togglePlan(this)">📋 View Tour Plan <span>▼</span></button>
+        <div class="tour-plan">
+          <div class="plan-title">📅 Your Experience Step by Step</div>
+          <div class="plan-steps">
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚐</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">Flexible</div><div class="step-text">Hotel pickup (morning or afternoon sessions available)</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚢</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+30 min</div><div class="step-text">Board the Royal Seascope glass-bottom semi-submarine</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🐠</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+1 hour</div><div class="step-text">1 hour underwater panorama — 500m of coral reef through glass windows</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🤿</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+30 min</div><div class="step-text">Professional diver show — feeding fish outside the windows!</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🌊</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+1 hour</div><div class="step-text">Optional snorkeling stop — equipment provided</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏨</div></div><div class="step-content"><div class="step-time">End</div><div class="step-text">Return to marina & hotel dropoff</div></div></div>
+          </div>
+          <div class="includes-box">
+            <div class="includes-title">✅ Everything Included</div>
+            <div class="includes-grid">
+              <div class="inc-item">🚐 Hotel transfers</div><div class="inc-item">🚢 Seascope ticket</div>
+              <div class="inc-item">🤿 Snorkel gear</div><div class="inc-item">🎓 Guide onboard</div>
+            </div>
+          </div>
+          <div class="children-price">👶 Children (4–11 yrs): €12 · Under 4: FREE · No swimming required!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SINDBAD SUBMARINE -->
+    <div class="trip-card reveal" data-cat="sea dive">
+      <div class="trip-img ti-sub"><div class="trip-img-emoji">🟡</div><div class="badge b-uni">⚡ Only in Africa</div></div>
+      <div class="trip-body">
+        <div class="trip-name">Sindbad Submarine</div>
+        <div class="trip-desc">The ONLY real submarine in Africa! Dive 22m underwater. 500m of coral reef from your seat. No swimming needed!</div>
+        <div class="trip-tags"><span class="tag">⏱️ 2 Hours</span><span class="tag">🌊 22m Deep</span><span class="tag">🚢 44 Seats</span></div>
+        <div class="trip-footer"><div class="trip-price">€55<small>/adult</small></div><button class="book-btn" onclick="openModal('Sindbad Submarine',55)">Book Now</button></div>
+        <button class="tour-plan-btn" onclick="togglePlan(this)">📋 View Tour Plan <span>▼</span></button>
+        <div class="tour-plan">
+          <div class="plan-title">📅 A Unique Underwater Experience</div>
+          <div class="plan-steps">
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚐</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">Flexible AM/PM</div><div class="step-text">Hotel pickup & transfer to Sindbad Beach Resort marina</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">⛵</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+15 min</div><div class="step-text">Tender boat takes you out to the submarine</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚢</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+5 min</div><div class="step-text">Board the submarine — 44 seats, air-conditioned, large portholes</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🌊</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+45 min</div><div class="step-text">Dive to 22m depth — 500m journey along the coral reef. Incredible marine life!</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🐠</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+15 min</div><div class="step-text">Professional diver accompanies — feeding fish at your window</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏨</div></div><div class="step-content"><div class="step-time">End</div><div class="step-text">Return to surface & hotel dropoff</div></div></div>
+          </div>
+          <div class="includes-box">
+            <div class="includes-title">✅ Everything Included</div>
+            <div class="includes-grid">
+              <div class="inc-item">🚐 Hotel transfers</div><div class="inc-item">🚢 Submarine ticket</div>
+              <div class="inc-item">⛵ Tender boat</div><div class="inc-item">🎓 English guide</div>
+            </div>
+          </div>
+          <div class="children-price">👶 Children (4–11 yrs): €35 · Under 4: FREE · No swimming — 100% dry!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOLPHIN SHOW -->
+    <div class="trip-card reveal" data-cat="fun">
+      <div class="trip-img ti-dshow"><div class="trip-img-emoji">🐬</div><div class="badge b-fam">👶 Kids Love</div></div>
+      <div class="trip-body">
+        <div class="trip-name">Dolphin Show</div>
+        <div class="trip-desc">Watch amazing dolphins & sea lions perform live with professional trainers. Kids absolutely love it!</div>
+        <div class="trip-tags"><span class="tag">⏱️ 2 Hours</span><span class="tag">🎭 Live Show</span><span class="tag">👶 All Ages</span></div>
+        <div class="trip-footer"><div class="trip-price">€20<small>/adult</small></div><button class="book-btn" onclick="openModal('Dolphin Show',20)">Book Now</button></div>
+        <button class="tour-plan-btn" onclick="togglePlan(this)">📋 View Tour Plan <span>▼</span></button>
+        <div class="tour-plan">
+          <div class="plan-title">📅 Show Schedule</div>
+          <div class="plan-steps">
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚐</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">Flexible</div><div class="step-text">Hotel pickup & transfer to Sindbad Beach Club</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏊</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+30 min</div><div class="step-text">Free time at the beach club pool & beach before the show</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🎭</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">Show Time</div><div class="step-text">45-minute live dolphin & sea lion performance</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">📸</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">After show</div><div class="step-text">Optional: Photo with dolphin (extra fee on-site)</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏨</div></div><div class="step-content"><div class="step-time">End</div><div class="step-text">Hotel dropoff</div></div></div>
+          </div>
+          <div class="includes-box">
+            <div class="includes-title">✅ Everything Included</div>
+            <div class="includes-grid">
+              <div class="inc-item">🚐 Hotel transfers</div><div class="inc-item">🎭 Show ticket</div>
+              <div class="inc-item">🏖️ Beach access</div><div class="inc-item">🎓 Guide</div>
+            </div>
+          </div>
+          <div class="children-price">👶 Children (4–11 yrs): €12 · Under 4: FREE</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARASAILING -->
+    <div class="trip-card reveal" data-cat="fun sea">
+      <div class="trip-img ti-para"><div class="trip-img-emoji">🪂</div><div class="badge b-hot">🔥 Thrilling</div></div>
+      <div class="trip-body">
+        <div class="trip-name">Parasailing</div>
+        <div class="trip-desc">Soar 100m above the Red Sea! Breathtaking aerial views of Hurghada's coast. Single & double available.</div>
+        <div class="trip-tags"><span class="tag">⏱️ 30 Min</span><span class="tag">🌊 100m High</span><span class="tag">👫 Single/Double</span></div>
+        <div class="trip-footer"><div class="trip-price">€22<small>/person</small></div><button class="book-btn" onclick="openModal('Parasailing',22)">Book Now</button></div>
+        <button class="tour-plan-btn" onclick="togglePlan(this)">📋 View Tour Plan <span>▼</span></button>
+        <div class="tour-plan">
+          <div class="plan-title">📅 Your Sky Experience</div>
+          <div class="plan-steps">
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚐</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">Flexible</div><div class="step-text">Transfer to the parasailing beach (or meet at Senzo Beach)</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">📋</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+10 min</div><div class="step-text">Safety briefing & harness fitting — very easy, no experience needed</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🪂</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+15 min</div><div class="step-text">Take off from the boat & soar 100m above the Red Sea — 10 min flight</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">📸</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">During</div><div class="step-text">Crew captures photos & video from the boat for you!</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏨</div></div><div class="step-content"><div class="step-time">End</div><div class="step-text">Soft landing back on the boat & hotel dropoff</div></div></div>
+          </div>
+          <div class="includes-box">
+            <div class="includes-title">✅ Everything Included</div>
+            <div class="includes-grid">
+              <div class="inc-item">🚐 Hotel transfers</div><div class="inc-item">🪂 Parasail flight</div>
+              <div class="inc-item">🎓 Safety briefing</div><div class="inc-item">📸 Photos on boat</div>
+            </div>
+          </div>
+          <div class="children-price">⚠️ Min age: 8 years · Max weight per pair: 150kg · Double (2 persons): €40 total</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AQUA PARK -->
+    <div class="trip-card reveal" data-cat="fun">
+      <div class="trip-img ti-aqua"><div class="trip-img-emoji">🎢</div><div class="badge b-fam">👨‍👩‍👧 Full Day</div></div>
+      <div class="trip-body">
+        <div class="trip-name">Aqua Park Makadi</div>
+        <div class="trip-desc">Unlimited slides, pools & water attractions at one of Egypt's best water parks. Full day family fun!</div>
+        <div class="trip-tags"><span class="tag">⏱️ Full Day</span><span class="tag">🎢 All Slides</span><span class="tag">👶 All Ages</span></div>
+        <div class="trip-footer"><div class="trip-price">€45<small>/adult</small></div><button class="book-btn" onclick="openModal('Aqua Park Makadi',45)">Book Now</button></div>
+        <button class="tour-plan-btn" onclick="togglePlan(this)">📋 View Tour Plan <span>▼</span></button>
+        <div class="tour-plan">
+          <div class="plan-title">📅 Your Splash Day</div>
+          <div class="plan-steps">
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚐</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">09:00 AM</div><div class="step-text">Hotel pickup (45 min drive to Makadi Bay)</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🎢</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">10:00 AM</div><div class="step-text">Park opens — unlimited access to all 30+ slides & pools</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🍽️</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">01:00 PM</div><div class="step-text">Lunch break (restaurants inside the park — own expense)</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🎢</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">02:00 PM</div><div class="step-text">Continue enjoying — wave pool, lazy river, kids' area</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏨</div></div><div class="step-content"><div class="step-time">05:00 PM</div><div class="step-text">Return transfer to Hurghada hotels</div></div></div>
+          </div>
+          <div class="includes-box">
+            <div class="includes-title">✅ Everything Included</div>
+            <div class="includes-grid">
+              <div class="inc-item">🚐 Hotel transfers</div><div class="inc-item">🎢 Park entry</div>
+              <div class="inc-item">🌊 All attractions</div><div class="inc-item">🎓 Guide</div>
+            </div>
+          </div>
+          <div class="children-price">👶 Children (4–11 yrs): €30 · Under 4: FREE</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HORSE RIDING -->
+    <div class="trip-card reveal" data-cat="desert fun">
+      <div class="trip-img ti-horse"><div class="trip-img-emoji">🐎</div><div class="badge b-val">🌅 Romantic</div></div>
+      <div class="trip-body">
+        <div class="trip-name">Horse Riding 2 Hours</div>
+        <div class="trip-desc">Ride Arabian horses through the desert & along the Red Sea shoreline. Perfect for couples & families!</div>
+        <div class="trip-tags"><span class="tag">⏱️ 2 Hours</span><span class="tag">🏖️ Beach & Desert</span><span class="tag">🎓 All Levels</span></div>
+        <div class="trip-footer"><div class="trip-price">€25<small>/adult</small></div><button class="book-btn" onclick="openModal('Horse Riding 2 Hours',25)">Book Now</button></div>
+        <button class="tour-plan-btn" onclick="togglePlan(this)">📋 View Tour Plan <span>▼</span></button>
+        <div class="tour-plan">
+          <div class="plan-title">📅 Your Ride Step by Step</div>
+          <div class="plan-steps">
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚐</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">Flexible</div><div class="step-text">Hotel pickup & transfer to the riding stable</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🐎</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+15 min</div><div class="step-text">Meet your horse & beginner orientation with expert guide</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏜️</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+45 min</div><div class="step-text">Desert ride — through the sand dunes with mountain views</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏖️</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+30 min</div><div class="step-text">Beach ride along the Red Sea shoreline — magical at sunset!</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">📸</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">Throughout</div><div class="step-text">Guide takes photos for you along the way</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏨</div></div><div class="step-content"><div class="step-time">End</div><div class="step-text">Return to stable & hotel dropoff</div></div></div>
+          </div>
+          <div class="includes-box">
+            <div class="includes-title">✅ Everything Included</div>
+            <div class="includes-grid">
+              <div class="inc-item">🚐 Hotel transfers</div><div class="inc-item">🐎 Horse + saddle</div>
+              <div class="inc-item">🎓 Expert guide</div><div class="inc-item">📸 Photos taken</div>
+              <div class="inc-item">🪖 Helmet provided</div><div class="inc-item">🌅 Desert + beach</div>
+            </div>
+          </div>
+          <div class="children-price">👶 Children (4–11 yrs): €18 · Pony available for under 8 · All skill levels welcome</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- REVIEWS SECTION -->
+<div style="background:#fff;padding:90px 40px;">
+<div style="max-width:1200px;margin:0 auto;">
+  <div class="reveal" style="text-align:center;margin-bottom:50px;">
+    <div class="section-tag">Real Reviews</div>
+    <h2 class="section-title">What Our Tourists Say</h2>
+    <div style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:20px;">
+      <div style="text-align:center;">
+        <div style="font-size:3.5rem;font-weight:900;color:#C1440E;" id="ratingNum">0</div>
+        <div style="display:flex;gap:3px;justify-content:center;margin:5px 0;">
+          <span style="color:#E8A020;font-size:1.4rem;">★★★★★</span>
+        </div>
+        <div style="font-size:.85rem;color:#888;font-weight:600;">Average Rating</div>
+      </div>
+      <div style="width:2px;height:60px;background:#f0f0f0;"></div>
+      <div style="text-align:center;">
+        <div style="font-size:3.5rem;font-weight:900;color:#0B3D6B;" id="reviewNum">0</div>
+        <div style="font-size:.85rem;color:#888;font-weight:600;margin-top:8px;">Google Reviews</div>
+      </div>
+      <div style="width:2px;height:60px;background:#f0f0f0;"></div>
+      <div style="text-align:center;">
+        <div style="font-size:3.5rem;font-weight:900;color:#2d8a6e;" id="happyNum">0</div>
+        <div style="font-size:.85rem;color:#888;font-weight:600;margin-top:8px;">Happy Tourists</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carousel -->
+  <div style="position:relative;overflow:hidden;" id="reviewsCarousel">
+    <div style="display:flex;gap:24px;transition:transform .5s ease;width:max-content;" id="reviewsTrack">
+
+      <!-- Reviews -->
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Absolutely incredible experience! The Super Safari was beyond expectations. Our guide was amazing, the BBQ dinner was delicious, and the belly dance show was so much fun. Will definitely book again next year!"</div>
+        <div class="review-author">
+          <div class="review-avatar" style="background:#C1440E;">JW</div>
+          <div><div class="review-name">James Wilson</div><div class="review-meta">🇬🇧 United Kingdom · Super Safari</div></div>
+        </div>
+        <div class="review-source">Google Review · 2 weeks ago</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Das Sindbad Submarine war ein absolutes Highlight unseres Urlaubs! Unglaubliche Korallenriffe, sehr professionelles Team und super Organisation. Buchung in Sekunden war wirklich so einfach wie versprochen!"</div>
+        <div class="review-author">
+          <div class="review-avatar" style="background:#0B3D6B;">AS</div>
+          <div><div class="review-name">Anna Schmidt</div><div class="review-meta">🇩🇪 Deutschland · Sindbad Submarine</div></div>
+        </div>
+        <div class="review-source">Google Review · 1 month ago</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Orange Bay Island was pure paradise! Crystal clear water, white sand and the snorkeling was breathtaking. Hotel pickup was on time and the lunch on the boat was delicious. Highly recommend Wild Hurghada!"</div>
+        <div class="review-author">
+          <div class="review-avatar" style="background:#2d8a6e;">PV</div>
+          <div><div class="review-name">Pieter van Dijk</div><div class="review-meta">🇳🇱 Netherlands · Orange Bay Island</div></div>
+        </div>
+        <div class="review-source">Google Review · 3 weeks ago</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"The Quad Safari was the most thrilling thing I've done on holiday! 25km through the desert, sunset views, camel ride and Bedouin tea. Besho was so helpful and responsive on WhatsApp. 10/10!"</div>
+        <div class="review-author">
+          <div class="review-avatar" style="background:#E8A020;color:#111;">SB</div>
+          <div><div class="review-name">Sophie Brown</div><div class="review-meta">🇬🇧 United Kingdom · Quad Safari</div></div>
+        </div>
+        <div class="review-source">TripAdvisor · 2 months ago</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Wir haben mit 4 Kindern gebucht und alles war perfekt organisiert! Der Delfin-Show war ein Traum für die Kinder. Sehr faire Preise, alles inklusive und keine versteckten Kosten. Danke Wild Hurghada!"</div>
+        <div class="review-author">
+          <div class="review-avatar" style="background:#8B4513;">KM</div>
+          <div><div class="review-name">Klaus & Maria</div><div class="review-meta">🇩🇪 Deutschland · Dolphin Show</div></div>
+        </div>
+        <div class="review-source">Google Review · 1 month ago</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Diving trip was phenomenal! 2 amazing dive sites, very professional PADI instructors and the boat was comfortable. The underwater photos they took for us are absolutely stunning. Best money spent in Hurghada!"</div>
+        <div class="review-author">
+          <div class="review-avatar" style="background:#C1440E;">EJ</div>
+          <div><div class="review-name">Emma Johnson</div><div class="review-meta">🇬🇧 United Kingdom · Diving Trip</div></div>
+        </div>
+        <div class="review-source">Google Review · 3 weeks ago</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Dots & Controls -->
+  <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:30px;">
+    <button onclick="slideReviews(-1)" style="background:#f0f4f8;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.1rem;transition:all .3s;" onmouseover="this.style.background='#C1440E';this.style.color='#fff'" onmouseout="this.style.background='#f0f4f8';this.style.color='inherit'">‹</button>
+    <div id="reviewDots" style="display:flex;gap:8px;"></div>
+    <button onclick="slideReviews(1)" style="background:#f0f4f8;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.1rem;transition:all .3s;" onmouseover="this.style.background='#C1440E';this.style.color='#fff'" onmouseout="this.style.background='#f0f4f8';this.style.color='inherit'">›</button>
+  </div>
+
+  <!-- Google CTA -->
+  <div class="reveal" style="text-align:center;margin-top:40px;">
+    <a href="https://g.page/r/wildhurghada/review" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:2px solid #e0e0e0;padding:14px 28px;border-radius:50px;text-decoration:none;color:#333;font-weight:700;font-size:.9rem;transition:all .3s;box-shadow:0 4px 15px rgba(0,0,0,.08);" onmouseover="this.style.borderColor='#C1440E';this.style.color='#C1440E'" onmouseout="this.style.borderColor='#e0e0e0';this.style.color='#333'">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/24px-Google_%22G%22_logo.svg.png" width="20" height="20" alt="G">
+      Leave us a Google Review — It helps us a lot! 🙏
+    </a>
+  </div>
+</div>
+</div>
+
+<style>
+.review-card{background:#fff;border:2px solid #f0f0f0;border-radius:20px;padding:28px;width:340px;flex-shrink:0;transition:all .3s;box-shadow:0 4px 20px rgba(0,0,0,.06);}
+.review-card:hover{border-color:#C1440E;transform:translateY(-4px);box-shadow:0 12px 35px rgba(193,68,14,.12);}
+.review-stars{color:#E8A020;font-size:1.2rem;margin-bottom:14px;}
+.review-text{font-size:.875rem;color:#444;line-height:1.7;margin-bottom:18px;font-style:italic;}
+.review-author{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.review-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;color:#fff;flex-shrink:0;}
+.review-name{font-weight:800;font-size:.9rem;color:#111;}
+.review-meta{font-size:.75rem;color:#888;margin-top:2px;}
+.review-source{font-size:.75rem;color:#aaa;font-weight:600;}
+</style>
+
+<!-- PARALLAX STRIP -->
+<div class="parallax-strip">
+  <div class="parallax-content reveal">
+    <h2>Ready for the Adventure of a Lifetime?</h2>
+    <p>Book in 60 seconds. Pay when we pick you up. It's that simple.</p>
+    <a href="https://wa.me/201551160195?text=Hi! I want to book a trip in Hurghada" target="_blank" class="btn-primary" style="display:inline-block;text-decoration:none;font-size:1.05rem;">💬 Chat on WhatsApp Now</a>
+  </div>
+</div>
+
+<!-- WHY US -->
+<div class="why-section" id="why">
+  <div class="why-inner">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-tag" style="color:var(--gold)">Why Wild Hurghada</div>
+      <h2 class="section-title" style="color:#fff">Your Adventure, Our Promise</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-icon">⚡</div><div class="why-title">Book in 60 Seconds</div><div class="why-desc">Simple form. Instant WhatsApp confirmation. No waiting, no phone calls needed.</div></div>
+      <div class="why-card reveal"><div class="why-icon">💳</div><div class="why-title">Pay On Arrival</div><div class="why-desc">We trust you. Pay cash when we pick you up. Zero financial risk for you.</div></div>
+      <div class="why-card reveal"><div class="why-icon">🤖</div><div class="why-title">24/7 AI Support</div><div class="why-desc">Our chatbot answers instantly. Complex questions? WhatsApp reply in under 5 minutes.</div></div>
+      <div class="why-card reveal"><div class="why-icon">🚐</div><div class="why-title">Free Hotel Pickup</div><div class="why-desc">We come to your hotel door. All transfers included. No surprises.</div></div>
+      <div class="why-card reveal"><div class="why-icon">🌍</div><div class="why-title">4 Languages</div><div class="why-desc">English, Deutsch, Dutch & Russian. You always feel at home with us.</div></div>
+      <div class="why-card reveal"><div class="why-icon">⭐</div><div class="why-title">Local Experts</div><div class="why-desc">Born in Hurghada. We know every hidden gem, best timing & secret spot.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-wrap" id="contact" style="text-align:center;">
+  <div class="reveal">
+    <div class="section-tag">Get In Touch</div>
+    <h2 class="section-title">Still Have Questions?</h2>
+    <p class="section-sub" style="margin:0 auto 40px;">Available 24/7 on WhatsApp. Average response: under 5 minutes!</p>
+    <a href="https://wa.me/201551160195?text=Hi! I have a question about trips in Hurghada" target="_blank" class="btn-primary" style="display:inline-flex;align-items:center;gap:10px;font-size:1.05rem;padding:18px 42px;text-decoration:none;">💬 Chat on WhatsApp Now</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div><div class="footer-logo">WILD<span>HURGHADA</span></div><p class="footer-desc">Hurghada's wildest experiences — booked in 60 seconds, paid on arrival.</p></div>
+    <div><div class="footer-head">Quick Links</div><ul class="footer-links"><li><a href="#trips">All Trips</a></li><li><a href="#why">Why Choose Us</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    <div><div class="footer-head">Top Trips</div><ul class="footer-links"><li><a href="#">Orange Bay Island</a></li><li><a href="#">Super Safari</a></li><li><a href="#">Sindbad Submarine</a></li><li><a href="#">Quad Safari</a></li></ul></div>
+    <div><div class="footer-head">Contact</div><ul class="footer-links"><li><a href="https://wa.me/201551160195" target="_blank">📱 +20 155 116 0195</a></li><li><a href="#">📍 Hurghada, Red Sea, Egypt</a></li><li><a href="#">🌐 wildhurghada.com</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">© 2026 Wild Hurghada · All rights reserved · Made with ❤️ in Hurghada, Egypt</div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="formView">
+      <div class="modal-title">🎉 Book Your Adventure</div>
+      <div class="modal-trip" id="modalTrip"></div>
+      <div class="form-group"><label>Full Name</label><input id="fname" placeholder="Your full name" /></div>
+      <div class="form-row">
+        <div class="form-group"><label>Travel Date</label><input type="date" id="fdate" /></div>
+        <div class="form-group"><label>Adults</label><select id="fpersons" onchange="updateTotal()"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5+</option></select></div>
+      </div>
+      <div class="form-group"><label>Hotel Name in Hurghada</label><input id="fhotel" placeholder="Your hotel name" /></div>
+      <div class="form-group"><label>WhatsApp Number</label><input id="fphone" placeholder="+44 / +49 / +31..." /></div>
+      <div class="total-box" id="totalBox"></div>
+      <button class="submit-btn" onclick="submitBooking()">✅ Confirm Booking — Pay on Arrival</button>
+      <div class="or-div">or</div>
+      <a class="wa-btn" id="waLink" href="#" target="_blank">📲 Book via WhatsApp</a>
+    </div>
+    <div class="success-box" id="successView">
+      <div class="success-icon">🎉</div>
+      <h3 style="color:var(--ocean);font-size:1.5rem;margin-bottom:10px;">Booking Confirmed!</h3>
+      <p style="color:#666;line-height:1.6;margin-bottom:25px;">You'll receive a WhatsApp confirmation within 5 minutes. Get ready for an unforgettable adventure! 🌊🏜️</p>
+      <button class="submit-btn" onclick="closeModal()" style="max-width:180px;margin:0 auto;display:block;">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHATBOT -->
+<button class="chat-btn" onclick="toggleChat()">💬</button>
+<div class="chat-window" id="chatWin">
+  <div class="chat-header">
+    <div class="chat-avatar">🌍</div>
+    <div class="chat-info">
+      <div class="chat-name">Wild Hurghada Assistant</div>
+      <div class="chat-status"><div class="online-dot"></div>Online now</div>
+    </div>
+  </div>
+  <div class="chat-msgs" id="chatMsgs">
+    <div class="msg msg-bot">👋 Hi! Welcome to Wild Hurghada! What kind of adventure are you looking for? 😊</div>
+  </div>
+  <div class="quick-btns" id="quickBtns">
+    <button class="quick-btn" onclick="qReply('Best trips for families?')">👨‍👩‍👧 Family</button>
+    <button class="quick-btn" onclick="qReply('Romantic trips for couples?')">💑 Couples</button>
+    <button class="quick-btn" onclick="qReply('Most thrilling adventure?')">🔥 Adrenaline</button>
+    <button class="quick-btn" onclick="qReply('What is included in the price?')">💰 Prices</button>
+  </div>
+  <div class="chat-inp-row">
+    <input class="chat-inp" id="chatInp" placeholder="Ask anything..." onkeydown="if(event.key==='Enter')sendChat()" />
+    <button class="chat-send" onclick="sendChat()">➤</button>
+  </div>
+</div>
+
+<script>
+// ── LANGUAGE SYSTEM
+const translations = {
+  en: {
+    bookNow:"Book Now", exploreAdventures:"🏄 Explore Adventures", whatsappUs:"💬 WhatsApp Us",
+    heroBadge:"✦ Hurghada's Premier Adventure Agency ✦",
+    heroTitle:"Where <span>Desert</span> Meets<br>The <span>Red Sea</span>",
+    heroSub:"Book your dream adventure in 60 seconds. Pay on arrival. No hidden fees.",
+    instantConf:"⚡ Instant Confirmation", payArrival:"💳 Pay On Arrival",
+    freeCancellation:"🔄 Free Cancellation 24h", hotelPickup:"🚐 Hotel Pickup Included",
+    filterAll:"All Trips", filterSea:"🌊 Sea & Islands", filterDesert:"🏜️ Desert Safari",
+    filterDive:"🤿 Diving", filterFun:"🎢 Fun",
+    ourAdventures:"Our Adventures", chooseExp:"Choose Your Experience",
+    sectionSub:"All trips include hotel pickup, professional guides & instant WhatsApp confirmation.",
+    viewPlan:"📋 View Tour Plan", bookBtn:"Book Now",
+    perAdult:"/adult", perPerson:"/person",
+    whyTitle:"Your Adventure, Our Promise",
+    statsHappy:"Happy Tourists", statsTrips:"Unique Trips", statsRating:"Avg Rating", statsSupport:"Support",
+    scrollLabel:"Scroll",
+    realReviews:"Real Reviews", whatSay:"What Our Tourists Say",
+    googleReview:"Leave us a Google Review — It helps us a lot! 🙏",
+    questionsTitle:"Still Have Questions?",
+    questionsSub:"Available 24/7 on WhatsApp. Average response: under 5 minutes!",
+    chatWa:"💬 Chat on WhatsApp Now",
+    modalTitle:"🎉 Book Your Adventure",
+    fname:"Full Name", fnamePh:"Your full name",
+    fdate:"Travel Date", fpersons:"Adults", fhotel:"Hotel Name in Hurghada",
+    fhotelPh:"Your hotel name", fphone:"WhatsApp Number", fphonePh:"+44 / +49 / +31...",
+    confirmBtn:"✅ Confirm Booking — Pay on Arrival",
+    orBook:"or book directly", bookWa:"📲 Book via WhatsApp",
+    successTitle:"Booking Confirmed!", successText:"You'll receive a WhatsApp confirmation within 5 minutes. Get ready for an unforgettable adventure! 🌊🏜️",
+    childPrice:"Children (4–11 yrs):", childFree:"Under 4: FREE",
+    footerDesc:"Hurghada's wildest experiences — booked in 60 seconds, paid on arrival.",
+    quickLinks:"Quick Links", topTrips:"Top Trips", contact:"Contact",
+    chatName:"Wild Hurghada Assistant", chatOnline:"Online now · Replies instantly",
+    chatWelcome:"👋 Hi! Welcome to Wild Hurghada! What kind of adventure are you looking for? 😊",
+    q1:"👨‍👩‍👧 Family", q2:"💑 Couples", q3:"🔥 Adrenaline", q4:"💰 Prices",
+    totalLabel:"Total",payArrivalLabel:"Pay on Arrival",
+  },
+  de: {
+    bookNow:"Jetzt Buchen", exploreAdventures:"🏄 Abenteuer Entdecken", whatsappUs:"💬 WhatsApp",
+    heroBadge:"✦ Hurghadas Beste Agentur ✦",
+    heroTitle:"Wo <span>Wüste</span> auf<br>das <span>Rote Meer</span> trifft",
+    heroSub:"Buchen Sie in 60 Sekunden. Zahlung bei Ankunft. Keine versteckten Gebühren.",
+    instantConf:"⚡ Sofort-Bestätigung", payArrival:"💳 Zahlung vor Ort",
+    freeCancellation:"🔄 Kostenlose Stornierung 24h", hotelPickup:"🚐 Hotel-Abholung inklusive",
+    filterAll:"Alle Trips", filterSea:"🌊 Meer & Inseln", filterDesert:"🏜️ Wüsten-Safari",
+    filterDive:"🤿 Tauchen", filterFun:"🎢 Spaß",
+    ourAdventures:"Unsere Abenteuer", chooseExp:"Wählen Sie Ihr Erlebnis",
+    sectionSub:"Alle Trips beinhalten Hotel-Abholung, professionelle Guides & sofortige WhatsApp-Bestätigung.",
+    viewPlan:"📋 Reiseplan ansehen", bookBtn:"Jetzt Buchen",
+    perAdult:"/Person", perPerson:"/Person",
+    whyTitle:"Ihr Abenteuer, Unser Versprechen",
+    statsHappy:"Glückliche Touristen", statsTrips:"Einzigartige Trips", statsRating:"Bewertung", statsSupport:"Support",
+    scrollLabel:"Scrollen",
+    realReviews:"Echte Bewertungen", whatSay:"Was unsere Touristen sagen",
+    googleReview:"Google-Bewertung hinterlassen — Das hilft uns sehr! 🙏",
+    questionsTitle:"Noch Fragen?",
+    questionsSub:"24/7 auf WhatsApp verfügbar. Antwortzeit: unter 5 Minuten!",
+    chatWa:"💬 Jetzt auf WhatsApp schreiben",
+    modalTitle:"🎉 Ihr Abenteuer Buchen",
+    fname:"Vollständiger Name", fnamePh:"Ihr Name",
+    fdate:"Reisedatum", fpersons:"Personen", fhotel:"Hotelname in Hurghada",
+    fhotelPh:"Ihr Hotel", fphone:"WhatsApp Nummer", fphonePh:"+49 ...",
+    confirmBtn:"✅ Buchung bestätigen — Zahlung vor Ort",
+    orBook:"oder direkt buchen", bookWa:"📲 Per WhatsApp buchen",
+    successTitle:"Buchung Bestätigt!", successText:"Sie erhalten innerhalb von 5 Minuten eine WhatsApp-Bestätigung. Bereit für ein unvergessliches Abenteuer! 🌊🏜️",
+    childPrice:"Kinder (4–11 J.):", childFree:"Unter 4: GRATIS",
+    footerDesc:"Hurghadas wildeste Erlebnisse — in 60 Sekunden gebucht, vor Ort bezahlt.",
+    quickLinks:"Schnellzugriff", topTrips:"Top Trips", contact:"Kontakt",
+    chatName:"Wild Hurghada Assistent", chatOnline:"Jetzt online · Antwortet sofort",
+    chatWelcome:"👋 Hallo! Willkommen bei Wild Hurghada! Welches Abenteuer suchen Sie? 😊",
+    q1:"👨‍👩‍👧 Familie", q2:"💑 Paare", q3:"🔥 Adrenalin", q4:"💰 Preise",
+    totalLabel:"Gesamt",payArrivalLabel:"Zahlung vor Ort",
+  },
+  nl: {
+    bookNow:"Nu Boeken", exploreAdventures:"🏄 Ontdek Avonturen", whatsappUs:"💬 WhatsApp",
+    heroBadge:"✦ Hurghada's Beste Reisbureau ✦",
+    heroTitle:"Waar <span>Woestijn</span> de<br><span>Rode Zee</span> ontmoet",
+    heroSub:"Boek uw droomaventuur in 60 seconden. Betalen bij aankomst. Geen verborgen kosten.",
+    instantConf:"⚡ Directe Bevestiging", payArrival:"💳 Betalen bij Aankomst",
+    freeCancellation:"🔄 Gratis Annulering 24u", hotelPickup:"🚐 Hotel Ophalen Inbegrepen",
+    filterAll:"Alle Trips", filterSea:"🌊 Zee & Eilanden", filterDesert:"🏜️ Woestijn Safari",
+    filterDive:"🤿 Duiken", filterFun:"🎢 Plezier",
+    ourAdventures:"Onze Avonturen", chooseExp:"Kies Uw Ervaring",
+    sectionSub:"Alle trips inclusief hotel ophalen, professionele gidsen & directe WhatsApp bevestiging.",
+    viewPlan:"📋 Bekijk Reisplan", bookBtn:"Nu Boeken",
+    perAdult:"/persoon", perPerson:"/persoon",
+    whyTitle:"Uw Avontuur, Onze Belofte",
+    statsHappy:"Blije Toeristen", statsTrips:"Unieke Trips", statsRating:"Beoordeling", statsSupport:"Support",
+    scrollLabel:"Scrollen",
+    realReviews:"Echte Beoordelingen", whatSay:"Wat onze toeristen zeggen",
+    googleReview:"Laat een Google Review achter — Dat helpt ons enorm! 🙏",
+    questionsTitle:"Nog vragen?",
+    questionsSub:"24/7 beschikbaar op WhatsApp. Reactietijd: minder dan 5 minuten!",
+    chatWa:"💬 Chat nu op WhatsApp",
+    modalTitle:"🎉 Boek Uw Avontuur",
+    fname:"Volledige Naam", fnamePh:"Uw naam",
+    fdate:"Reisdatum", fpersons:"Personen", fhotel:"Hotelnaam in Hurghada",
+    fhotelPh:"Uw hotel", fphone:"WhatsApp Nummer", fphonePh:"+31 ...",
+    confirmBtn:"✅ Boeking bevestigen — Betalen bij aankomst",
+    orBook:"of direct boeken", bookWa:"📲 Boeken via WhatsApp",
+    successTitle:"Boeking Bevestigd!", successText:"U ontvangt binnen 5 minuten een WhatsApp bevestiging. Klaar voor een onvergetelijk avontuur! 🌊🏜️",
+    childPrice:"Kinderen (4–11 jr):", childFree:"Onder 4: GRATIS",
+    footerDesc:"Hurghada's wildste ervaringen — in 60 seconden geboekt, ter plaatse betaald.",
+    quickLinks:"Snelle Links", topTrips:"Top Trips", contact:"Contact",
+    chatName:"Wild Hurghada Assistent", chatOnline:"Nu online · Antwoordt direct",
+    chatWelcome:"👋 Hallo! Welkom bij Wild Hurghada! Wat voor avontuur zoekt u? 😊",
+    q1:"👨‍👩‍👧 Familie", q2:"💑 Koppels", q3:"🔥 Adrenaline", q4:"💰 Prijzen",
+    totalLabel:"Totaal",payArrivalLabel:"Betalen bij aankomst",
+  },
+  ru: {
+    bookNow:"Забронировать", exploreAdventures:"🏄 Смотреть туры", whatsappUs:"💬 WhatsApp",
+    heroBadge:"✦ Лучшее агентство Хургады ✦",
+    heroTitle:"Где <span>Пустыня</span> встречает<br><span>Красное море</span>",
+    heroSub:"Забронируйте за 60 секунд. Оплата по прибытии. Без скрытых платежей.",
+    instantConf:"⚡ Мгновенное подтверждение", payArrival:"💳 Оплата по прибытии",
+    freeCancellation:"🔄 Бесплатная отмена 24ч", hotelPickup:"🚐 Трансфер из отеля включён",
+    filterAll:"Все туры", filterSea:"🌊 Море и острова", filterDesert:"🏜️ Сафари в пустыне",
+    filterDive:"🤿 Дайвинг", filterFun:"🎢 Развлечения",
+    ourAdventures:"Наши приключения", chooseExp:"Выберите впечатление",
+    sectionSub:"Все туры включают трансфер из отеля, профессиональных гидов и мгновенное подтверждение в WhatsApp.",
+    viewPlan:"📋 Программа тура", bookBtn:"Забронировать",
+    perAdult:"/чел", perPerson:"/чел",
+    whyTitle:"Ваше приключение, наше обещание",
+    statsHappy:"Довольных туристов", statsTrips:"Уникальных туров", statsRating:"Рейтинг", statsSupport:"Поддержка",
+    scrollLabel:"Листайте",
+    realReviews:"Реальные отзывы", whatSay:"Что говорят наши туристы",
+    googleReview:"Оставить отзыв на Google — Это очень важно для нас! 🙏",
+    questionsTitle:"Есть вопросы?",
+    questionsSub:"Доступны 24/7 в WhatsApp. Среднее время ответа: менее 5 минут!",
+    chatWa:"💬 Написать в WhatsApp",
+    modalTitle:"🎉 Забронировать тур",
+    fname:"Полное имя", fnamePh:"Ваше имя",
+    fdate:"Дата поездки", fpersons:"Человек", fhotel:"Название отеля в Хургаде",
+    fhotelPh:"Ваш отель", fphone:"Номер WhatsApp", fphonePh:"+7 ...",
+    confirmBtn:"✅ Подтвердить бронирование — Оплата по прибытии",
+    orBook:"или забронировать напрямую", bookWa:"📲 Забронировать через WhatsApp",
+    successTitle:"Бронирование подтверждено!", successText:"Вы получите подтверждение в WhatsApp в течение 5 минут. Готовьтесь к незабываемому приключению! 🌊🏜️",
+    childPrice:"Дети (4–11 лет):", childFree:"До 4 лет: БЕСПЛАТНО",
+    footerDesc:"Самые яркие приключения Хургады — бронирование за 60 секунд, оплата по прибытии.",
+    quickLinks:"Быстрые ссылки", topTrips:"Топ туры", contact:"Контакты",
+    chatName:"Ассистент Wild Hurghada", chatOnline:"Онлайн · Отвечаем сразу",
+    chatWelcome:"👋 Привет! Добро пожаловать в Wild Hurghada! Какое приключение вас интересует? 😊",
+    q1:"👨‍👩‍👧 Семья", q2:"💑 Пары", q3:"🔥 Адреналин", q4:"💰 Цены",
+    totalLabel:"Итого",payArrivalLabel:"Оплата по прибытии",
+  }
+};
+
+const langFlags = {en:"🇬🇧 EN", de:"🇩🇪 DE", nl:"🇳🇱 NL", ru:"🇷🇺 RU"};
+let currentLang = "en";
+
+function t(key) { return translations[currentLang][key] || translations.en[key] || key; }
+
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById('langBtn').textContent = langFlags[lang] + " ▾";
+  document.getElementById('langDropdown').style.display = "none";
+  applyTranslations();
+}
+
+function applyTranslations() {
+  // All elements with data-key
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.dataset.key;
+    if(key === 'heroTitle') { el.innerHTML = t(key); return; }
+    el.textContent = t(key);
+  });
+  // innerHTML elements
+  document.querySelectorAll('[data-key-html]').forEach(el => {
+    el.innerHTML = t(el.dataset.keyHtml);
+  });
+  // Placeholders
+  document.querySelectorAll('[data-ph]').forEach(el => {
+    el.placeholder = t(el.dataset.ph);
+  });
+  // Labels
+  document.querySelectorAll('[data-label]').forEach(el => {
+    el.textContent = t(el.dataset.label);
+  });
+  // Book buttons
+  document.querySelectorAll('.book-btn').forEach(btn => btn.textContent = t('bookBtn'));
+  // Tour plan buttons
+  document.querySelectorAll('.tour-plan-btn').forEach(btn => {
+    const span = btn.querySelector('span');
+    const isOpen = btn.nextElementSibling && btn.nextElementSibling.classList.contains('open');
+    btn.innerHTML = `${t('viewPlan')} <span>${isOpen?'▲':'▼'}</span>`;
+  });
+  // Trust bar
+  const trustItems = document.querySelectorAll('.trust-item');
+  const trustKeys = ['instantConf','payArrival','freeCancellation','hotelPickup'];
+  trustItems.forEach((el, i) => { if(trustKeys[i]) el.textContent = t(trustKeys[i]); });
+  // Filter buttons
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const filterKeys = ['filterAll','filterSea','filterDesert','filterDive','filterFun'];
+  filterBtns.forEach((btn, i) => { if(filterKeys[i]) btn.textContent = t(filterKeys[i]); });
+  // Hero
+  const heroBadge = document.querySelector('.hero-badge');
+  if(heroBadge) heroBadge.textContent = t('heroBadge');
+  const heroH1 = document.querySelector('.hero h1');
+  if(heroH1) heroH1.innerHTML = t('heroTitle');
+  const heroSub = document.querySelector('.hero-sub');
+  if(heroSub) heroSub.textContent = t('heroSub');
+  // Stats labels
+  const statLbls = document.querySelectorAll('.stat-lbl');
+  const statKeys = ['statsHappy','statsTrips','statsRating','statsSupport'];
+  statLbls.forEach((el,i) => { if(statKeys[i]) el.textContent = t(statKeys[i]); });
+  // Scroll
+  const scrollEl = document.querySelector('.scroll-ind span');
+  if(scrollEl) scrollEl.textContent = t('scrollLabel');
+  // Reviews
+  const rvTitle = document.querySelector('.section-tag:last-of-type');
+  // Chat
+  document.querySelector('.chat-name') && (document.querySelector('.chat-name').textContent = t('chatName'));
+  document.querySelector('.chat-status') && (document.querySelector('.chat-status').innerHTML = `<div class="online-dot"></div>${t('chatOnline')}`);
+  // Quick reply buttons
+  const qBtns = document.querySelectorAll('.quick-btn');
+  ['q1','q2','q3','q4'].forEach((k,i) => { if(qBtns[i]) qBtns[i].textContent = t(k); });
+  // Prices per person
+  document.querySelectorAll('.trip-price small').forEach(el => {
+    el.textContent = el.textContent.includes('adult') || el.textContent.includes('Person') || el.textContent.includes('persoon') || el.textContent.includes('чел')
+      ? t('perAdult') : t('perPerson');
+  });
+  // Modal
+  updateTotal();
+}
+
+function toggleLang() {
+  const dd = document.getElementById('langDropdown');
+  dd.style.display = dd.style.display === 'none' ? 'block' : 'none';
+}
+document.addEventListener('click', e => {
+  if(!document.getElementById('langMenu').contains(e.target))
+    document.getElementById('langDropdown').style.display = 'none';
+});
+
+// NAV
+window.addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
+
+// KEN BURNS
+let kbIdx=0;const kbSlides=document.querySelectorAll('.kb-slide');
+setInterval(()=>{kbSlides[kbIdx].classList.remove('active');kbIdx=(kbIdx+1)%kbSlides.length;kbSlides[kbIdx].classList.add('active');},5500);
+
+// COUNTERS
+function animateCounter(el){
+  const target=+el.dataset.target,suffix=el.dataset.suffix||'+',dur=2000,steps=60,inc=target/steps;
+  let cur=0,i=0;
+  const t=setInterval(()=>{cur+=inc;i++;el.textContent=Math.min(Math.round(cur),target)+suffix;if(i>=steps)clearInterval(t);},dur/steps);
+}
+setTimeout(()=>document.querySelectorAll('[data-target]').forEach(animateCounter),1200);
+
+// REVEAL
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);revObs.unobserve(e.target);}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+
+// FILTER
+function filterTrips(cat,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+  document.querySelectorAll('.trip-card').forEach(c=>{const cats=c.dataset.cat||'';c.style.display=(cat==='all'||cats.includes(cat))?'block':'none';});
+}
+
+// TOUR PLAN TOGGLE
+function togglePlan(btn){
+  const plan=btn.nextElementSibling;
+  const isOpen=plan.classList.contains('open');
+  document.querySelectorAll('.tour-plan.open').forEach(p=>p.classList.remove('open'));
+  document.querySelectorAll('.tour-plan-btn span').forEach(s=>s.textContent='▼');
+  if(!isOpen){plan.classList.add('open');btn.querySelector('span').textContent='▲';}
+}
+
+// MODAL
+let cTrip='',cPrice=0;
+function openModal(trip,price){
+  cTrip=trip;cPrice=price;
+  document.getElementById('modalTrip').textContent='🎯 '+trip;
+  document.getElementById('modal').classList.add('open');
+  document.getElementById('formView').style.display='block';
+  document.getElementById('successView').classList.remove('show');
+  updateTotal();
+  document.getElementById('waLink').href=`https://wa.me/201551160195?text=${encodeURIComponent('Hi! I want to book: '+trip+'. Price: €'+price+'/person')}`;
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target===document.getElementById('modal'))closeModal();});
+function updateTotal(){const n=+document.getElementById('fpersons').value||1;document.getElementById('totalBox').textContent=`💰 Total: €${cPrice} × ${n} = €${cPrice*n} — Pay on Arrival`;}
+
+function submitBooking(){
+  const name=document.getElementById('fname').value.trim(),date=document.getElementById('fdate').value,hotel=document.getElementById('fhotel').value.trim(),phone=document.getElementById('fphone').value.trim(),persons=document.getElementById('fpersons').value;
+  if(!name||!date||!hotel||!phone){alert('Please fill in all fields!');return;}
+  const msg=`🌍 *New Booking — Wild Hurghada*\n\n🎯 Trip: ${cTrip}\n👤 Name: ${name}\n📅 Date: ${date}\n👥 Persons: ${persons}\n🏨 Hotel: ${hotel}\n📱 Phone: ${phone}\n💰 Total: €${cPrice * +persons}\n\n✅ Pay on Arrival`;
+  window.open(`https://wa.me/201551160195?text=${encodeURIComponent(msg)}`,'_blank');
+  document.getElementById('formView').style.display='none';
+  document.getElementById('successView').classList.add('show');
+}
+
+// CHATBOT
+function toggleChat(){document.getElementById('chatWin').classList.toggle('open');}
+const replies={
+  family:'👨‍👩‍👧 For families: **Dolphin Show**, **Royal Seascope** (no swimming!), **Aqua Park Makadi** & **Orange Bay Island**. All have children prices! Which one?',
+  couple:'💑 For couples: **Horse Riding at sunset** 🐎, **Paradise Island** 🏝️, **Sindbad Submarine** 🚢, or **Super Safari** under the stars 🌙. Unforgettable!',
+  thrill:'🔥 For adrenaline: **Quad Safari 3h** (25km desert!), **Parasailing** (100m above the sea!), **Diving Trip** (40+ sites!). Which one calls you?',
+  price:'💰 Trips from €20 to €55/person — hotel pickup always included. Pay cash on arrival, zero risk! Click any trip to see the full tour plan.',
+  include:'✅ Every trip includes hotel pickup, professional guide & equipment. Many include lunch, snorkel gear & entrance fees. Click "View Tour Plan" on any trip!',
+  cancel:'🔄 Free cancellation up to 24h before! Just WhatsApp us and we fix it immediately.',
+  pay:'💳 Cash on arrival — EUR, USD or GBP. No online payment needed. No hidden fees!',
+  default:'😊 I can help you find the perfect adventure! Are you travelling with family, as a couple, or for thrills? Or check any trip\'s "Tour Plan" for full details!'
+};
+function getReply(m){m=m.toLowerCase();if(m.includes('famil')||m.includes('kid')||m.includes('child'))return replies.family;if(m.includes('coupl')||m.includes('romant'))return replies.couple;if(m.includes('thrill')||m.includes('adrena')||m.includes('quad')||m.includes('excit'))return replies.thrill;if(m.includes('price')||m.includes('cost')||m.includes('how much'))return replies.price;if(m.includes('includ')||m.includes('what'))return replies.include;if(m.includes('cancel'))return replies.cancel;if(m.includes('pay')||m.includes('cash'))return replies.pay;return replies.default;}
+function addMsg(txt,isUser){const d=document.createElement('div');d.className=`msg ${isUser?'msg-user':'msg-bot'}`;d.textContent=txt;document.getElementById('chatMsgs').appendChild(d);document.getElementById('chatMsgs').scrollTop=9999;}
+function showTyping(){const d=document.createElement('div');d.className='typing';d.id='typing';d.innerHTML='<span></span><span></span><span></span>';document.getElementById('chatMsgs').appendChild(d);document.getElementById('chatMsgs').scrollTop=9999;}
+function sendChat(){const inp=document.getElementById('chatInp');const msg=inp.value.trim();if(!msg)return;addMsg(msg,true);inp.value='';document.getElementById('quickBtns').style.display='none';showTyping();setTimeout(()=>{const t=document.getElementById('typing');if(t)t.remove();addMsg(getReply(msg),false);},1000);}
+function qReply(msg){addMsg(msg,true);document.getElementById('quickBtns').style.display='none';showTyping();setTimeout(()=>{const t=document.getElementById('typing');if(t)t.remove();addMsg(getReply(msg),false);},1000);}
+
+document.getElementById('fdate').min=new Date().toISOString().split('T')[0];
+</script>
+</body>
+</html>
