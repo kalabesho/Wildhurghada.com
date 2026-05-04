@@ -1222,7 +1222,7 @@ function showTyping(){const d=document.createElement('div');d.className='typing'
 function sendChat(){const inp=document.getElementById('chatInp');const msg=inp.value.trim();if(!msg)return;addMsg(msg,true);inp.value='';document.getElementById('quickBtns').style.display='none';showTyping();setTimeout(()=>{const t=document.getElementById('typing');if(t)t.remove();addMsg(getReply(msg),false);},1000);}
 function qReply(msg){addMsg(msg,true);document.getElementById('quickBtns').style.display='none';showTyping();setTimeout(()=>{const t=document.getElementById('typing');if(t)t.remove();addMsg(getReply(msg),false);},1000);}
 
-document.getElementById('fdate').min=new Date().toISOString().split('T')[0];
+documents.getElementById('fdate').min=new Date().toISOString().split('T')[0];
 </script>
 </body>
 </html>
