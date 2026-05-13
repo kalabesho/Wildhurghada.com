@@ -1261,4 +1261,13 @@ const replies={
   pay:'💳 Cash on arrival — EUR, USD or GBP. No online payment needed. No hidden fees!',
   default:'😊 I can help you find the perfect adventure! Are you travelling with family, as a couple, or for thrills? Or check any trip\'s "Tour Plan" for full details!'
 };
-function getReply(m){m=m.toLowerCase();if(m.includes('famil')||m.includes('kid')||m.includes('child'))return replies.family;if(m.includes('coupl')||m.includes('romant'))return replies.couple;if(m.includes('thrill')||m.includes('adrena')||m.includes('quad')||m.includes('excit'))return replies.thrill;if(m.includes('price')||m.includes('cost')||m.includes('how much'))return replies.price;if(m.includes('includ')||m.includes('what')
+function getReply(m){m=m.toLowerCase();if(m.includes('famil')||m.includes('kid')||m.includes('child'))return replies.family;if(m.includes('coupl')||m.includes('romant'))return replies.couple;if(m.includes('thrill')||m.includes('adrena')||m.includes('quad')||m.includes('excit'))return replies.thrill;if(m.includes('price')||m.includes('cost')||m.includes('how much'))return replies.price;if(m.includes('includ')||m.includes('what'))return replies.include;if(m.includes('cancel'))return replies.cancel;if(m.includes('pay')||m.includes('cash'))return replies.pay;return replies.default;}
+function addMsg(txt,isUser){const d=document.createElement('div');d.className=`msg ${isUser?'msg-user':'msg-bot'}`;d.textContent=txt;document.getElementById('chatMsgs').appendChild(d);document.getElementById('chatMsgs').scrollTop=9999;}
+function showTyping(){const d=document.createElement('div');d.className='typing';d.id='typing';d.innerHTML='<span></span><span></span><span></span>';document.getElementById('chatMsgs').appendChild(d);document.getElementById('chatMsgs').scrollTop=9999;}
+function sendChat(){const inp=document.getElementById('chatInp');const msg=inp.value.trim();if(!msg)return;addMsg(msg,true);inp.value='';document.getElementById('quickBtns').style.display='none';showTyping();setTimeout(()=>{const t=document.getElementById('typing');if(t)t.remove();addMsg(getReply(msg),false);},1000);}
+function qReply(msg){addMsg(msg,true);document.getElementById('quickBtns').style.display='none';showTyping();setTimeout(()=>{const t=document.getElementById('typing');if(t)t.remove();addMsg(getReply(msg),false);},1000);}
+
+document.getElementById('fdate').min=new Date().toISOString().split('T')[0];
+</script>
+</body>
+</html>
