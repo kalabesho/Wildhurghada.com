@@ -1,2 +1,656 @@
-COPY THE FULL BLOG CODE FROM CLAUDE ARTIFACT "Wild Hurghada — Blog Section"
-AND SAVE IT AS blog.html IN YOUR GITHUB REPOSITORY
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wild Hurghada Blog | Desert & Sea Adventure Tips</title>
+<meta name="description" content="Expert tips, guides and answers about desert safari, quad biking, diving and sea trips in Hurghada, Red Sea, Egypt.">
+<style>
+:root{--coral:#C1440E;--ocean:#0B3D6B;--sand:#FAF6F0;--gold:#E8A020;--dark:#111;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',sans-serif;background:var(--sand);color:var(--dark);}
+
+/* NAV */
+nav{background:var(--ocean);padding:16px 40px;display:flex;justify-content:space-between;align-items:center;}
+.logo{color:#fff;font-size:1.4rem;font-weight:900;letter-spacing:2px;text-decoration:none;}
+.logo span{color:var(--gold);}
+.back-btn{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:600;display:flex;align-items:center;gap:6px;transition:color .3s;}
+.back-btn:hover{color:var(--gold);}
+
+/* HERO */
+.blog-hero{background:linear-gradient(135deg,var(--ocean),#1a5a8a);padding:80px 40px;text-align:center;color:#fff;}
+.blog-hero-tag{display:inline-block;background:var(--gold);color:var(--dark);padding:6px 18px;border-radius:20px;font-size:.8rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}
+.blog-hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;margin-bottom:16px;line-height:1.2;}
+.blog-hero p{font-size:1.1rem;opacity:.85;max-width:600px;margin:0 auto 30px;}
+.search-box{display:flex;max-width:500px;margin:0 auto;background:#fff;border-radius:50px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,.2);}
+.search-box input{flex:1;padding:14px 22px;border:none;outline:none;font-size:.95rem;color:var(--dark);}
+.search-box button{background:var(--coral);color:#fff;border:none;padding:14px 24px;cursor:pointer;font-weight:700;font-size:.9rem;transition:background .3s;}
+.search-box button:hover{background:#a53500;}
+
+/* CATEGORIES */
+.categories{padding:40px;max-width:1200px;margin:0 auto;}
+.cat-title{font-size:1rem;font-weight:800;color:var(--ocean);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;}
+.cat-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.cat-btn{padding:9px 20px;border-radius:25px;border:2px solid #e0e0e0;background:#fff;cursor:pointer;font-size:.85rem;font-weight:700;color:#666;transition:all .25s;}
+.cat-btn:hover,.cat-btn.active{background:var(--coral);color:#fff;border-color:var(--coral);}
+
+/* FEATURED */
+.featured{max-width:1200px;margin:0 auto;padding:0 40px 40px;}
+.section-label{font-size:.8rem;font-weight:800;color:var(--coral);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;}
+.featured-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 5px 25px rgba(0,0,0,.08);display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:40px;}
+.featured-img{height:350px;background:linear-gradient(135deg,var(--coral),#8B2500);display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;}
+.featured-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent,rgba(0,0,0,.1));}
+.featured-body{padding:40px;}
+.post-cat{display:inline-block;background:var(--coral)22;color:var(--coral);padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;}
+.featured-body h2{font-size:1.6rem;font-weight:900;color:var(--ocean);margin-bottom:12px;line-height:1.3;}
+.featured-body p{color:#666;line-height:1.7;margin-bottom:20px;font-size:.95rem;}
+.post-meta{display:flex;gap:15px;font-size:.8rem;color:#aaa;font-weight:600;margin-bottom:20px;}
+.read-btn{display:inline-block;background:var(--ocean);color:#fff;padding:12px 24px;border-radius:30px;text-decoration:none;font-weight:700;font-size:.875rem;transition:all .3s;border:none;cursor:pointer;}
+.read-btn:hover{background:var(--coral);}
+
+/* BLOG GRID */
+.blog-grid{max-width:1200px;margin:0 auto;padding:0 40px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:28px;}
+.blog-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.07);transition:all .3s;cursor:pointer;}
+.blog-card:hover{transform:translateY(-6px);box-shadow:0 12px 35px rgba(0,0,0,.13);}
+.card-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;}
+.card-body{padding:22px;}
+.card-body .post-cat{margin-bottom:10px;}
+.card-body h3{font-size:1.05rem;font-weight:800;color:var(--ocean);margin-bottom:8px;line-height:1.4;}
+.card-body p{font-size:.855rem;color:#666;line-height:1.6;margin-bottom:14px;}
+.card-footer{display:flex;justify-content:space-between;align-items:center;}
+.read-time{font-size:.78rem;color:#aaa;font-weight:600;}
+.read-more{color:var(--coral);font-weight:800;font-size:.82rem;text-decoration:none;display:flex;align-items:center;gap:4px;transition:gap .2s;}
+.read-more:hover{gap:8px;}
+
+/* ARTICLE MODAL */
+.article-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:1000;padding:20px;overflow-y:auto;}
+.article-overlay.open{display:flex;align-items:flex-start;justify-content:center;}
+.article-box{background:#fff;border-radius:20px;max-width:780px;width:100%;margin:20px auto;overflow:hidden;}
+.article-hero{height:280px;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;}
+.article-content{padding:40px;}
+.article-content h1{font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:var(--ocean);margin-bottom:16px;line-height:1.3;}
+.article-meta{display:flex;gap:16px;font-size:.82rem;color:#aaa;margin-bottom:28px;padding-bottom:20px;border-bottom:2px solid #f5f5f5;}
+.article-content h2{font-size:1.2rem;font-weight:800;color:var(--ocean);margin:28px 0 12px;}
+.article-content p{color:#444;line-height:1.8;margin-bottom:16px;font-size:.95rem;}
+.article-content ul{margin:12px 0 20px 20px;}
+.article-content ul li{color:#444;line-height:1.8;margin-bottom:8px;font-size:.95rem;}
+.article-cta{background:linear-gradient(135deg,var(--ocean),#1a5a8a);border-radius:16px;padding:28px;text-align:center;margin-top:30px;color:#fff;}
+.article-cta h3{font-size:1.2rem;font-weight:900;margin-bottom:8px;}
+.article-cta p{opacity:.85;margin-bottom:20px;font-size:.9rem;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cta-btn{padding:12px 24px;border-radius:30px;font-weight:700;font-size:.875rem;text-decoration:none;transition:all .3s;border:none;cursor:pointer;}
+.cta-primary{background:var(--coral);color:#fff;}
+.cta-wa{background:#25D366;color:#fff;}
+.close-btn{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.9);border:none;width:38px;height:38px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;}
+
+/* NEWSLETTER */
+.newsletter{background:linear-gradient(135deg,var(--coral),#8B2500);padding:80px 40px;text-align:center;color:#fff;}
+.newsletter h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;margin-bottom:12px;}
+.newsletter p{opacity:.85;margin-bottom:30px;font-size:1rem;}
+.nl-form{display:flex;max-width:440px;margin:0 auto;gap:10px;flex-wrap:wrap;}
+.nl-form input{flex:1;padding:13px 18px;border:none;border-radius:30px;font-size:.9rem;outline:none;min-width:200px;}
+.nl-form button{background:var(--ocean);color:#fff;border:none;padding:13px 24px;border-radius:30px;font-weight:700;cursor:pointer;transition:all .3s;}
+.nl-form button:hover{background:#0a2d50;}
+
+/* COLORS per category */
+.img-desert{background:linear-gradient(135deg,#C1440E,#8B4513);}
+.img-sea{background:linear-gradient(135deg,#0B3D6B,#1a6b9a);}
+.img-diving{background:linear-gradient(135deg,#0a2a4a,#1a6b9a);}
+.img-tips{background:linear-gradient(135deg,#2d8a6e,#1a5a3e);}
+.img-family{background:linear-gradient(135deg,#E8A020,#c17a00);}
+
+@media(max-width:768px){
+  nav{padding:12px 20px;}
+  .blog-hero{padding:60px 20px;}
+  .categories,.featured,.blog-grid{padding-left:20px;padding-right:20px;}
+  .featured-card{grid-template-columns:1fr;}
+  .featured-img{height:220px;}
+  .featured-body{padding:24px;}
+  .blog-grid{grid-template-columns:1fr;}
+  .newsletter{padding:60px 20px;}
+  .nl-form{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">WILD<span>HURGHADA</span></a>
+  <a href="/" class="back-btn">← Back to Trips</a>
+</nav>
+
+<!-- HERO -->
+<div class="blog-hero">
+  <div class="blog-hero-tag">✦ Travel Guide & Tips ✦</div>
+  <h1>Hurghada Adventure<br><span style="color:var(--gold)">Travel Blog</span></h1>
+  <p>Real answers to real questions about desert safaris, diving, sea trips and everything Hurghada.</p>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search articles... e.g. quad bike, diving, family" oninput="searchArticles()"/>
+    <button onclick="searchArticles()">🔍 Search</button>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<div class="categories">
+  <div class="cat-title">Browse by Category</div>
+  <div class="cat-btns">
+    <button class="cat-btn active" onclick="filterCat('all',this)">🌍 All Articles</button>
+    <button class="cat-btn" onclick="filterCat('desert',this)">🏜️ Desert Safari</button>
+    <button class="cat-btn" onclick="filterCat('sea',this)">🌊 Sea Trips</button>
+    <button class="cat-btn" onclick="filterCat('diving',this)">🤿 Diving</button>
+    <button class="cat-btn" onclick="filterCat('tips',this)">💡 Travel Tips</button>
+    <button class="cat-btn" onclick="filterCat('family',this)">👨‍👩‍👧 Family</button>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<div class="featured">
+  <div class="section-label">⭐ Featured Article</div>
+  <div class="featured-card">
+    <div class="featured-img img-desert">🏜️</div>
+    <div class="featured-body">
+      <div class="post-cat">🏜️ Desert Safari</div>
+      <h2>Is Desert Safari in Hurghada Worth It? An Honest Answer</h2>
+      <p>Thinking about booking a desert safari but not sure if it's worth the money? We break down exactly what you get, what to expect, and whether it lives up to the Instagram hype.</p>
+      <div class="post-meta">
+        <span>📅 May 2026</span>
+        <span>⏱️ 5 min read</span>
+        <span>👁️ 2,341 views</span>
+      </div>
+      <button class="read-btn" onclick="openArticle('featured')">Read Full Article →</button>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG GRID -->
+<div class="blog-grid" id="blogGrid">
+
+  <div class="blog-card" data-cat="desert" onclick="openArticle('quad-license')">
+    <div class="card-img img-desert">🏎️</div>
+    <div class="card-body">
+      <div class="post-cat">🏜️ Desert Safari</div>
+      <h3>Can You Ride a Quad Bike in Hurghada Without a License?</h3>
+      <p>One of the most common questions tourists ask. Here's the honest answer about what's required before you book.</p>
+      <div class="card-footer">
+        <span class="read-time">⏱️ 3 min read</span>
+        <span class="read-more">Read More →</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-card" data-cat="desert" onclick="openArticle('what-to-wear')">
+    <div class="card-img img-desert">👕</div>
+    <div class="card-body">
+      <div class="post-cat">🏜️ Desert Safari</div>
+      <h3>What Should I Wear When Quad Biking in the Egyptian Desert?</h3>
+      <p>The right clothing makes or breaks your desert experience. Our practical guide covers everything from footwear to sun protection.</p>
+      <div class="card-footer">
+        <span class="read-time">⏱️ 4 min read</span>
+        <span class="read-more">Read More →</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-card" data-cat="diving" onclick="openArticle('dive-beginner')">
+    <div class="card-img img-diving">🤿</div>
+    <div class="card-body">
+      <div class="post-cat">🤿 Diving</div>
+      <h3>Can I Dive in Hurghada Without Certification?</h3>
+      <p>You don't need a PADI card to dive in Hurghada! Here's everything beginners need to know about try-dives and discovery diving.</p>
+      <div class="card-footer">
+        <span class="read-time">⏱️ 4 min read</span>
+        <span class="read-more">Read More →</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-card" data-cat="sea" onclick="openArticle('marine-life')">
+    <div class="card-img img-sea">🐠</div>
+    <div class="card-body">
+      <div class="post-cat">🌊 Sea Trips</div>
+      <h3>What Marine Life Will I See in Hurghada's Red Sea?</h3>
+      <p>From clownfish to dolphins — a complete guide to the incredible underwater world waiting for you in Hurghada.</p>
+      <div class="card-footer">
+        <span class="read-time">⏱️ 5 min read</span>
+        <span class="read-more">Read More →</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-card" data-cat="family" onclick="openArticle('kids-safari')">
+    <div class="card-img img-family">👨‍👩‍👧</div>
+    <div class="card-body">
+      <div class="post-cat">👨‍👩‍👧 Family</div>
+      <h3>Can Families with Kids Do Quad Biking in the Desert?</h3>
+      <p>Age limits, safety precautions and the best family-friendly desert activities in Hurghada — everything parents need to know.</p>
+      <div class="card-footer">
+        <span class="read-time">⏱️ 4 min read</span>
+        <span class="read-more">Read More →</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-card" data-cat="tips" onclick="openArticle('best-time')">
+    <div class="card-img img-tips">🌤️</div>
+    <div class="card-body">
+      <div class="post-cat">💡 Travel Tips</div>
+      <h3>Best Time of Year for Desert Safari in Hurghada</h3>
+      <p>When is too hot? When is perfect? Our month-by-month guide to planning your Hurghada desert adventure.</p>
+      <div class="card-footer">
+        <span class="read-time">⏱️ 3 min read</span>
+        <span class="read-more">Read More →</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-card" data-cat="diving" onclick="openArticle('dive-sites')">
+    <div class="card-img img-diving">🪸</div>
+    <div class="card-body">
+      <div class="post-cat">🤿 Diving</div>
+      <h3>Best Dive Sites Around Hurghada in 2026</h3>
+      <p>From Giftun Island to Abu Nuhas wreck — our local experts rank the top dive sites and what makes each one special.</p>
+      <div class="card-footer">
+        <span class="read-time">⏱️ 6 min read</span>
+        <span class="read-more">Read More →</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-card" data-cat="tips" onclick="openArticle('book-advance')">
+    <div class="card-img img-tips">📅</div>
+    <div class="card-body">
+      <div class="post-cat">💡 Travel Tips</div>
+      <h3>Should I Book My Desert Safari in Advance or Walk-In?</h3>
+      <p>The honest pros and cons of booking ahead vs spontaneous walk-ins — and what the locals recommend.</p>
+      <div class="card-footer">
+        <span class="read-time">⏱️ 3 min read</span>
+        <span class="read-more">Read More →</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-card" data-cat="sea" onclick="openArticle('safe-swim')">
+    <div class="card-img img-sea">🏊</div>
+    <div class="card-body">
+      <div class="post-cat">🌊 Sea Trips</div>
+      <h3>Is Swimming in the Red Sea Safe in Hurghada?</h3>
+      <p>Sharks, currents, jellyfish — what's real and what's exaggerated? A local's honest guide to Red Sea swimming safety.</p>
+      <div class="card-footer">
+        <span class="read-time">⏱️ 4 min read</span>
+        <span class="read-more">Read More →</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <h2>Get Hurghada Travel Tips in Your Inbox</h2>
+  <p>Join 2,000+ travellers who get our best tips, trip guides and exclusive deals every month.</p>
+  <div class="nl-form">
+    <input type="email" placeholder="your@email.com" />
+    <button onclick="subscribeNL()">Subscribe Free →</button>
+  </div>
+</div>
+
+<!-- ARTICLE MODAL -->
+<div class="article-overlay" id="articleOverlay" onclick="closeArticle(event)">
+  <div class="article-box">
+    <div class="article-hero" id="articleHero" style="position:relative;">
+      <button class="close-btn" onclick="closeArticleBtn()">✕</button>
+      <span id="articleEmoji" style="font-size:4rem;"></span>
+    </div>
+    <div class="article-content" id="articleContent"></div>
+  </div>
+</div>
+
+<script>
+const articles = {
+  'featured': {
+    emoji: '🏜️',
+    bg: 'linear-gradient(135deg,#C1440E,#8B2500)',
+    cat: '🏜️ Desert Safari',
+    title: 'Is Desert Safari in Hurghada Worth It? An Honest Answer',
+    meta: 'May 2026 · 5 min read · 2,341 views',
+    content: `
+      <p>Every week we get the same question from tourists: <strong>"Is the desert safari actually worth it, or is it just tourist hype?"</strong> As locals who've been running trips since 2010, here's our honest answer.</p>
+      <h2>What Actually Happens on a Desert Safari</h2>
+      <p>A typical Super Safari in Hurghada lasts around 7 hours and includes beach buggy riding, a 50km jeep adventure, camel riding, a Bedouin village visit, BBQ dinner and a live dance show under the stars. It sounds like a lot — and it is.</p>
+      <h2>The Real Highlights</h2>
+      <ul>
+        <li><strong>The sunset:</strong> Nothing prepares you for an Egyptian desert sunset. It's genuinely breathtaking.</li>
+        <li><strong>The Bedouin bread:</strong> Watching traditional bread being made on an open fire is a cultural experience you won't forget.</li>
+        <li><strong>The stars:</strong> With zero light pollution, the night sky in the desert is incredible.</li>
+        <li><strong>The BBQ dinner:</strong> Fresh chicken, kofta, rice and salads — surprisingly good quality.</li>
+      </ul>
+      <h2>What to Be Realistic About</h2>
+      <ul>
+        <li>It can be dusty during the quad/buggy rides — wear sunglasses!</li>
+        <li>It's hot in summer (June-August) — morning departures are better</li>
+        <li>The belly dance show is very tourist-friendly, not deeply traditional</li>
+      </ul>
+      <h2>Our Verdict</h2>
+      <p><strong>Yes, it's absolutely worth it.</strong> For €20 per person including transfers, dinner, activities and a live show — there's nothing comparable in value anywhere in Egypt. It's one of those experiences that every Hurghada visitor should do at least once.</p>
+    `
+  },
+  'quad-license': {
+    emoji: '🏎️',
+    bg: 'linear-gradient(135deg,#C1440E,#8B4513)',
+    cat: '🏜️ Desert Safari',
+    title: 'Can You Ride a Quad Bike in Hurghada Without a License?',
+    meta: 'May 2026 · 3 min read',
+    content: `
+      <p>Short answer: <strong>Yes, you can ride a quad bike in Hurghada without a driving license.</strong> Here's everything you need to know.</p>
+      <h2>Do I Need a License?</h2>
+      <p>No international or Egyptian driving license is required to ride a quad bike on our desert tours. Our guides provide a full safety briefing and basic riding instruction before you start.</p>
+      <h2>Minimum Age</h2>
+      <ul>
+        <li>Solo riders: minimum 16 years old</li>
+        <li>Shared quad (with adult): from 8 years old</li>
+        <li>All riders must wear the provided helmet</li>
+      </ul>
+      <h2>First Time on a Quad?</h2>
+      <p>No problem at all! About 70% of our customers have never ridden a quad before. Our guides ride alongside you and you start at a comfortable pace. Within 10 minutes, everyone feels confident.</p>
+      <h2>Safety Equipment Provided</h2>
+      <ul>
+        <li>✅ Helmet for every rider</li>
+        <li>✅ Goggles to protect from desert dust</li>
+        <li>✅ Scarf/keffiyeh for face protection</li>
+        <li>✅ Professional guide leading the group</li>
+      </ul>
+      <p>Ready to book? Our Quad Safari 3 Hours is €25 per person and includes hotel pickup, camel ride and Bedouin tea.</p>
+    `
+  },
+  'what-to-wear': {
+    emoji: '👕',
+    bg: 'linear-gradient(135deg,#C1440E,#8B4513)',
+    cat: '🏜️ Desert Safari',
+    title: 'What Should I Wear When Quad Biking in the Egyptian Desert?',
+    meta: 'May 2026 · 4 min read',
+    content: `
+      <p>What you wear on a desert safari can make the difference between an amazing experience and a really uncomfortable one. Here's our local guide's honest advice.</p>
+      <h2>The Essentials</h2>
+      <ul>
+        <li><strong>Closed-toe shoes:</strong> Sneakers or trainers — no sandals or flip flops. The sand gets very hot and your feet need protection.</li>
+        <li><strong>Long trousers:</strong> Jeans or light trousers protect your legs from the quad bike and sun. Shorts are fine but you'll get dusty.</li>
+        <li><strong>Light long-sleeve top:</strong> Protects arms from sun and dust. A loose cotton shirt is ideal.</li>
+        <li><strong>Sunglasses:</strong> Essential. We also provide goggles but your own sunglasses are recommended.</li>
+      </ul>
+      <h2>What We Provide</h2>
+      <ul>
+        <li>Helmet for every rider</li>
+        <li>Goggles</li>
+        <li>Keffiyeh (traditional desert scarf) for face/neck protection</li>
+      </ul>
+      <h2>What to Bring</h2>
+      <ul>
+        <li>Sunscreen SPF50+ — apply before departure</li>
+        <li>Small backpack or leave valuables at hotel</li>
+        <li>Phone/camera — there will be amazing photo opportunities!</li>
+        <li>Water bottle — though water is provided throughout</li>
+      </ul>
+      <h2>Summer vs Winter</h2>
+      <p>In summer (June-September), temperatures can reach 40°C+ in the desert. We strongly recommend morning departures and breathable light-coloured clothing. In winter (November-February), bring a light jacket for the evening — desert nights get surprisingly cool!</p>
+    `
+  },
+  'dive-beginner': {
+    emoji: '🤿',
+    bg: 'linear-gradient(135deg,#0a2a4a,#1a6b9a)',
+    cat: '🤿 Diving',
+    title: 'Can I Dive in Hurghada Without Certification?',
+    meta: 'May 2026 · 4 min read',
+    content: `
+      <p>Great news for non-certified divers: <strong>you can absolutely dive in Hurghada without a PADI or any other certification.</strong> Here's how it works.</p>
+      <h2>Discovery Diving / Try Dive</h2>
+      <p>This is specifically designed for beginners with no experience. A PADI-certified instructor stays with you the entire time at a maximum depth of 6 metres. It's safe, easy and genuinely incredible.</p>
+      <h2>What to Expect on Your First Dive</h2>
+      <ul>
+        <li>30-minute briefing and equipment training on the boat</li>
+        <li>Practice breathing underwater in shallow water first</li>
+        <li>Instructor holds your hand and guides you the whole time</li>
+        <li>You'll see coral reefs and hundreds of colourful fish</li>
+        <li>Total underwater time: 20-25 minutes</li>
+      </ul>
+      <h2>Is It Safe?</h2>
+      <p>Absolutely. Our instructors are PADI-certified with hundreds of dives in these exact waters. The Red Sea near Hurghada has excellent visibility (15-25m) and warm water (22-28°C) making it perfect for first-timers.</p>
+      <h2>Want to Get Certified?</h2>
+      <p>If you love the try-dive experience, you can get your PADI Open Water certification in just 3-4 days in Hurghada. Ask us for our recommended dive schools!</p>
+      <h2>Minimum Age & Health</h2>
+      <ul>
+        <li>Minimum age: 10 years old</li>
+        <li>No heart conditions or recent ear surgery</li>
+        <li>A basic health questionnaire is required</li>
+      </ul>
+    `
+  },
+  'marine-life': {
+    emoji: '🐠',
+    bg: 'linear-gradient(135deg,#0B3D6B,#1a6b9a)',
+    cat: '🌊 Sea Trips',
+    title: 'What Marine Life Will I See in Hurghada\'s Red Sea?',
+    meta: 'May 2026 · 5 min read',
+    content: `
+      <p>The Red Sea around Hurghada is home to some of the most spectacular marine life in the world. Here's what you can realistically expect to see on our trips.</p>
+      <h2>Fish You'll Almost Certainly See</h2>
+      <ul>
+        <li>🐠 <strong>Clownfish (Nemo!):</strong> Found in almost every anemone on the reef</li>
+        <li>🐟 <strong>Parrotfish:</strong> Beautiful blue/green fish that eat coral</li>
+        <li>🐡 <strong>Pufferfish:</strong> Round and fascinating, surprisingly common</li>
+        <li>🦈 <strong>Sergeant Major fish:</strong> Black-striped, very friendly and used to humans</li>
+        <li>🐙 <strong>Moray eels:</strong> Often spotted peeking out of coral crevices</li>
+      </ul>
+      <h2>Lucky Encounters</h2>
+      <ul>
+        <li>🐬 <strong>Dolphins:</strong> Our Dolphin House trip has a 90%+ success rate of seeing wild dolphins</li>
+        <li>🐢 <strong>Sea turtles:</strong> Regularly spotted at Giftun Island</li>
+        <li>🦑 <strong>Octopus:</strong> Masters of camouflage but rewarding to spot</li>
+        <li>🦈 <strong>Reef sharks:</strong> Small, harmless and beautiful — rarely seen close</li>
+      </ul>
+      <h2>Best Trips for Marine Life</h2>
+      <ul>
+        <li><strong>Dolphin House:</strong> Wild spinner dolphins in their natural habitat</li>
+        <li><strong>Diving Trip:</strong> Best for seeing the full reef ecosystem</li>
+        <li><strong>Royal Seascope:</strong> Perfect for non-swimmers — see everything from inside the boat</li>
+        <li><strong>Orange Bay / Paradise Island:</strong> Excellent snorkeling with colourful fish</li>
+      </ul>
+    `
+  },
+  'kids-safari': {
+    emoji: '👨‍👩‍👧',
+    bg: 'linear-gradient(135deg,#E8A020,#c17a00)',
+    cat: '👨‍👩‍👧 Family',
+    title: 'Can Families with Kids Do Quad Biking in the Desert?',
+    meta: 'May 2026 · 4 min read',
+    content: `
+      <p>Travelling with children and wondering if the desert safari is suitable? Here's our complete family guide.</p>
+      <h2>Age Guidelines</h2>
+      <ul>
+        <li><strong>Under 8:</strong> Shared quad with parent only (no solo riding)</li>
+        <li><strong>8-15:</strong> Can ride with adult or supervised small quad</li>
+        <li><strong>16+:</strong> Can ride solo quad independently</li>
+      </ul>
+      <h2>Best Family-Friendly Activities</h2>
+      <ul>
+        <li>🐪 <strong>Camel ride:</strong> Kids absolutely love it — very safe and gentle</li>
+        <li>🦎 <strong>Reptile house visit:</strong> A highlight for children — snakes, lizards and more</li>
+        <li>🍞 <strong>Bedouin bread making:</strong> Interactive cultural experience kids enjoy</li>
+        <li>💃 <strong>Live show:</strong> The belly dance and tanoura show fascinates children</li>
+      </ul>
+      <h2>Sea Trips for Families</h2>
+      <ul>
+        <li><strong>Royal Seascope:</strong> 100% safe for all ages — no swimming required, see fish from inside the boat</li>
+        <li><strong>Orange Bay Island:</strong> Safe shallow water, sandy beach, perfect for kids</li>
+        <li><strong>Dolphin Show:</strong> Kids go absolutely wild for this one!</li>
+      </ul>
+      <h2>Children's Prices</h2>
+      <p>We offer discounted children's rates (4-11 years) on all trips, and children under 4 travel free on most activities. Contact us for specific family pricing.</p>
+    `
+  },
+  'best-time': {
+    emoji: '🌤️',
+    bg: 'linear-gradient(135deg,#2d8a6e,#1a5a3e)',
+    cat: '💡 Travel Tips',
+    title: 'Best Time of Year for Desert Safari in Hurghada',
+    meta: 'May 2026 · 3 min read',
+    content: `
+      <p>When is the best time to do a desert safari in Hurghada? The honest answer depends on what you're looking for.</p>
+      <h2>Month by Month Guide</h2>
+      <ul>
+        <li><strong>October - April (Best):</strong> Temperatures 18-28°C, perfect desert conditions. This is peak season for good reason.</li>
+        <li><strong>May - June (Good):</strong> Getting warmer (30-35°C) but manageable. Book morning departures.</li>
+        <li><strong>July - August (Hot):</strong> 38-42°C in the desert. Early morning departures only. Not recommended for elderly or very young children.</li>
+        <li><strong>September (Good):</strong> Temperatures begin to drop. Water activities are excellent.</li>
+      </ul>
+      <h2>Our Top Recommendations</h2>
+      <ul>
+        <li>🏆 <strong>Best overall:</strong> November - March</li>
+        <li>🌅 <strong>Best sunsets:</strong> October and April (golden light is magical)</li>
+        <li>🌙 <strong>Best stargazing:</strong> Winter months have clearer skies</li>
+        <li>👨‍👩‍👧 <strong>Best for families:</strong> School holidays in October half-term or April</li>
+      </ul>
+      <h2>What About Rain?</h2>
+      <p>Hurghada gets less than 5mm of rain per year on average. Desert safaris run year-round regardless of season — weather cancellations are extremely rare.</p>
+    `
+  },
+  'dive-sites': {
+    emoji: '🪸',
+    bg: 'linear-gradient(135deg,#0a2a4a,#1a6b9a)',
+    cat: '🤿 Diving',
+    title: 'Best Dive Sites Around Hurghada in 2026',
+    meta: 'May 2026 · 6 min read',
+    content: `
+      <p>Hurghada sits at the heart of the Red Sea diving world. Here are the top sites our instructors recommend in 2026.</p>
+      <h2>1. Giftun Island (Orange Bay)</h2>
+      <p>The most popular and accessible dive site near Hurghada. Excellent coral gardens, great visibility and abundant fish life. Perfect for beginners and experienced divers alike. Depth: 5-25m.</p>
+      <h2>2. Sha'ab El Erg (Dolphin House)</h2>
+      <p>Famous for its resident colony of spinner dolphins. The reef itself is stunning with excellent coral coverage. Depth: 8-30m. Best in the morning when dolphins are most active.</p>
+      <h2>3. Abu Nuhas Wrecks</h2>
+      <p>Four ships sank on this reef — the most famous wreck diving in the Red Sea. Not for beginners, but advanced divers will be blown away. Depth: 15-28m.</p>
+      <h2>4. Umm Gamar</h2>
+      <p>Spectacular wall diving with beautiful soft corals. Regular sightings of large fish including barracuda and jack fish. Depth: 8-35m.</p>
+      <h2>5. El Fanous</h2>
+      <p>Perfect for night diving. A magical underwater world that completely transforms after dark. Depth: 10-20m.</p>
+      <h2>Which Site is Right for You?</h2>
+      <ul>
+        <li><strong>Never dived before:</strong> Giftun Island shallow reef</li>
+        <li><strong>Certified beginner:</strong> Sha'ab El Erg or Umm Gamar</li>
+        <li><strong>Advanced diver:</strong> Abu Nuhas wrecks</li>
+        <li><strong>Night dive experience:</strong> El Fanous</li>
+      </ul>
+    `
+  },
+  'book-advance': {
+    emoji: '📅',
+    bg: 'linear-gradient(135deg,#2d8a6e,#1a5a3e)',
+    cat: '💡 Travel Tips',
+    title: 'Should I Book My Desert Safari in Advance or Walk-In?',
+    meta: 'May 2026 · 3 min read',
+    content: `
+      <p>This is a genuinely good question and the answer depends on the time of year and trip type.</p>
+      <h2>Book in Advance If:</h2>
+      <ul>
+        <li>Travelling October - March (peak season) — popular trips sell out</li>
+        <li>You have a specific date in mind</li>
+        <li>Travelling with a large group (4+ people)</li>
+        <li>You want hotel pickup included</li>
+        <li>You prefer the peace of mind of a confirmed booking</li>
+      </ul>
+      <h2>Walk-In is Fine If:</h2>
+      <ul>
+        <li>Travelling May - September (quieter season)</li>
+        <li>You're flexible with dates</li>
+        <li>You're a solo traveller or couple</li>
+      </ul>
+      <h2>The Wild Hurghada Advantage</h2>
+      <p>When you book with us online, you get <strong>instant WhatsApp confirmation</strong> in under 5 minutes, and you <strong>pay nothing until we pick you up</strong>. This means booking in advance has zero financial risk — you can cancel free of charge up to 24 hours before your trip.</p>
+      <h2>Our Recommendation</h2>
+      <p>Book online 1-3 days in advance for peace of mind, especially in peak season. It takes 60 seconds and you pay nothing until the day of your trip.</p>
+    `
+  },
+  'safe-swim': {
+    emoji: '🏊',
+    bg: 'linear-gradient(135deg,#0B3D6B,#1a6b9a)',
+    cat: '🌊 Sea Trips',
+    title: 'Is Swimming in the Red Sea Safe in Hurghada?',
+    meta: 'May 2026 · 4 min read',
+    content: `
+      <p>This question comes up constantly and deserves an honest, factual answer — not the sensationalist headlines you sometimes read online.</p>
+      <h2>The Short Answer</h2>
+      <p><strong>Yes, swimming in the Red Sea in Hurghada is safe</strong> for the vast majority of tourists on a daily basis. Millions of people swim here every year without incident.</p>
+      <h2>What About Sharks?</h2>
+      <p>There are sharks in the Red Sea, but unprovoked attacks in the Hurghada area are extremely rare — we're talking about a handful of incidents over decades. The 2010 Sharm El Sheikh incidents (a different resort, 300km away) are often confused with Hurghada. The species here (reef sharks, oceanic whitetips) are generally not aggressive toward swimmers in the areas where tourists swim.</p>
+      <h2>Jellyfish</h2>
+      <p>Occasional jellyfish are present, particularly in certain months. Our trip guides always brief guests on current conditions before entering the water.</p>
+      <h2>Currents</h2>
+      <p>Always swim in designated areas and follow guide instructions. Strong currents exist in some locations but not in the tourist swimming areas we visit.</p>
+      <h2>Practical Safety Tips</h2>
+      <ul>
+        <li>Always listen to your guide's briefing</li>
+        <li>Don't swim alone away from the group</li>
+        <li>Wear a life jacket if snorkeling and not a confident swimmer</li>
+        <li>Apply reef-safe sunscreen — regular sunscreen damages coral</li>
+        <li>Don't touch coral or marine life</li>
+      </ul>
+    `
+  }
+};
+
+function openArticle(id) {
+  const a = articles[id];
+  if (!a) return;
+  document.getElementById('articleEmoji').textContent = a.emoji;
+  document.getElementById('articleHero').style.background = a.bg;
+  document.getElementById('articleContent').innerHTML = `
+    <div class="post-cat">${a.cat}</div>
+    <h1>${a.title}</h1>
+    <div class="article-meta">
+      <span>📅 ${a.meta}</span>
+    </div>
+    ${a.content}
+    <div class="article-cta">
+      <h3>Ready to Experience Hurghada? 🌍</h3>
+      <p>Book any trip in 60 seconds. Pay on arrival. Free hotel pickup.</p>
+      <div class="cta-btns">
+        <a href="/" class="cta-btn cta-primary">🏄 View All Trips</a>
+        <a href="https://wa.me/201551160195?text=Hi! I read your blog and want to book a trip" target="_blank" class="cta-btn cta-wa">💬 WhatsApp Us</a>
+      </div>
+    </div>
+  `;
+  document.getElementById('articleOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeArticle(e) {
+  if (e.target === document.getElementById('articleOverlay')) closeArticleBtn();
+}
+function closeArticleBtn() {
+  document.getElementById('articleOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function filterCat(cat, btn) {
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.blog-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+
+function searchArticles() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  document.querySelectorAll('.blog-card').forEach(card => {
+    const text = card.textContent.toLowerCase();
+    card.style.display = (!q || text.includes(q)) ? 'block' : 'none';
+  });
+}
+
+function subscribeNL() {
+  const inp = document.querySelector('.nl-form input');
+  if (!inp.value) { alert('Please enter your email!'); return; }
+  inp.value = '';
+  alert('✅ Thank you! You\'ll receive our best Hurghada tips soon! 🌍');
+}
+</script>
+</body>
+</html>
