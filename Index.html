@@ -32,9 +32,9 @@ nav.scrolled{background:rgba(11,61,107,.97);backdrop-filter:blur(12px);padding:1
 .kb-slide.active:nth-child(1){animation:kb1 8s ease-in-out forwards;}
 .kb-slide.active:nth-child(2){animation:kb2 8s ease-in-out forwards;}
 .kb-slide.active:nth-child(3){animation:kb3 8s ease-in-out forwards;}
-.kb-s1{background:url('https://drive.google.com/thumbnail?id=1d3aT-JeX7BYn9wK8TIKqm7g3dOa7AK9R&sz=w1600') center/cover;}
-.kb-s2{background:url('https://drive.google.com/thumbnail?id=1eyFv2TRTwLf1LCopEhNS-vA9wHa_J2bs&sz=w1600') center/cover;}
-.kb-s3{background:url('https://drive.google.com/thumbnail?id=1Eu6wkA4r7bJjLGbIx-hw2_bqLgR7Vum9&sz=w1600') center/cover;}
+.kb-s1{background:url('https://drive.google.com/thumbnail?id=1Axzm_3J2LVe-Y4hYjcGyxuon6Wc_ItWB&sz=w1600') center/cover;}
+.kb-s2{background:url('https://drive.google.com/thumbnail?id=1A9B0p7PvM1vcMrL4nKqpaRGDfEcwnLki&sz=w1600') center/cover;}
+.kb-s3{background:url('https://drive.google.com/thumbnail?id=1ObebwBR4BY6x0jrT116tHAFMb-IZxrYv&sz=w1600') center/cover;}
 
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.25) 0%,rgba(0,0,0,.55) 100%);z-index:1;}
 .hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 20px;max-width:900px;}
@@ -90,19 +90,10 @@ nav.scrolled{background:rgba(11,61,107,.97);backdrop-filter:blur(12px);padding:1
 .b-fam{background:#2d8a6e;color:#fff;}
 .b-uni{background:var(--ocean);color:#fff;}
 
-/* Real photos */
-.ti-orange{background-image:url('https://drive.google.com/thumbnail?id=1XQOa2ITfhMQ2JvNh1HstjDwJ6wfrSsqG&sz=w800');}
-.ti-paradise{background-image:url('https://drive.google.com/thumbnail?id=1npvAUcVuP83o1Al7C7gK2IeoQtw7mmna&sz=w800');}
-.ti-dolphin{background-image:url('https://drive.google.com/thumbnail?id=1Gh9Gj3r74RwYIP507ukomvTtbHHZUK6Q&sz=w800');}
-.ti-dive{background-image:url('https://drive.google.com/thumbnail?id=1AJne-EJ_aKOmPes4Tu9TrcSBQ4UFPRCE&sz=w800');}
-.ti-safari{background-image:url('https://drive.google.com/thumbnail?id=1ga1yp7vm9e-PEcN4MtBIxdoJSH6FFEax&sz=w800');}
-.ti-quad{background-image:url('https://drive.google.com/thumbnail?id=1DDFbMNGAzPlaYYPRn-bw3v6qv2G9bXtQ&sz=w800');}
-.ti-scope{background-image:url('https://drive.google.com/thumbnail?id=1RjcbPj9JbDiGSHObOM76VX6WlW-ZoQzf&sz=w800');}
-.ti-sub{background-image:url('https://drive.google.com/thumbnail?id=1ItkGt9KxddPHgyafNMRZbDqvBkyQ5ymo&sz=w800');}
-.ti-dshow{background-image:url('https://drive.google.com/thumbnail?id=1hQAFt6r6FKSQ6SpnWDqOPjXojpdczOo_&sz=w800');}
-.ti-para{background-image:url('https://drive.google.com/thumbnail?id=10jQUo4V2aPvt6ixOv2wLtJyISB1xjrJd&sz=w800');}
-.ti-aqua{background-image:url('https://drive.google.com/thumbnail?id=1DPgOf-6hi-CNhzLWQEbEn4yGyHvatKi3&sz=w800');}
-.ti-horse{background-image:url('https://drive.google.com/thumbnail?id=1TLkGfXkulx-rPGPxfmBuRZ5hOpy3rm1Q&sz=w800');}
+/* Royal Seascope — المركب الأصفر الحقيقي */
+.ti-scope{background-image:url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e4/8a/royal-seascope.jpg?w=800&h=500&s=1') center/cover;}
+/* Dolphin Show — دولفين شو حقيقي */
+.ti-dshow{background-image:url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/d4/f2/8c/dolphin-show.jpg?w=800&h=500&s=1') center/cover;}
 
 .trip-body{padding:22px;}
 .trip-name{font-size:1.15rem;font-weight:800;color:var(--ocean);margin-bottom:6px;}
@@ -152,7 +143,29 @@ nav.scrolled{background:rgba(11,61,107,.97);backdrop-filter:blur(12px);padding:1
 .parallax-content h2{font-size:clamp(1.8rem,4vw,3rem);font-weight:900;margin-bottom:16px;}
 .parallax-content p{font-size:1.1rem;opacity:.9;margin-bottom:30px;}
 
-/* MODAL */
+/* GALLERY MODAL */
+.gallery-modal{display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.95);align-items:center;justify-content:center;}
+.gallery-modal.open{display:flex;}
+.gallery-inner{position:relative;max-width:900px;width:100%;padding:20px;}
+.gallery-main-img{width:100%;height:500px;object-fit:cover;border-radius:16px;transition:opacity .3s;}
+.gallery-title{color:#fff;font-size:1.3rem;font-weight:800;text-align:center;margin-bottom:16px;}
+.gallery-counter{color:rgba(255,255,255,.6);font-size:.85rem;text-align:center;margin-bottom:12px;}
+.gallery-thumbs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px;}
+.gallery-thumb{width:70px;height:70px;object-fit:cover;border-radius:8px;cursor:pointer;opacity:.6;transition:all .2s;border:3px solid transparent;}
+.gallery-thumb.active{opacity:1;border-color:#E8A020;}
+.gallery-thumb:hover{opacity:1;}
+.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:#fff;width:50px;height:50px;border-radius:50%;font-size:1.4rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(5px);}
+.gallery-nav:hover{background:rgba(255,255,255,.3);}
+.gallery-prev{left:-25px;}
+.gallery-next{right:-25px;}
+.gallery-close{position:fixed;top:20px;right:20px;background:rgba(255,255,255,.15);border:none;color:#fff;width:44px;height:44px;border-radius:50%;font-size:1.2rem;cursor:pointer;backdrop-filter:blur(5px);}
+.gallery-book-btn{display:block;background:#C1440E;color:#fff;text-align:center;padding:14px;border-radius:12px;font-weight:800;margin-top:16px;cursor:pointer;border:none;width:100%;font-size:1rem;transition:all .3s;}
+.gallery-book-btn:hover{background:#a53500;}
+@media(max-width:768px){
+  .gallery-main-img{height:280px;}
+  .gallery-prev{left:-10px;}.gallery-next{right:-10px;}
+  .gallery-nav{width:38px;height:38px;font-size:1.1rem;}
+}
 .modal{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.75);align-items:center;justify-content:center;padding:20px;}
 .modal.open{display:flex;animation:fadeIn .3s ease;}
 .modal-box{background:#fff;border-radius:24px;padding:40px;max-width:520px;width:100%;position:relative;max-height:90vh;overflow-y:auto;animation:fadeUp .4s ease;}
@@ -233,6 +246,7 @@ footer{background:#0a0a0a;color:#fff;padding:60px 40px 30px;}
   <ul class="nav-links">
     <li><a href="#trips">Trips</a></li>
     <li><a href="#why">Why Us</a></li>
+    <li><a href="blog.html">📝 Blog</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#trips" class="nav-cta">🔥 <span class="t" data-key="bookNow">Book Now</span></a>
@@ -304,7 +318,11 @@ footer{background:#0a0a0a;color:#fff;padding:60px 40px 30px;}
 
     <!-- ORANGE BAY -->
     <div class="trip-card reveal" data-cat="sea">
-      <div class="trip-img ti-orange"><div class="trip-img-emoji">🏝️</div><div class="badge b-hot">🔥 Most Popular</div></div>
+      <div class="trip-img ti-orange" onclick="openGallery('Orange Bay Island')" style="cursor:pointer;" title="Click to view photos">
+        <div class="trip-img-emoji">🏝️</div>
+        <div class="badge b-hot">🔥 Most Popular</div>
+        <div style="position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,.5);color:#fff;padding:4px 10px;border-radius:20px;font-size:.72rem;font-weight:700;z-index:1;">📸 View Photos</div>
+      </div>
       <div class="trip-body">
         <div class="trip-name">Orange Bay Island</div>
         <div class="trip-desc">Egypt's Maldives! Crystal-clear waters, white sand & stunning coral reefs at Giftun Island National Park.</div>
@@ -650,6 +668,78 @@ footer{background:#0a0a0a;color:#fff;padding:60px 40px 30px;}
       </div>
     </div>
 
+    <!-- GRAND AQUARIUM -->
+    <div class="trip-card reveal" data-cat="sea dive">
+      <div class="trip-img" style="background-image:url('https://drive.google.com/thumbnail?id=1jke-pLVb5hBfTYmoiIiPnfeoi5uG3IOx&sz=w800');background-size:cover;background-position:center;" onclick="openGallery('Grand Aquarium')" style="cursor:pointer;">
+        <div class="trip-img-emoji">🐟</div>
+        <div class="badge b-fam">👨‍👩‍👧 Family</div>
+        <div style="position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,.5);color:#fff;padding:4px 10px;border-radius:20px;font-size:.72rem;font-weight:700;z-index:1;">📸 View Photos</div>
+      </div>
+      <div class="trip-body">
+        <div class="trip-name">Grand Aquarium</div>
+        <div class="trip-desc">Walk through a tunnel surrounded by sharks, rays & 1,000+ Red Sea species. A magical underwater world without getting wet!</div>
+        <div class="trip-tags"><span class="tag">⏱️ 2 Hours</span><span class="tag">🦈 Sharks</span><span class="tag">🐠 1000+ Species</span><span class="tag">👶 All Ages</span></div>
+        <div class="trip-footer"><div class="trip-price">€30<small>/adult</small></div><button class="book-btn" onclick="openModal('Grand Aquarium',30)">Book Now</button></div>
+        <button class="tour-plan-btn" onclick="togglePlan(this)">📋 View Tour Plan <span>▼</span></button>
+        <div class="tour-plan">
+          <div class="plan-title">📅 Your Experience Step by Step</div>
+          <div class="plan-steps">
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚐</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">Flexible</div><div class="step-text">Hotel pickup & transfer to Grand Aquarium Hurghada</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🎫</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+20 min</div><div class="step-text">Entry & welcome briefing — 1,200 species await you!</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🦈</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+30 min</div><div class="step-text">Walk-through shark tunnel — face to face with Red Sea sharks & rays</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🐠</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">+30 min</div><div class="step-text">Tropical fish tanks, moray eels, seahorses & coral exhibits</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">📸</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">Throughout</div><div class="step-text">Amazing photo opportunities — kids go absolutely wild!</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏨</div></div><div class="step-content"><div class="step-time">End</div><div class="step-text">Return transfer to your hotel</div></div></div>
+          </div>
+          <div class="includes-box">
+            <div class="includes-title">✅ Everything Included</div>
+            <div class="includes-grid">
+              <div class="inc-item">🚐 Hotel transfers</div><div class="inc-item">🎫 Aquarium entry</div>
+              <div class="inc-item">🦈 Shark tunnel</div><div class="inc-item">🎓 English guide</div>
+            </div>
+          </div>
+          <div class="children-price">👶 Children (4–11 yrs): €20 · Under 4: FREE · No swimming required!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GLASS BOAT -->
+    <div class="trip-card reveal" data-cat="sea">
+      <div class="trip-img" style="background-image:url('https://drive.google.com/thumbnail?id=1A9B0p7PvM1vcMrL4nKqpaRGDfEcwnLki&sz=w800');background-size:cover;background-position:center;" onclick="openGallery('Glass Boat Trip')" style="cursor:pointer;">
+        <div class="trip-img-emoji">🚢</div>
+        <div class="badge b-uni">✨ Unique</div>
+        <div style="position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,.5);color:#fff;padding:4px 10px;border-radius:20px;font-size:.72rem;font-weight:700;z-index:1;">📸 View Photos</div>
+      </div>
+      <div class="trip-body">
+        <div class="trip-name">Glass Boat Trip</div>
+        <div class="trip-desc">See the stunning Red Sea coral reefs through a glass-bottom boat — no swimming needed! Snorkeling stop & lunch included.</div>
+        <div class="trip-tags"><span class="tag">⏱️ Full Day</span><span class="tag">🔍 Glass Bottom</span><span class="tag">🍽️ Lunch</span><span class="tag">🌊 All Ages</span></div>
+        <div class="trip-footer"><div class="trip-price">€35<small>/adult</small></div><button class="book-btn" onclick="openModal('Glass Boat Trip',35)">Book Now</button></div>
+        <button class="tour-plan-btn" onclick="togglePlan(this)">📋 View Tour Plan <span>▼</span></button>
+        <div class="tour-plan">
+          <div class="plan-title">📅 Your Day Step by Step</div>
+          <div class="plan-steps">
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚐</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">09:00 AM</div><div class="step-text">Hotel pickup & transfer to the marina</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🚢</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">09:30 AM</div><div class="step-text">Board the glass-bottom boat — welcome drinks on deck</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🐠</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">10:30 AM</div><div class="step-text">First glass viewing stop — watch coral reefs & fish from inside the boat</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🤿</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">11:30 AM</div><div class="step-text">Optional snorkeling stop — equipment provided for those who want to swim</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🍽️</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">01:00 PM</div><div class="step-text">Lunch on board — fresh food + soft drinks + coffee</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🐠</div><div class="step-line"></div></div><div class="step-content"><div class="step-time">02:30 PM</div><div class="step-text">Second glass viewing stop at different coral reef</div></div></div>
+            <div class="plan-step"><div class="step-left"><div class="step-dot">🏨</div></div><div class="step-content"><div class="step-time">04:30 PM</div><div class="step-text">Return to marina & hotel dropoff</div></div></div>
+          </div>
+          <div class="includes-box">
+            <div class="includes-title">✅ Everything Included</div>
+            <div class="includes-grid">
+              <div class="inc-item">🚐 Hotel transfers</div><div class="inc-item">🚢 Glass boat trip</div>
+              <div class="inc-item">🍽️ Lunch + drinks</div><div class="inc-item">🤿 Snorkel gear</div>
+              <div class="inc-item">🎓 English guide</div><div class="inc-item">📝 Entry permits</div>
+            </div>
+          </div>
+          <div class="children-price">👶 Children (4–11 yrs): €22 · Under 4: FREE · No swimming required!</div>
+        </div>
+      </div>
+    </div>
+
     <!-- HORSE RIDING -->
     <div class="trip-card reveal" data-cat="desert fun">
       <div class="trip-img ti-horse"><div class="trip-img-emoji">🐎</div><div class="badge b-val">🌅 Romantic</div></div>
@@ -809,6 +899,59 @@ footer{background:#0a0a0a;color:#fff;padding:60px 40px 30px;}
 .review-source{font-size:.75rem;color:#aaa;font-weight:600;}
 </style>
 
+<!-- BLOG PREVIEW SECTION -->
+<div style="background:#fff;padding:90px 40px;">
+<div style="max-width:1200px;margin:0 auto;">
+  <div class="reveal" style="text-align:center;margin-bottom:50px;">
+    <div class="section-tag">Travel Tips & Guides</div>
+    <h2 class="section-title">Hurghada Adventure Blog</h2>
+    <p class="section-sub" style="margin:0 auto;">Real answers to real questions about desert safari, diving and sea trips in Hurghada.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:40px;">
+
+    <div class="reveal" style="background:var(--sand);border-radius:16px;overflow:hidden;transition:all .3s;cursor:pointer;" onclick="window.location.href='blog.html'"
+      onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 12px 35px rgba(0,0,0,.12)'"
+      onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+      <div style="height:160px;background:linear-gradient(135deg,#C1440E,#8B4513);display:flex;align-items:center;justify-content:center;font-size:3rem;">🏜️</div>
+      <div style="padding:20px;">
+        <div style="display:inline-block;background:#C1440E22;color:#C1440E;padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:800;text-transform:uppercase;margin-bottom:10px;">Desert Safari</div>
+        <h3 style="font-size:1rem;font-weight:800;color:var(--ocean);margin-bottom:8px;line-height:1.4;">Is Desert Safari in Hurghada Worth It? An Honest Answer</h3>
+        <p style="font-size:.82rem;color:#888;font-weight:600;">⏱️ 5 min read</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="background:var(--sand);border-radius:16px;overflow:hidden;transition:all .3s;cursor:pointer;" onclick="window.location.href='blog.html'"
+      onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 12px 35px rgba(0,0,0,.12)'"
+      onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+      <div style="height:160px;background:linear-gradient(135deg,#0a2a4a,#1a6b9a);display:flex;align-items:center;justify-content:center;font-size:3rem;">🤿</div>
+      <div style="padding:20px;">
+        <div style="display:inline-block;background:#0B3D6B22;color:#0B3D6B;padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:800;text-transform:uppercase;margin-bottom:10px;">Diving</div>
+        <h3 style="font-size:1rem;font-weight:800;color:var(--ocean);margin-bottom:8px;line-height:1.4;">Can I Dive in Hurghada Without Certification?</h3>
+        <p style="font-size:.82rem;color:#888;font-weight:600;">⏱️ 4 min read</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="background:var(--sand);border-radius:16px;overflow:hidden;transition:all .3s;cursor:pointer;" onclick="window.location.href='blog.html'"
+      onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 12px 35px rgba(0,0,0,.12)'"
+      onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+      <div style="height:160px;background:linear-gradient(135deg,#0B3D6B,#1a6b9a);display:flex;align-items:center;justify-content:center;font-size:3rem;">🐠</div>
+      <div style="padding:20px;">
+        <div style="display:inline-block;background:#0B3D6B22;color:#0B3D6B;padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:800;text-transform:uppercase;margin-bottom:10px;">Sea Trips</div>
+        <h3 style="font-size:1rem;font-weight:800;color:var(--ocean);margin-bottom:8px;line-height:1.4;">What Marine Life Will I See in Hurghada's Red Sea?</h3>
+        <p style="font-size:.82rem;color:#888;font-weight:600;">⏱️ 5 min read</p>
+      </div>
+    </div>
+
+  </div>
+  <div style="text-align:center;">
+    <a href="blog.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--ocean);color:#fff;padding:15px 35px;border-radius:50px;text-decoration:none;font-weight:800;font-size:.95rem;transition:all .3s;"
+      onmouseover="this.style.background='#C1440E'" onmouseout="this.style.background='var(--ocean)'">
+      📝 Read All Articles →
+    </a>
+  </div>
+</div>
+</div>
+
 <!-- PARALLAX STRIP -->
 <div class="parallax-strip">
   <div class="parallax-content reveal">
@@ -848,12 +991,28 @@ footer{background:#0a0a0a;color:#fff;padding:60px 40px 30px;}
 <footer>
   <div class="footer-grid">
     <div><div class="footer-logo">WILD<span>HURGHADA</span></div><p class="footer-desc">Hurghada's wildest experiences — booked in 60 seconds, paid on arrival.</p></div>
-    <div><div class="footer-head">Quick Links</div><ul class="footer-links"><li><a href="#trips">All Trips</a></li><li><a href="#why">Why Choose Us</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    <div><div class="footer-head">Quick Links</div><ul class="footer-links"><li><a href="#trips">All Trips</a></li><li><a href="#why">Why Choose Us</a></li><li><a href="blog.html">📝 Travel Blog</a></li><li><a href="#contact">Contact</a></li></ul></div>
     <div><div class="footer-head">Top Trips</div><ul class="footer-links"><li><a href="#">Orange Bay Island</a></li><li><a href="#">Super Safari</a></li><li><a href="#">Sindbad Submarine</a></li><li><a href="#">Quad Safari</a></li></ul></div>
     <div><div class="footer-head">Contact</div><ul class="footer-links"><li><a href="https://wa.me/201551160195" target="_blank">📱 +20 155 116 0195</a></li><li><a href="#">📍 Hurghada, Red Sea, Egypt</a></li><li><a href="#">🌐 wildhurghada.com</a></li></ul></div>
   </div>
   <div class="footer-bottom">© 2026 Wild Hurghada · All rights reserved · Made with ❤️ in Hurghada, Egypt</div>
 </footer>
+
+<!-- GALLERY MODAL -->
+<div class="gallery-modal" id="galleryModal">
+  <button class="gallery-close" onclick="closeGallery()">✕</button>
+  <div class="gallery-inner">
+    <div class="gallery-title" id="galleryTitle"></div>
+    <div class="gallery-counter" id="galleryCounter"></div>
+    <div style="position:relative;">
+      <button class="gallery-nav gallery-prev" onclick="galleryNav(-1)">‹</button>
+      <img class="gallery-main-img" id="galleryMainImg" src="" alt="" />
+      <button class="gallery-nav gallery-next" onclick="galleryNav(1)">›</button>
+    </div>
+    <div class="gallery-thumbs" id="galleryThumbs"></div>
+    <button class="gallery-book-btn" id="galleryBookBtn">🎯 Book This Trip — Pay on Arrival</button>
+  </div>
+</div>
 
 <!-- BOOKING MODAL -->
 <div class="modal" id="modal">
@@ -1144,6 +1303,190 @@ document.addEventListener('click', e => {
     document.getElementById('langDropdown').style.display = 'none';
 });
 
+// GALLERY DATA — Real photos from Google Drive
+const GALLERIES = {
+  'Grand Aquarium': {
+    price: 30,
+    photos: [
+      'https://drive.google.com/thumbnail?id=1jke-pLVb5hBfTYmoiIiPnfeoi5uG3IOx&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1A9B0p7PvM1vcMrL4nKqpaRGDfEcwnLki&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1OosUXiGeZ9cQHYvBKW-LoctXQ9BFzBuX&sz=w1200',
+    ]
+  },
+  'Glass Boat Trip': {
+    price: 35,
+    photos: [
+      'https://drive.google.com/thumbnail?id=1PU0uwiav7PFYAcZdMTJeareX7H5i1EYZ&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1Tu_MsmWwcfFShAkrMasm1Ubjo4nGp7gf&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1htJdTb_b6ffMBl7tFhyRmo0DqFdK_dqS&sz=w1200',
+    ]
+  },
+  'Orange Bay Island': {
+    price: 25,
+    photos: [
+      'https://drive.google.com/thumbnail?id=1ObebwBR4BY6x0jrT116tHAFMb-IZxrYv&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1n_6fNQ-aDHdy57Cg6sFNvkbpc2qleQnL&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1iusDURdTsrNAhCFQeyPj9af-2_v4h2Lf&sz=w1200',
+    ]
+  },
+  'Paradise Island (Hula Hula)': {
+    price: 25,
+    photos: [
+      'https://drive.google.com/thumbnail?id=1NvoDKEOIAB62fJkLpxSLmqxM8kQXG0D7&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1iuVwAUrJmY2g3QxpwTBUkEJaZfXz8FyB&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1lGwEMUNPzeeBWP8xTfagc6m0iyhvtdXd&sz=w1200',
+    ]
+  },
+  'Dolphin House Trip': {
+    price: 25,
+    photos: [
+      'https://drive.google.com/thumbnail?id=1jke-pLVb5hBfTYmoiIiPnfeoi5uG3IOx&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1164ANoASUJJyuwVVTxp5CvXMx4hV6L_0K&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1PU0uwiav7PFYAcZdMTJeareX7H5i1EYZ&sz=w1200',
+    ]
+  },
+  'Diving Trip': {
+    price: 35,
+    photos: [
+      'https://drive.google.com/thumbnail?id=1A9B0p7PvM1vcMrL4nKqpaRGDfEcwnLki&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1OosUXiGeZ9cQHYvBKW-LoctXQ9BFzBuX&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1htJdTb_b6ffMBl7tFhyRmo0DqFdK_dqS&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1AJne-EJ_aKOmPes4Tu9TrcSBQ4UFPRCE&sz=w1200',
+    ]
+  },
+  'Super Safari': {
+    price: 20,
+    photos: [
+      'https://drive.google.com/thumbnail?id=1Tal_Jt6QzYi1eXse1hX8s9WmxUV80Gmz&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1qr1z1gZG5ZmniYfNZwfG0HRU7vrRT7Ni&sz=w1200',
+      'https://drive.google.com/thumbnail?id=112-mQFMWkzEJWF9iaCbCjamgM9PT2YMJB&sz=w1200',
+    ]
+  },
+  'Quad Safari 3 Hours': {
+    price: 25,
+    photos: [
+      'https://drive.google.com/thumbnail?id=1oW7e3NafRCuhSnaQnCh1sFP1I1V1ZHWW&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1zGfbwnXAhIKRLHJPazJW7rUw6eeKkQ5z&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1DDFbMNGAzPlaYYPRn-bw3v6qv2G9bXtQ&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1eyFv2TRTwLf1LCopEhNS-vA9wHa_J2bs&sz=w1200',
+    ]
+  },
+  'Royal Seascope': {
+    price: 20,
+    photos: [
+      'https://drive.google.com/thumbnail?id=1RjcbPj9JbDiGSHObOM76VX6WlW-ZoQzf&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1VvZirKqKZmVFtnycLv6Z5sN0IZqVIITd&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1YnG8Wnyjhu1JA5lWdqSoojU_0S6bL-Jx&sz=w1200',
+    ]
+  },
+  'Sindbad Submarine': {
+    price: 55,
+    photos: [
+      'https://drive.google.com/thumbnail?id=1ItkGt9KxddPHgyafNMRZbDqvBkyQ5ymo&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1HoJV2GbupN1pnEW3tpa0t9SnWXQTlY0O&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1d3aT-JeX7BYn9wK8TIKqm7g3dOa7AK9R&sz=w1200',
+    ]
+  },
+  'Dolphin Show': {
+    price: 20,
+    photos: [
+      'https://drive.google.com/thumbnail?id=164ANoASUJJyuwVVTxp5CvXMx4hV6L_0K&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1hQAFt6r6FKSQ6SpnWDqOPjXojpdczOo_&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1a7LIVRBMNHuKDWR9VZdka4OsMtRER7Lq&sz=w1200',
+    ]
+  },
+  'Parasailing': {
+    price: 22,
+    photos: [
+      'https://drive.google.com/thumbnail?id=1Tu_MsmWwcfFShAkrMasm1Ubjo4nGp7gf&sz=w1200',
+      'https://drive.google.com/thumbnail?id=110jQUo4V2aPvt6ixOv2wLtJyISB1xjrJd&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1Snorkeling.jpg&sz=w1200',
+    ]
+  },
+  'Aqua Park Makadi': {
+    price: 45,
+    photos: [
+      'https://drive.google.com/thumbnail?id=1DPgOf-6hi-CNhzLWQEbEn4yGyHvatKi3&sz=w1200',
+      'https://drive.google.com/thumbnail?id=114EENY4s2t48_hnANIU53MZybw2n4k_nv&sz=w1200',
+    ]
+  },
+  'Horse Riding 2 Hours': {
+    price: 25,
+    photos: [
+      'https://drive.google.com/thumbnail?id=1Axzm_3J2LVe-Y4hYjcGyxuon6Wc_ItWB&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1_2BHWZ5DEka17VtT9ip91GPQ5yJHrXg2&sz=w1200',
+      'https://drive.google.com/thumbnail?id=119vUn5EAj1MHX31hgT16A4Vh_4UlDrrwZ&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1Em4XjCMyfC2ZgMjOaAJxtgesUtB3rKiV&sz=w1200',
+      'https://drive.google.com/thumbnail?id=1zfUiao3PPcQrzioD4R_GtPQMWlJjR06Q&sz=w1200',
+      'https://drive.google.com/thumbnail?id=119G9C1ui3VzKQn24mH3AxYYzpwD10dAFc&sz=w1200',
+    ]
+  },
+};
+
+let galTrip='', galIdx=0;
+
+function openGallery(tripName) {
+  const g = GALLERIES[tripName];
+  if(!g) return;
+  galTrip = tripName;
+  galIdx = 0;
+  document.getElementById('galleryTitle').textContent = '📸 ' + tripName;
+  document.getElementById('galleryModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderGallery();
+  const msg = `Hi! I want to book: ${tripName}. Price: €${g.price}/person`;
+  document.getElementById('galleryBookBtn').onclick = () => {
+    closeGallery();
+    openModal(tripName, g.price);
+  };
+}
+
+function renderGallery() {
+  const g = GALLERIES[galTrip];
+  if(!g) return;
+  const img = document.getElementById('galleryMainImg');
+  img.style.opacity = '0';
+  setTimeout(() => {
+    img.src = g.photos[galIdx];
+    img.style.opacity = '1';
+  }, 150);
+  document.getElementById('galleryCounter').textContent = `${galIdx+1} / ${g.photos.length}`;
+  const thumbs = document.getElementById('galleryThumbs');
+  thumbs.innerHTML = g.photos.map((p,i) => 
+    `<img class="gallery-thumb ${i===galIdx?'active':''}" src="${p.replace('w1200','w200')}" onclick="setGalleryIdx(${i})" />`
+  ).join('');
+}
+
+function setGalleryIdx(i) {
+  galIdx = i;
+  renderGallery();
+}
+
+function galleryNav(dir) {
+  const g = GALLERIES[galTrip];
+  if(!g) return;
+  galIdx = (galIdx + dir + g.photos.length) % g.photos.length;
+  renderGallery();
+}
+
+function closeGallery() {
+  document.getElementById('galleryModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close gallery on background click
+document.getElementById('galleryModal').addEventListener('click', e => {
+  if(e.target === document.getElementById('galleryModal')) closeGallery();
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('galleryModal').classList.contains('open')) return;
+  if(e.key === 'ArrowRight') galleryNav(1);
+  if(e.key === 'ArrowLeft') galleryNav(-1);
+  if(e.key === 'Escape') closeGallery();
+});
+
 // NAV
 window.addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
 
@@ -1222,7 +1565,7 @@ function showTyping(){const d=document.createElement('div');d.className='typing'
 function sendChat(){const inp=document.getElementById('chatInp');const msg=inp.value.trim();if(!msg)return;addMsg(msg,true);inp.value='';document.getElementById('quickBtns').style.display='none';showTyping();setTimeout(()=>{const t=document.getElementById('typing');if(t)t.remove();addMsg(getReply(msg),false);},1000);}
 function qReply(msg){addMsg(msg,true);document.getElementById('quickBtns').style.display='none';showTyping();setTimeout(()=>{const t=document.getElementById('typing');if(t)t.remove();addMsg(getReply(msg),false);},1000);}
 
-documents.getElementById('fdate').min=new Date().toISOString().split('T')[0];
+document.getElementById('fdate').min=new Date().toISOString().split('T')[0];
 </script>
 </body>
 </html>
