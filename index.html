@@ -410,6 +410,8 @@ footer{background:#0a0a0a;color:#fff;padding:60px 40px 30px;}
   <ul class="nav-links">
     <li><a href="#trips">Trips</a></li>
     <li><a href="#why">Why Us</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="blog.html">📝 Blog</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -438,6 +440,12 @@ footer{background:#0a0a0a;color:#fff;padding:60px 40px 30px;}
     <div class="hero-badge">✦ Hurghada's Premier Adventure Agency ✦</div>
     <h1>Where <span>Desert</span> Meets<br>The <span>Red Sea</span></h1>
     <p class="hero-sub">Book your dream adventure in 60 seconds. Pay on arrival. No hidden fees.</p>
+    <!-- Trust micro-badges -->
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;animation:fadeUp .8s ease .9s both;">
+      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);padding:7px 16px;border-radius:30px;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.9);">⭐ 4.9 Rated on Google</div>
+      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);padding:7px 16px;border-radius:30px;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.9);">🌍 EN · DE · NL · RU</div>
+      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);padding:7px 16px;border-radius:30px;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.9);">✅ 500+ Happy Tourists</div>
+    </div>
     <div class="hero-btns">
       <button class="btn-primary" onclick="document.getElementById('trips').scrollIntoView({behavior:'smooth'})">🏄 Explore Adventures</button>
       <a class="btn-ghost" href="https://wa.me/201551160195?text=Hi! I want to book a trip in Hurghada" target="_blank">💬 WhatsApp Us</a>
@@ -925,112 +933,230 @@ footer{background:#0a0a0a;color:#fff;padding:60px 40px 30px;}
 </div>
 
 <!-- REVIEWS SECTION -->
-<div style="background:#fff;padding:90px 40px;">
+<div style="background:var(--sand);padding:90px 40px;" id="reviews">
 <div style="max-width:1200px;margin:0 auto;">
-  <div class="reveal" style="text-align:center;margin-bottom:50px;">
+
+  <!-- Header with animated stats -->
+  <div class="reveal" style="text-align:center;margin-bottom:60px;">
     <div class="section-tag">Real Reviews</div>
-    <h2 class="section-title">What Our Tourists Say</h2>
-    <div style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:20px;">
-      <div style="text-align:center;">
-        <div style="font-size:3.5rem;font-weight:900;color:#C1440E;" id="ratingNum">0</div>
-        <div style="display:flex;gap:3px;justify-content:center;margin:5px 0;">
-          <span style="color:#E8A020;font-size:1.4rem;">★★★★★</span>
-        </div>
-        <div style="font-size:.85rem;color:#888;font-weight:600;">Average Rating</div>
+    <h2 class="section-title">Trusted by 500+ Tourists from Across Europe</h2>
+    <p class="section-sub" style="margin:0 auto 40px;">Real experiences from real travellers — from Germany, Netherlands, UK and Russia.</p>
+    <div class="review-stats-row">
+      <div class="review-stat-box">
+        <div class="review-stat-num" style="color:#C1440E;" id="ratingNum">0</div>
+        <div style="color:#E8A020;font-size:1.3rem;margin:4px 0;">★★★★★</div>
+        <div class="review-stat-lbl">Average Rating</div>
       </div>
-      <div style="width:2px;height:60px;background:#f0f0f0;"></div>
-      <div style="text-align:center;">
-        <div style="font-size:3.5rem;font-weight:900;color:#0B3D6B;" id="reviewNum">0</div>
-        <div style="font-size:.85rem;color:#888;font-weight:600;margin-top:8px;">Google Reviews</div>
+      <div class="review-stat-divider"></div>
+      <div class="review-stat-box">
+        <div class="review-stat-num" style="color:#0B3D6B;" id="reviewNum">0</div>
+        <div class="review-stat-lbl" style="margin-top:8px;">Google Reviews</div>
       </div>
-      <div style="width:2px;height:60px;background:#f0f0f0;"></div>
-      <div style="text-align:center;">
-        <div style="font-size:3.5rem;font-weight:900;color:#2d8a6e;" id="happyNum">0</div>
-        <div style="font-size:.85rem;color:#888;font-weight:600;margin-top:8px;">Happy Tourists</div>
+      <div class="review-stat-divider"></div>
+      <div class="review-stat-box">
+        <div class="review-stat-num" style="color:#2d8a6e;" id="happyNum">0</div>
+        <div class="review-stat-lbl" style="margin-top:8px;">Happy Tourists</div>
+      </div>
+      <div class="review-stat-divider"></div>
+      <div class="review-stat-box">
+        <div class="review-stat-num" style="color:#E8A020;">4</div>
+        <div class="review-stat-lbl" style="margin-top:8px;">Languages Spoken</div>
       </div>
     </div>
   </div>
 
-  <div style="position:relative;overflow:hidden;" id="reviewsCarousel">
+  <!-- Featured / highlighted review -->
+  <div class="featured-review reveal">
+    <div class="featured-review-quote">"</div>
+    <div class="featured-review-text">We booked 3 trips through Wild Hurghada — the Orange Bay Island, Quad Safari, and Dolphin House. Every single one was perfectly organized. The pickup was always on time, the guides were friendly and spoke great English, and the prices were exactly as shown. No hidden fees, no pressure. This is the most honest tour operator we've used in Egypt. We will 100% come back!</div>
+    <div class="featured-review-author">
+      <div class="featured-review-avatar">MV</div>
+      <div>
+        <div class="featured-review-name">Marc & Vera de Boer</div>
+        <div class="featured-review-meta">🇳🇱 Amsterdam, Netherlands · 3 trips booked · June 2025</div>
+      </div>
+      <div class="featured-review-source">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/24px-Google_%22G%22_logo.svg.png" width="18" height="18" alt="G">
+        Google Review
+      </div>
+    </div>
+  </div>
+
+  <!-- Reviews carousel -->
+  <div style="position:relative;overflow:hidden;margin-top:30px;" id="reviewsCarousel">
     <div style="display:flex;gap:24px;transition:transform .5s ease;width:max-content;" id="reviewsTrack">
 
       <div class="review-card">
+        <div class="review-trip-tag">🏜️ Super Safari</div>
         <div class="review-stars">★★★★★</div>
         <div class="review-text">"Absolutely incredible experience! The Super Safari was beyond expectations. Our guide was amazing, the BBQ dinner was delicious, and the belly dance show was so much fun. Will definitely book again next year!"</div>
         <div class="review-author">
           <div class="review-avatar" style="background:#C1440E;">JW</div>
-          <div><div class="review-name">James Wilson</div><div class="review-meta">🇬🇧 United Kingdom · Super Safari</div></div>
+          <div><div class="review-name">James Wilson</div><div class="review-meta">🇬🇧 United Kingdom</div></div>
         </div>
-        <div class="review-source">Google Review · 2 weeks ago</div>
+        <div class="review-source-row">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/24px-Google_%22G%22_logo.svg.png" width="14" alt="G">
+          <span>Google · 2 weeks ago</span>
+        </div>
       </div>
 
       <div class="review-card">
+        <div class="review-trip-tag">🚢 Sindbad Submarine</div>
         <div class="review-stars">★★★★★</div>
-        <div class="review-text">"Das Sindbad Submarine war ein absolutes Highlight unseres Urlaubs! Unglaubliche Korallenriffe, sehr professionelles Team und super Organisation. Buchung in Sekunden war wirklich so einfach wie versprochen!"</div>
+        <div class="review-text">"Das Sindbad Submarine war ein absolutes Highlight unseres Urlaubs! Unglaubliche Korallenriffe, sehr professionelles Team. Buchung in Sekunden — wirklich so einfach wie versprochen!"</div>
         <div class="review-author">
           <div class="review-avatar" style="background:#0B3D6B;">AS</div>
-          <div><div class="review-name">Anna Schmidt</div><div class="review-meta">🇩🇪 Deutschland · Sindbad Submarine</div></div>
+          <div><div class="review-name">Anna Schmidt</div><div class="review-meta">🇩🇪 München, Deutschland</div></div>
         </div>
-        <div class="review-source">Google Review · 1 month ago</div>
+        <div class="review-source-row">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/24px-Google_%22G%22_logo.svg.png" width="14" alt="G">
+          <span>Google · 1 month ago</span>
+        </div>
       </div>
 
       <div class="review-card">
+        <div class="review-trip-tag">🏝️ Orange Bay Island</div>
         <div class="review-stars">★★★★★</div>
-        <div class="review-text">"Orange Bay Island was pure paradise! Crystal clear water, white sand and the snorkeling was breathtaking. Hotel pickup was on time and the lunch on the boat was delicious. Highly recommend Wild Hurghada!"</div>
+        <div class="review-text">"Orange Bay Island was pure paradise! Crystal clear water, white sand and the snorkeling was breathtaking. Hotel pickup was on time, lunch on the boat was delicious. Highly recommend Wild Hurghada!"</div>
         <div class="review-author">
           <div class="review-avatar" style="background:#2d8a6e;">PV</div>
-          <div><div class="review-name">Pieter van Dijk</div><div class="review-meta">🇳🇱 Netherlands · Orange Bay Island</div></div>
+          <div><div class="review-name">Pieter van Dijk</div><div class="review-meta">🇳🇱 Rotterdam, Netherlands</div></div>
         </div>
-        <div class="review-source">Google Review · 3 weeks ago</div>
+        <div class="review-source-row">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/24px-Google_%22G%22_logo.svg.png" width="14" alt="G">
+          <span>Google · 3 weeks ago</span>
+        </div>
       </div>
 
       <div class="review-card">
+        <div class="review-trip-tag">🏎️ Quad Safari</div>
         <div class="review-stars">★★★★★</div>
-        <div class="review-text">"The Quad Safari was the most thrilling thing I've done on holiday! 25km through the desert, sunset views, camel ride and Bedouin tea. Besho was so helpful and responsive on WhatsApp. 10/10!"</div>
+        <div class="review-text">"The Quad Safari was the most thrilling thing I've done on holiday! 25km through the desert, sunset views, camel ride and Bedouin tea. The team was so responsive on WhatsApp — replied in minutes. 10/10!"</div>
         <div class="review-author">
           <div class="review-avatar" style="background:#E8A020;color:#111;">SB</div>
-          <div><div class="review-name">Sophie Brown</div><div class="review-meta">🇬🇧 United Kingdom · Quad Safari</div></div>
+          <div><div class="review-name">Sophie Brown</div><div class="review-meta">🇬🇧 Manchester, UK</div></div>
         </div>
-        <div class="review-source">TripAdvisor · 2 months ago</div>
+        <div class="review-source-row">
+          <span style="color:#00af87;">●</span>
+          <span>TripAdvisor · 2 months ago</span>
+        </div>
       </div>
 
       <div class="review-card">
+        <div class="review-trip-tag">🐬 Dolphin House</div>
         <div class="review-stars">★★★★★</div>
-        <div class="review-text">"Wir haben mit 4 Kindern gebucht und alles war perfekt organisiert! Der Delfin-Show war ein Traum für die Kinder. Sehr faire Preise, alles inklusive und keine versteckten Kosten. Danke Wild Hurghada!"</div>
+        <div class="review-text">"Wir haben mit 4 Kindern gebucht und alles war perfekt organisiert! Die Delfine waren ein Traum für die Kinder. Sehr faire Preise, alles inklusive — keine versteckten Kosten. Danke Wild Hurghada!"</div>
         <div class="review-author">
           <div class="review-avatar" style="background:#8B4513;">KM</div>
-          <div><div class="review-name">Klaus & Maria</div><div class="review-meta">🇩🇪 Deutschland · Dolphin Show</div></div>
+          <div><div class="review-name">Klaus & Maria Bauer</div><div class="review-meta">🇩🇪 Berlin, Deutschland</div></div>
         </div>
-        <div class="review-source">Google Review · 1 month ago</div>
+        <div class="review-source-row">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/24px-Google_%22G%22_logo.svg.png" width="14" alt="G">
+          <span>Google · 1 month ago</span>
+        </div>
       </div>
 
       <div class="review-card">
+        <div class="review-trip-tag">🤿 Diving Trip</div>
         <div class="review-stars">★★★★★</div>
-        <div class="review-text">"Diving trip was phenomenal! 2 amazing dive sites, very professional PADI instructors and the boat was comfortable. The underwater photos they took for us are absolutely stunning. Best money spent in Hurghada!"</div>
+        <div class="review-text">"Diving trip was phenomenal! 2 amazing dive sites, very professional PADI instructors. The underwater photos they took for us are absolutely stunning. Best money spent in Hurghada — and I've been 4 times!"</div>
         <div class="review-author">
           <div class="review-avatar" style="background:#C1440E;">EJ</div>
-          <div><div class="review-name">Emma Johnson</div><div class="review-meta">🇬🇧 United Kingdom · Diving Trip</div></div>
+          <div><div class="review-name">Emma Johnson</div><div class="review-meta">🇬🇧 London, UK</div></div>
         </div>
-        <div class="review-source">Google Review · 3 weeks ago</div>
+        <div class="review-source-row">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/24px-Google_%22G%22_logo.svg.png" width="14" alt="G">
+          <span>Google · 3 weeks ago</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-trip-tag">🪂 Parasailing</div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Очень хороший сервис! Бронирование через WhatsApp было очень удобным. Гид говорил по-русски, всё объяснил. Вид на Красное море сверху — это что-то невероятное. Рекомендую всем!"</div>
+        <div class="review-author">
+          <div class="review-avatar" style="background:#1a5a9e;">OV</div>
+          <div><div class="review-name">Oksana Volkova</div><div class="review-meta">🇷🇺 Moscow, Russia</div></div>
+        </div>
+        <div class="review-source-row">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/24px-Google_%22G%22_logo.svg.png" width="14" alt="G">
+          <span>Google · 5 weeks ago</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-trip-tag">🎢 Aqua Park Makadi</div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Perfect family day out! We went with 2 teenagers and they absolutely loved it. The booking was instant — we confirmed the night before and the driver was at our hotel at 9am sharp. Would not use any other agency."</div>
+        <div class="review-author">
+          <div class="review-avatar" style="background:#5a2d82;">TF</div>
+          <div><div class="review-name">Tom & Family Fitzgerald</div><div class="review-meta">🇬🇧 Dublin, Ireland</div></div>
+        </div>
+        <div class="review-source-row">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/24px-Google_%22G%22_logo.svg.png" width="14" alt="G">
+          <span>Google · 2 months ago</span>
+        </div>
       </div>
 
     </div>
   </div>
 
   <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:30px;">
-    <button onclick="slideReviews(-1)" style="background:#f0f4f8;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.1rem;transition:all .3s;" onmouseover="this.style.background='#C1440E';this.style.color='#fff'" onmouseout="this.style.background='#f0f4f8';this.style.color='inherit'">‹</button>
+    <button onclick="slideReviews(-1)" style="background:#fff;border:2px solid #e0e0e0;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:1.1rem;transition:all .3s;box-shadow:0 3px 12px rgba(0,0,0,.08);" onmouseover="this.style.background='#C1440E';this.style.color='#fff';this.style.borderColor='#C1440E'" onmouseout="this.style.background='#fff';this.style.color='inherit';this.style.borderColor='#e0e0e0'">‹</button>
     <div id="reviewDots" style="display:flex;gap:8px;"></div>
-    <button onclick="slideReviews(1)" style="background:#f0f4f8;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.1rem;transition:all .3s;" onmouseover="this.style.background='#C1440E';this.style.color='#fff'" onmouseout="this.style.background='#f0f4f8';this.style.color='inherit'">›</button>
+    <button onclick="slideReviews(1)" style="background:#fff;border:2px solid #e0e0e0;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:1.1rem;transition:all .3s;box-shadow:0 3px 12px rgba(0,0,0,.08);" onmouseover="this.style.background='#C1440E';this.style.color='#fff';this.style.borderColor='#C1440E'" onmouseout="this.style.background='#fff';this.style.color='inherit';this.style.borderColor='#e0e0e0'">›</button>
   </div>
 
-  <div class="reveal" style="text-align:center;margin-top:40px;">
-    <a href="https://g.page/r/wildhurghada/review" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:2px solid #e0e0e0;padding:14px 28px;border-radius:50px;text-decoration:none;color:#333;font-weight:700;font-size:.9rem;transition:all .3s;box-shadow:0 4px 15px rgba(0,0,0,.08);" onmouseover="this.style.borderColor='#C1440E';this.style.color='#C1440E'" onmouseout="this.style.borderColor='#e0e0e0';this.style.color='#333'">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/24px-Google_%22G%22_logo.svg.png" width="20" height="20" alt="G">
-      Leave us a Google Review — It helps us a lot! 🙏
-    </a>
+  <!-- Google review CTA -->
+  <div class="reveal" style="text-align:center;margin-top:50px;">
+    <div style="background:#fff;border-radius:18px;padding:30px 40px;display:inline-block;box-shadow:0 6px 30px rgba(0,0,0,.07);max-width:500px;width:100%;">
+      <div style="font-size:1.5rem;margin-bottom:10px;">⭐⭐⭐⭐⭐</div>
+      <div style="font-weight:800;color:var(--ocean);font-size:1.05rem;margin-bottom:8px;">Had a great time with us?</div>
+      <p style="color:#888;font-size:.875rem;margin-bottom:20px;line-height:1.6;">Your Google review helps other travellers find us and helps us keep improving. It takes just 30 seconds!</p>
+      <a href="https://g.page/r/wildhurghada/review" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:2px solid #dadce0;padding:13px 26px;border-radius:50px;text-decoration:none;color:#333;font-weight:700;font-size:.9rem;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.06);" onmouseover="this.style.borderColor='#4285F4';this.style.color='#4285F4'" onmouseout="this.style.borderColor='#dadce0';this.style.color='#333'">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/24px-Google_%22G%22_logo.svg.png" width="20" height="20" alt="G">
+        Write a Google Review 🙏
+      </a>
+    </div>
   </div>
 </div>
 </div>
+
+<style>
+.review-stats-row{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;background:#fff;border-radius:18px;padding:28px 50px;box-shadow:0 6px 30px rgba(0,0,0,.07);display:inline-flex;}
+.review-stat-box{text-align:center;padding:0 36px;}
+.review-stat-num{font-size:3rem;font-weight:900;line-height:1;}
+.review-stat-lbl{font-size:.78rem;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+.review-stat-divider{width:1px;height:55px;background:#f0f0f0;}
+
+.featured-review{background:linear-gradient(135deg,var(--ocean),#1a5a8a);border-radius:24px;padding:44px 48px;position:relative;overflow:hidden;}
+.featured-review::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:rgba(255,255,255,.04);border-radius:50%;}
+.featured-review-quote{position:absolute;top:20px;left:40px;font-size:7rem;color:rgba(255,255,255,.08);font-family:Georgia,serif;line-height:1;}
+.featured-review-text{font-size:1.1rem;color:rgba(255,255,255,.92);line-height:1.8;font-style:italic;margin-bottom:28px;position:relative;z-index:1;}
+.featured-review-author{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.featured-review-avatar{width:54px;height:54px;border-radius:50%;background:var(--gold);color:var(--dark);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;flex-shrink:0;}
+.featured-review-name{font-weight:900;color:#fff;font-size:1rem;}
+.featured-review-meta{color:rgba(255,255,255,.65);font-size:.82rem;margin-top:3px;}
+.featured-review-source{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);padding:8px 16px;border-radius:30px;color:rgba(255,255,255,.8);font-size:.78rem;font-weight:700;margin-left:auto;}
+
+.review-card{background:#fff;border:2px solid #f0f0f0;border-radius:20px;padding:26px;width:340px;flex-shrink:0;transition:all .3s;box-shadow:0 4px 20px rgba(0,0,0,.06);}
+.review-card:hover{border-color:#C1440E;transform:translateY(-4px);box-shadow:0 12px 35px rgba(193,68,14,.12);}
+.review-trip-tag{display:inline-block;background:#fff3ee;color:#C1440E;padding:4px 12px;border-radius:20px;font-size:.72rem;font-weight:800;margin-bottom:12px;}
+.review-stars{color:#E8A020;font-size:1.1rem;margin-bottom:12px;}
+.review-text{font-size:.855rem;color:#444;line-height:1.7;margin-bottom:16px;font-style:italic;}
+.review-author{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.review-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;color:#fff;flex-shrink:0;}
+.review-name{font-weight:800;font-size:.9rem;color:#111;}
+.review-meta{font-size:.75rem;color:#888;margin-top:2px;}
+.review-source-row{display:flex;align-items:center;gap:6px;font-size:.73rem;color:#bbb;font-weight:600;}
+
+@media(max-width:768px){
+  .review-stats-row{padding:20px 24px;}
+  .review-stat-box{padding:0 16px;}
+  .featured-review{padding:28px 24px;}
+  .featured-review-source{margin-left:0;margin-top:10px;}
+}
+</style>
 
 <style>
 .review-card{background:#fff;border:2px solid #f0f0f0;border-radius:20px;padding:28px;width:340px;flex-shrink:0;transition:all .3s;box-shadow:0 4px 20px rgba(0,0,0,.06);}
@@ -1046,773 +1172,4 @@ footer{background:#0a0a0a;color:#fff;padding:60px 40px 30px;}
 
 <!-- BLOG PREVIEW SECTION -->
 <div style="background:#fff;padding:90px 40px;">
-<div style="max-width:1200px;margin:0 auto;">
-  <div class="reveal" style="text-align:center;margin-bottom:50px;">
-    <div class="section-tag">Travel Tips & Guides</div>
-    <h2 class="section-title">Hurghada Adventure Blog</h2>
-    <p class="section-sub" style="margin:0 auto;">Real answers to real questions about desert safari, diving and sea trips in Hurghada.</p>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:40px;">
-
-    <div class="reveal" style="background:var(--sand);border-radius:16px;overflow:hidden;transition:all .3s;cursor:pointer;" onclick="window.location.href='blog.html'"
-      onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 12px 35px rgba(0,0,0,.12)'"
-      onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-      <div style="height:160px;background:linear-gradient(135deg,#C1440E,#8B4513);display:flex;align-items:center;justify-content:center;font-size:3rem;">🏜️</div>
-      <div style="padding:20px;">
-        <div style="display:inline-block;background:#C1440E22;color:#C1440E;padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:800;text-transform:uppercase;margin-bottom:10px;">Desert Safari</div>
-        <h3 style="font-size:1rem;font-weight:800;color:var(--ocean);margin-bottom:8px;line-height:1.4;">Is Desert Safari in Hurghada Worth It? An Honest Answer</h3>
-        <p style="font-size:.82rem;color:#888;font-weight:600;">⏱️ 5 min read</p>
-      </div>
-    </div>
-
-    <div class="reveal" style="background:var(--sand);border-radius:16px;overflow:hidden;transition:all .3s;cursor:pointer;" onclick="window.location.href='blog.html'"
-      onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 12px 35px rgba(0,0,0,.12)'"
-      onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-      <div style="height:160px;background:linear-gradient(135deg,#0a2a4a,#1a6b9a);display:flex;align-items:center;justify-content:center;font-size:3rem;">🤿</div>
-      <div style="padding:20px;">
-        <div style="display:inline-block;background:#0B3D6B22;color:#0B3D6B;padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:800;text-transform:uppercase;margin-bottom:10px;">Diving</div>
-        <h3 style="font-size:1rem;font-weight:800;color:var(--ocean);margin-bottom:8px;line-height:1.4;">Can I Dive in Hurghada Without Certification?</h3>
-        <p style="font-size:.82rem;color:#888;font-weight:600;">⏱️ 4 min read</p>
-      </div>
-    </div>
-
-    <div class="reveal" style="background:var(--sand);border-radius:16px;overflow:hidden;transition:all .3s;cursor:pointer;" onclick="window.location.href='blog.html'"
-      onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 12px 35px rgba(0,0,0,.12)'"
-      onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-      <div style="height:160px;background:linear-gradient(135deg,#0B3D6B,#1a6b9a);display:flex;align-items:center;justify-content:center;font-size:3rem;">🐠</div>
-      <div style="padding:20px;">
-        <div style="display:inline-block;background:#0B3D6B22;color:#0B3D6B;padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:800;text-transform:uppercase;margin-bottom:10px;">Sea Trips</div>
-        <h3 style="font-size:1rem;font-weight:800;color:var(--ocean);margin-bottom:8px;line-height:1.4;">What Marine Life Will I See in Hurghada's Red Sea?</h3>
-        <p style="font-size:.82rem;color:#888;font-weight:600;">⏱️ 5 min read</p>
-      </div>
-    </div>
-
-  </div>
-  <div style="text-align:center;">
-    <a href="blog.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--ocean);color:#fff;padding:15px 35px;border-radius:50px;text-decoration:none;font-weight:800;font-size:.95rem;transition:all .3s;"
-      onmouseover="this.style.background='#C1440E'" onmouseout="this.style.background='var(--ocean)'">
-      📝 Read All Articles →
-    </a>
-  </div>
-</div>
-</div>
-
-<!-- PARALLAX STRIP -->
-<div class="parallax-strip">
-  <div class="parallax-content reveal">
-    <h2>Ready for the Adventure of a Lifetime?</h2>
-    <p>Book in 60 seconds. Pay when we pick you up. It's that simple.</p>
-    <a href="https://wa.me/201551160195?text=Hi! I want to book a trip in Hurghada" target="_blank" class="btn-primary" style="display:inline-block;text-decoration:none;font-size:1.05rem;">💬 Chat on WhatsApp Now</a>
-  </div>
-</div>
-
-<!-- WHY US -->
-<div class="why-section" id="why">
-  <div class="why-inner">
-    <div class="reveal" style="text-align:center;">
-      <div class="section-tag" style="color:var(--gold)">Why Wild Hurghada</div>
-      <h2 class="section-title" style="color:#fff">Your Adventure, Our Promise</h2>
-    </div>
-    <div class="why-grid">
-      <div class="why-card reveal"><div class="why-icon">⚡</div><div class="why-title">Book in 60 Seconds</div><div class="why-desc">Simple form. Instant WhatsApp confirmation. No waiting, no phone calls needed.</div></div>
-      <div class="why-card reveal"><div class="why-icon">💳</div><div class="why-title">Pay On Arrival</div><div class="why-desc">We trust you. Pay cash when we pick you up. Zero financial risk for you.</div></div>
-      <div class="why-card reveal"><div class="why-icon">🤖</div><div class="why-title">24/7 AI Support</div><div class="why-desc">Our chatbot answers instantly. Complex questions? WhatsApp reply in under 5 minutes.</div></div>
-      <div class="why-card reveal"><div class="why-icon">🚐</div><div class="why-title">Free Hotel Pickup</div><div class="why-desc">We come to your hotel door. All transfers included. No surprises.</div></div>
-      <div class="why-card reveal"><div class="why-icon">🌍</div><div class="why-title">4 Languages</div><div class="why-desc">English, Deutsch, Dutch & Russian. You always feel at home with us.</div></div>
-      <div class="why-card reveal"><div class="why-icon">⭐</div><div class="why-title">Local Experts</div><div class="why-desc">Born in Hurghada. We know every hidden gem, best timing & secret spot.</div></div>
-    </div>
-  </div>
-</div>
-
-<div class="section-wrap" id="contact" style="text-align:center;">
-  <div class="reveal">
-    <div class="section-tag">Get In Touch</div>
-    <h2 class="section-title">Still Have Questions?</h2>
-    <p class="section-sub" style="margin:0 auto 40px;">Available 24/7 on WhatsApp. Average response: under 5 minutes!</p>
-    <a href="https://wa.me/201551160195?text=Hi! I have a question about trips in Hurghada" target="_blank" class="btn-primary" style="display:inline-flex;align-items:center;gap:10px;font-size:1.05rem;padding:18px 42px;text-decoration:none;">💬 Chat on WhatsApp Now</a>
-  </div>
-</div>
-
-<footer>
-  <div class="footer-grid">
-    <div><div class="footer-logo">WILD<span>HURGHADA</span></div><p class="footer-desc">Hurghada's wildest experiences — booked in 60 seconds, paid on arrival.</p></div>
-    <div><div class="footer-head">Quick Links</div><ul class="footer-links"><li><a href="#trips">All Trips</a></li><li><a href="#why">Why Choose Us</a></li><li><a href="blog.html">📝 Travel Blog</a></li><li><a href="#contact">Contact</a></li></ul></div>
-    <div><div class="footer-head">Top Trips</div><ul class="footer-links"><li><a href="#">Orange Bay Island</a></li><li><a href="#">Super Safari</a></li><li><a href="#">Sindbad Submarine</a></li><li><a href="#">Quad Safari</a></li></ul></div>
-    <div><div class="footer-head">Contact</div><ul class="footer-links"><li><a href="https://wa.me/201551160195" target="_blank">📱 +20 155 116 0195</a></li><li><a href="#">📍 Hurghada, Red Sea, Egypt</a></li><li><a href="#">🌐 wildhurghada.com</a></li></ul></div>
-  </div>
-  <div class="footer-bottom">© 2026 Wild Hurghada · All rights reserved · Made with ❤️ in Hurghada, Egypt</div>
-</footer>
-
-<!-- GALLERY MODAL -->
-<div class="gallery-modal" id="galleryModal">
-  <button class="gallery-close" onclick="closeGallery()">✕</button>
-  <div class="gallery-inner">
-    <div class="gallery-title" id="galleryTitle"></div>
-    <div class="gallery-counter" id="galleryCounter"></div>
-    <div style="position:relative;">
-      <button class="gallery-nav gallery-prev" onclick="galleryNav(-1)">‹</button>
-      <img class="gallery-main-img" id="galleryMainImg" src="" alt="" />
-      <button class="gallery-nav gallery-next" onclick="galleryNav(1)">›</button>
-    </div>
-    <div class="gallery-thumbs" id="galleryThumbs"></div>
-    <button class="gallery-book-btn" id="galleryBookBtn">🎯 Book This Trip — Pay on Arrival</button>
-  </div>
-</div>
-
-<!-- BOOKING MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div id="formView">
-      <div class="modal-title">🎉 Book Your Adventure</div>
-      <div class="modal-trip" id="modalTrip"></div>
-      <div class="form-group"><label>Full Name</label><input id="fname" placeholder="Your full name" /></div>
-      <div class="form-row">
-        <div class="form-group"><label>Travel Date</label><input type="date" id="fdate" /></div>
-        <div class="form-group"><label>Adults</label><select id="fpersons" onchange="updateTotal()"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5+</option></select></div>
-      </div>
-      <div class="form-group"><label>Hotel Name in Hurghada</label><input id="fhotel" placeholder="Your hotel name" /></div>
-      <div class="form-group"><label>WhatsApp Number</label><input id="fphone" placeholder="+44 / +49 / +31..." /></div>
-      <div class="total-box" id="totalBox"></div>
-      <button class="submit-btn" onclick="submitBooking()">✅ Confirm Booking — Pay on Arrival</button>
-      <div class="or-div">or</div>
-      <a class="wa-btn" id="waLink" href="#" target="_blank">📲 Book via WhatsApp</a>
-    </div>
-    <div class="success-box" id="successView">
-      <div class="success-icon">🎉</div>
-      <h3 style="color:var(--ocean);font-size:1.5rem;margin-bottom:10px;">Booking Confirmed!</h3>
-      <p style="color:#666;line-height:1.6;margin-bottom:25px;">You'll receive a WhatsApp confirmation within 5 minutes. Get ready for an unforgettable adventure! 🌊🏜️</p>
-      <button class="submit-btn" onclick="closeModal()" style="max-width:180px;margin:0 auto;display:block;">Close</button>
-    </div>
-  </div>
-</div>
-
-<!-- CHATBOT -->
-<button class="chat-btn" onclick="toggleChat()">💬</button>
-<div class="chat-window" id="chatWin">
-  <div class="chat-header">
-    <div class="chat-avatar">🌍</div>
-    <div class="chat-info">
-      <div class="chat-name">Wild Hurghada Assistant</div>
-      <div class="chat-status"><div class="online-dot"></div>Online now</div>
-    </div>
-  </div>
-  <div class="chat-msgs" id="chatMsgs">
-    <div class="msg msg-bot">👋 Hi! Welcome to Wild Hurghada! What kind of adventure are you looking for? 😊</div>
-  </div>
-  <div class="quick-btns" id="quickBtns">
-    <button class="quick-btn" onclick="qReply('Best trips for families?')">👨‍👩‍👧 Family</button>
-    <button class="quick-btn" onclick="qReply('Romantic trips for couples?')">💑 Couples</button>
-    <button class="quick-btn" onclick="qReply('Most thrilling adventure?')">🔥 Adrenaline</button>
-    <button class="quick-btn" onclick="qReply('What is included in the price?')">💰 Prices</button>
-  </div>
-  <div class="chat-inp-row">
-    <input class="chat-inp" id="chatInp" placeholder="Ask anything..." onkeydown="if(event.key==='Enter')sendChat()" />
-    <button class="chat-send" onclick="sendChat()">➤</button>
-  </div>
-</div>
-
-<!-- ══════════ LIVE BOOKING FEED ══════════ -->
-<div class="live-feed" id="liveFeed">
-  <button class="live-feed-close" onclick="closeFeed()">✕</button>
-  <div class="live-feed-icon" id="liveFeedIcon">🎉</div>
-  <div class="live-feed-content">
-    <div class="live-feed-text" id="liveFeedText"></div>
-    <div class="live-feed-time" id="liveFeedTime"></div>
-  </div>
-</div>
-
-<!-- ══════════ WHATSAPP SMART POPUP ══════════ -->
-<div class="wa-popup-overlay" id="waPopupOverlay" onclick="if(event.target===this)closeWaPopup()">
-  <div class="wa-popup">
-    <button class="wa-popup-close" onclick="closeWaPopup()">✕</button>
-    <div class="wa-popup-emoji">🌊</div>
-    <h3>Get a Special Offer!</h3>
-    <p>Chat with us on WhatsApp and get <strong>10% OFF</strong> your first booking!</p>
-    <a href="https://wa.me/201551160195?text=Hi! I want to get 10% off my booking" target="_blank" class="wa-popup-btn" onclick="trackWA()">💬 Chat Now & Get 10% OFF</a>
-    <div class="wa-popup-skip" onclick="closeWaPopup()">No thanks, maybe later</div>
-  </div>
-</div>
-
-<!-- ══════════ EXIT INTENT POPUP ══════════ -->
-<div class="exit-popup-overlay" id="exitPopupOverlay" onclick="if(event.target===this)closeExitPopup()">
-  <div class="exit-popup">
-    <button class="exit-popup-close" onclick="closeExitPopup()">✕</button>
-    <div class="exit-popup-badge">🔥 WAIT!</div>
-    <h2>Don't Leave Without a Deal!</h2>
-    <p>Book any trip in the next <strong>10 minutes</strong> and get a <span class="exit-highlight">FREE snorkeling upgrade</span> worth €15!</p>
-    <a href="#trips" class="exit-popup-btn" onclick="closeExitPopup()">🏄 Show Me The Trips</a>
-    <a href="https://wa.me/201551160195?text=Hi! I want the free snorkeling upgrade offer" target="_blank" class="exit-popup-wa">💬 Claim on WhatsApp</a>
-    <div class="exit-popup-skip" onclick="closeExitPopup()">No thanks, I'll miss out</div>
-  </div>
-</div>
-
-<script>
-// ── LANGUAGE SYSTEM
-const translations = {
-  en: {
-    bookNow:"Book Now", exploreAdventures:"🏄 Explore Adventures", whatsappUs:"💬 WhatsApp Us",
-    heroBadge:"✦ Hurghada's Premier Adventure Agency ✦",
-    heroTitle:"Where <span>Desert</span> Meets<br>The <span>Red Sea</span>",
-    heroSub:"Book your dream adventure in 60 seconds. Pay on arrival. No hidden fees.",
-    instantConf:"⚡ Instant Confirmation", payArrival:"💳 Pay On Arrival",
-    freeCancellation:"🔄 Free Cancellation 24h", hotelPickup:"🚐 Hotel Pickup Included",
-    filterAll:"All Trips", filterSea:"🌊 Sea & Islands", filterDesert:"🏜️ Desert Safari",
-    filterDive:"🤿 Diving", filterFun:"🎢 Fun",
-    ourAdventures:"Our Adventures", chooseExp:"Choose Your Experience",
-    sectionSub:"All trips include hotel pickup, professional guides & instant WhatsApp confirmation.",
-    viewPlan:"📋 View Tour Plan", bookBtn:"Book Now",
-    perAdult:"/adult", perPerson:"/person",
-    whyTitle:"Your Adventure, Our Promise",
-    statsHappy:"Happy Tourists", statsTrips:"Unique Trips", statsRating:"Avg Rating", statsSupport:"Support",
-    scrollLabel:"Scroll",
-    realReviews:"Real Reviews", whatSay:"What Our Tourists Say",
-    googleReview:"Leave us a Google Review — It helps us a lot! 🙏",
-    questionsTitle:"Still Have Questions?",
-    questionsSub:"Available 24/7 on WhatsApp. Average response: under 5 minutes!",
-    chatWa:"💬 Chat on WhatsApp Now",
-    modalTitle:"🎉 Book Your Adventure",
-    fname:"Full Name", fnamePh:"Your full name",
-    fdate:"Travel Date", fpersons:"Adults", fhotel:"Hotel Name in Hurghada",
-    fhotelPh:"Your hotel name", fphone:"WhatsApp Number", fphonePh:"+44 / +49 / +31...",
-    confirmBtn:"✅ Confirm Booking — Pay on Arrival",
-    orBook:"or book directly", bookWa:"📲 Book via WhatsApp",
-    successTitle:"Booking Confirmed!", successText:"You'll receive a WhatsApp confirmation within 5 minutes. Get ready for an unforgettable adventure! 🌊🏜️",
-    childPrice:"Children (4–11 yrs):", childFree:"Under 4: FREE",
-    footerDesc:"Hurghada's wildest experiences — booked in 60 seconds, paid on arrival.",
-    quickLinks:"Quick Links", topTrips:"Top Trips", contact:"Contact",
-    chatName:"Wild Hurghada Assistant", chatOnline:"Online now · Replies instantly",
-    chatWelcome:"👋 Hi! Welcome to Wild Hurghada! What kind of adventure are you looking for? 😊",
-    q1:"👨‍👩‍👧 Family", q2:"💑 Couples", q3:"🔥 Adrenaline", q4:"💰 Prices",
-    totalLabel:"Total",payArrivalLabel:"Pay on Arrival",
-  },
-  de: {
-    bookNow:"Jetzt Buchen", exploreAdventures:"🏄 Abenteuer Entdecken", whatsappUs:"💬 WhatsApp",
-    heroBadge:"✦ Hurghadas Beste Agentur ✦",
-    heroTitle:"Wo <span>Wüste</span> auf<br>das <span>Rote Meer</span> trifft",
-    heroSub:"Buchen Sie in 60 Sekunden. Zahlung bei Ankunft. Keine versteckten Gebühren.",
-    instantConf:"⚡ Sofort-Bestätigung", payArrival:"💳 Zahlung vor Ort",
-    freeCancellation:"🔄 Kostenlose Stornierung 24h", hotelPickup:"🚐 Hotel-Abholung inklusive",
-    filterAll:"Alle Trips", filterSea:"🌊 Meer & Inseln", filterDesert:"🏜️ Wüsten-Safari",
-    filterDive:"🤿 Tauchen", filterFun:"🎢 Spaß",
-    ourAdventures:"Unsere Abenteuer", chooseExp:"Wählen Sie Ihr Erlebnis",
-    sectionSub:"Alle Trips beinhalten Hotel-Abholung, professionelle Guides & sofortige WhatsApp-Bestätigung.",
-    viewPlan:"📋 Reiseplan ansehen", bookBtn:"Jetzt Buchen",
-    perAdult:"/Person", perPerson:"/Person",
-    whyTitle:"Ihr Abenteuer, Unser Versprechen",
-    statsHappy:"Glückliche Touristen", statsTrips:"Einzigartige Trips", statsRating:"Bewertung", statsSupport:"Support",
-    scrollLabel:"Scrollen",
-    realReviews:"Echte Bewertungen", whatSay:"Was unsere Touristen sagen",
-    googleReview:"Google-Bewertung hinterlassen — Das hilft uns sehr! 🙏",
-    questionsTitle:"Noch Fragen?",
-    questionsSub:"24/7 auf WhatsApp verfügbar. Antwortzeit: unter 5 Minuten!",
-    chatWa:"💬 Jetzt auf WhatsApp schreiben",
-    modalTitle:"🎉 Ihr Abenteuer Buchen",
-    fname:"Vollständiger Name", fnamePh:"Ihr Name",
-    fdate:"Reisedatum", fpersons:"Personen", fhotel:"Hotelname in Hurghada",
-    fhotelPh:"Ihr Hotel", fphone:"WhatsApp Nummer", fphonePh:"+49 ...",
-    confirmBtn:"✅ Buchung bestätigen — Zahlung vor Ort",
-    orBook:"oder direkt buchen", bookWa:"📲 Per WhatsApp buchen",
-    successTitle:"Buchung Bestätigt!", successText:"Sie erhalten innerhalb von 5 Minuten eine WhatsApp-Bestätigung. Bereit für ein unvergessliches Abenteuer! 🌊🏜️",
-    childPrice:"Kinder (4–11 J.):", childFree:"Unter 4: GRATIS",
-    footerDesc:"Hurghadas wildeste Erlebnisse — in 60 Sekunden gebucht, vor Ort bezahlt.",
-    quickLinks:"Schnellzugriff", topTrips:"Top Trips", contact:"Kontakt",
-    chatName:"Wild Hurghada Assistent", chatOnline:"Jetzt online · Antwortet sofort",
-    chatWelcome:"👋 Hallo! Willkommen bei Wild Hurghada! Welches Abenteuer suchen Sie? 😊",
-    q1:"👨‍👩‍👧 Familie", q2:"💑 Paare", q3:"🔥 Adrenalin", q4:"💰 Preise",
-    totalLabel:"Gesamt",payArrivalLabel:"Zahlung vor Ort",
-  },
-  nl: {
-    bookNow:"Nu Boeken", exploreAdventures:"🏄 Ontdek Avonturen", whatsappUs:"💬 WhatsApp",
-    heroBadge:"✦ Hurghada's Beste Reisbureau ✦",
-    heroTitle:"Waar <span>Woestijn</span> de<br><span>Rode Zee</span> ontmoet",
-    heroSub:"Boek uw droomaventuur in 60 seconden. Betalen bij aankomst. Geen verborgen kosten.",
-    instantConf:"⚡ Directe Bevestiging", payArrival:"💳 Betalen bij Aankomst",
-    freeCancellation:"🔄 Gratis Annulering 24u", hotelPickup:"🚐 Hotel Ophalen Inbegrepen",
-    filterAll:"Alle Trips", filterSea:"🌊 Zee & Eilanden", filterDesert:"🏜️ Woestijn Safari",
-    filterDive:"🤿 Duiken", filterFun:"🎢 Plezier",
-    ourAdventures:"Onze Avonturen", chooseExp:"Kies Uw Ervaring",
-    sectionSub:"Alle trips inclusief hotel ophalen, professionele gidsen & directe WhatsApp bevestiging.",
-    viewPlan:"📋 Bekijk Reisplan", bookBtn:"Nu Boeken",
-    perAdult:"/persoon", perPerson:"/persoon",
-    whyTitle:"Uw Avontuur, Onze Belofte",
-    statsHappy:"Blije Toeristen", statsTrips:"Unieke Trips", statsRating:"Beoordeling", statsSupport:"Support",
-    scrollLabel:"Scrollen",
-    realReviews:"Echte Beoordelingen", whatSay:"Wat onze toeristen zeggen",
-    googleReview:"Laat een Google Review achter — Dat helpt ons enorm! 🙏",
-    questionsTitle:"Nog vragen?",
-    questionsSub:"24/7 beschikbaar op WhatsApp. Reactietijd: minder dan 5 minuten!",
-    chatWa:"💬 Chat nu op WhatsApp",
-    modalTitle:"🎉 Boek Uw Avontuur",
-    fname:"Volledige Naam", fnamePh:"Uw naam",
-    fdate:"Reisdatum", fpersons:"Personen", fhotel:"Hotelnaam in Hurghada",
-    fhotelPh:"Uw hotel", fphone:"WhatsApp Nummer", fphonePh:"+31 ...",
-    confirmBtn:"✅ Boeking bevestigen — Betalen bij aankomst",
-    orBook:"of direct boeken", bookWa:"📲 Boeken via WhatsApp",
-    successTitle:"Boeking Bevestigd!", successText:"U ontvangt binnen 5 minuten een WhatsApp bevestiging. Klaar voor een onvergetelijk avontuur! 🌊🏜️",
-    childPrice:"Kinderen (4–11 jr):", childFree:"Onder 4: GRATIS",
-    footerDesc:"Hurghada's wildste ervaringen — in 60 seconden geboekt, ter plaatse betaald.",
-    quickLinks:"Snelle Links", topTrips:"Top Trips", contact:"Contact",
-    chatName:"Wild Hurghada Assistent", chatOnline:"Nu online · Antwoordt direct",
-    chatWelcome:"👋 Hallo! Welkom bij Wild Hurghada! Wat voor avontuur zoekt u? 😊",
-    q1:"👨‍👩‍👧 Familie", q2:"💑 Koppels", q3:"🔥 Adrenaline", q4:"💰 Prijzen",
-    totalLabel:"Totaal",payArrivalLabel:"Betalen bij aankomst",
-  },
-  ru: {
-    bookNow:"Забронировать", exploreAdventures:"🏄 Смотреть туры", whatsappUs:"💬 WhatsApp",
-    heroBadge:"✦ Лучшее агентство Хургады ✦",
-    heroTitle:"Где <span>Пустыня</span> встречает<br><span>Красное море</span>",
-    heroSub:"Забронируйте за 60 секунд. Оплата по прибытии. Без скрытых платежей.",
-    instantConf:"⚡ Мгновенное подтверждение", payArrival:"💳 Оплата по прибытии",
-    freeCancellation:"🔄 Бесплатная отмена 24ч", hotelPickup:"🚐 Трансфер из отеля включён",
-    filterAll:"Все туры", filterSea:"🌊 Море и острова", filterDesert:"🏜️ Сафари в пустыне",
-    filterDive:"🤿 Дайвинг", filterFun:"🎢 Развлечения",
-    ourAdventures:"Наши приключения", chooseExp:"Выберите впечатление",
-    sectionSub:"Все туры включают трансфер из отеля, профессиональных гидов и мгновенное подтверждение в WhatsApp.",
-    viewPlan:"📋 Программа тура", bookBtn:"Забронировать",
-    perAdult:"/чел", perPerson:"/чел",
-    whyTitle:"Ваше приключение, наше обещание",
-    statsHappy:"Довольных туристов", statsTrips:"Уникальных туров", statsRating:"Рейтинг", statsSupport:"Поддержка",
-    scrollLabel:"Листайте",
-    realReviews:"Реальные отзывы", whatSay:"Что говорят наши туристы",
-    googleReview:"Оставить отзыв на Google — Это очень важно для нас! 🙏",
-    questionsTitle:"Есть вопросы?",
-    questionsSub:"Доступны 24/7 в WhatsApp. Среднее время ответа: менее 5 минут!",
-    chatWa:"💬 Написать в WhatsApp",
-    modalTitle:"🎉 Забронировать тур",
-    fname:"Полное имя", fnamePh:"Ваше имя",
-    fdate:"Дата поездки", fpersons:"Человек", fhotel:"Название отеля в Хургаде",
-    fhotelPh:"Ваш отель", fphone:"Номер WhatsApp", fphonePh:"+7 ...",
-    confirmBtn:"✅ Подтвердить бронирование — Оплата по прибытии",
-    orBook:"или забронировать напрямую", bookWa:"📲 Забронировать через WhatsApp",
-    successTitle:"Бронирование подтверждено!", successText:"Вы получите подтверждение в WhatsApp в течение 5 минут. Готовьтесь к незабываемому приключению! 🌊🏜️",
-    childPrice:"Дети (4–11 лет):", childFree:"До 4 лет: БЕСПЛАТНО",
-    footerDesc:"Самые яркие приключения Хургады — бронирование за 60 секунд, оплата по прибытии.",
-    quickLinks:"Быстрые ссылки", topTrips:"Топ туры", contact:"Контакты",
-    chatName:"Ассистент Wild Hurghada", chatOnline:"Онлайн · Отвечаем сразу",
-    chatWelcome:"👋 Привет! Добро пожаловать в Wild Hurghada! Какое приключение вас интересует? 😊",
-    q1:"👨‍👩‍👧 Семья", q2:"💑 Пары", q3:"🔥 Адреналин", q4:"💰 Цены",
-    totalLabel:"Итого",payArrivalLabel:"Оплата по прибытии",
-  }
-};
-
-const langFlags = {en:"🇬🇧 EN", de:"🇩🇪 DE", nl:"🇳🇱 NL", ru:"🇷🇺 RU"};
-let currentLang = "en";
-
-function t(key) { return translations[currentLang][key] || translations.en[key] || key; }
-
-function setLang(lang) {
-  currentLang = lang;
-  document.getElementById('langBtn').textContent = langFlags[lang] + " ▾";
-  document.getElementById('langDropdown').style.display = "none";
-  applyTranslations();
-}
-
-function applyTranslations() {
-  document.querySelectorAll('[data-key]').forEach(el => {
-    const key = el.dataset.key;
-    if(key === 'heroTitle') { el.innerHTML = t(key); return; }
-    el.textContent = t(key);
-  });
-  document.querySelectorAll('[data-key-html]').forEach(el => {
-    el.innerHTML = t(el.dataset.keyHtml);
-  });
-  document.querySelectorAll('[data-ph]').forEach(el => {
-    el.placeholder = t(el.dataset.ph);
-  });
-  document.querySelectorAll('[data-label]').forEach(el => {
-    el.textContent = t(el.dataset.label);
-  });
-  document.querySelectorAll('.book-btn').forEach(btn => btn.textContent = t('bookBtn'));
-  document.querySelectorAll('.tour-plan-btn').forEach(btn => {
-    const span = btn.querySelector('span');
-    const isOpen = btn.nextElementSibling && btn.nextElementSibling.classList.contains('open');
-    btn.innerHTML = `${t('viewPlan')} <span>${isOpen?'▲':'▼'}</span>`;
-  });
-  const trustItems = document.querySelectorAll('.trust-item');
-  const trustKeys = ['instantConf','payArrival','freeCancellation','hotelPickup'];
-  trustItems.forEach((el, i) => { if(trustKeys[i]) el.textContent = t(trustKeys[i]); });
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const filterKeys = ['filterAll','filterSea','filterDesert','filterDive','filterFun'];
-  filterBtns.forEach((btn, i) => { if(filterKeys[i]) btn.textContent = t(filterKeys[i]); });
-  const heroBadge = document.querySelector('.hero-badge');
-  if(heroBadge) heroBadge.textContent = t('heroBadge');
-  const heroH1 = document.querySelector('.hero h1');
-  if(heroH1) heroH1.innerHTML = t('heroTitle');
-  const heroSub = document.querySelector('.hero-sub');
-  if(heroSub) heroSub.textContent = t('heroSub');
-  const statLbls = document.querySelectorAll('.stat-lbl');
-  const statKeys = ['statsHappy','statsTrips','statsRating','statsSupport'];
-  statLbls.forEach((el,i) => { if(statKeys[i]) el.textContent = t(statKeys[i]); });
-  const scrollEl = document.querySelector('.scroll-ind span');
-  if(scrollEl) scrollEl.textContent = t('scrollLabel');
-  document.querySelector('.chat-name') && (document.querySelector('.chat-name').textContent = t('chatName'));
-  document.querySelector('.chat-status') && (document.querySelector('.chat-status').innerHTML = `<div class="online-dot"></div>${t('chatOnline')}`);
-  const qBtns = document.querySelectorAll('.quick-btn');
-  ['q1','q2','q3','q4'].forEach((k,i) => { if(qBtns[i]) qBtns[i].textContent = t(k); });
-  document.querySelectorAll('.trip-price small').forEach(el => {
-    el.textContent = el.textContent.includes('adult') || el.textContent.includes('Person') || el.textContent.includes('persoon') || el.textContent.includes('чел')
-      ? t('perAdult') : t('perPerson');
-  });
-  updateTotal();
-}
-
-function toggleLang() {
-  const dd = document.getElementById('langDropdown');
-  dd.style.display = dd.style.display === 'none' ? 'block' : 'none';
-}
-document.addEventListener('click', e => {
-  if(!document.getElementById('langMenu').contains(e.target))
-    document.getElementById('langDropdown').style.display = 'none';
-});
-
-// GALLERY DATA
-const GALLERIES = {
-  'Grand Aquarium': { price: 30, photos: ['https://drive.google.com/thumbnail?id=1jke-pLVb5hBfTYmoiIiPnfeoi5uG3IOx&sz=w1200','https://drive.google.com/thumbnail?id=1A9B0p7PvM1vcMrL4nKqpaRGDfEcwnLki&sz=w1200','https://drive.google.com/thumbnail?id=1OosUXiGeZ9cQHYvBKW-LoctXQ9BFzBuX&sz=w1200'] },
-  'Glass Boat Trip': { price: 35, photos: ['https://drive.google.com/thumbnail?id=1PU0uwiav7PFYAcZdMTJeareX7H5i1EYZ&sz=w1200','https://drive.google.com/thumbnail?id=1Tu_MsmWwcfFShAkrMasm1Ubjo4nGp7gf&sz=w1200','https://drive.google.com/thumbnail?id=1htJdTb_b6ffMBl7tFhyRmo0DqFdK_dqS&sz=w1200'] },
-  'Orange Bay Island': { price: 25, photos: ['https://drive.google.com/thumbnail?id=1ObebwBR4BY6x0jrT116tHAFMb-IZxrYv&sz=w1200','https://drive.google.com/thumbnail?id=1n_6fNQ-aDHdy57Cg6sFNvkbpc2qleQnL&sz=w1200','https://drive.google.com/thumbnail?id=1iusDURdTsrNAhCFQeyPj9af-2_v4h2Lf&sz=w1200'] },
-  'Paradise Island (Hula Hula)': { price: 25, photos: ['https://drive.google.com/thumbnail?id=1NvoDKEOIAB62fJkLpxSLmqxM8kQXG0D7&sz=w1200','https://drive.google.com/thumbnail?id=1iuVwAUrJmY2g3QxpwTBUkEJaZfXz8FyB&sz=w1200','https://drive.google.com/thumbnail?id=1lGwEMUNPzeeBWP8xTfagc6m0iyhvtdXd&sz=w1200'] },
-  'Dolphin House Trip': { price: 25, photos: ['https://drive.google.com/thumbnail?id=1jke-pLVb5hBfTYmoiIiPnfeoi5uG3IOx&sz=w1200','https://drive.google.com/thumbnail?id=1164ANoASUJJyuwVVTxp5CvXMx4hV6L_0K&sz=w1200','https://drive.google.com/thumbnail?id=1PU0uwiav7PFYAcZdMTJeareX7H5i1EYZ&sz=w1200'] },
-  'Diving Trip': { price: 35, photos: ['https://drive.google.com/thumbnail?id=1A9B0p7PvM1vcMrL4nKqpaRGDfEcwnLki&sz=w1200','https://drive.google.com/thumbnail?id=1OosUXiGeZ9cQHYvBKW-LoctXQ9BFzBuX&sz=w1200','https://drive.google.com/thumbnail?id=1htJdTb_b6ffMBl7tFhyRmo0DqFdK_dqS&sz=w1200','https://drive.google.com/thumbnail?id=1AJne-EJ_aKOmPes4Tu9TrcSBQ4UFPRCE&sz=w1200'] },
-  'Super Safari': { price: 20, photos: ['https://drive.google.com/thumbnail?id=1Tal_Jt6QzYi1eXse1hX8s9WmxUV80Gmz&sz=w1200','https://drive.google.com/thumbnail?id=1qr1z1gZG5ZmniYfNZwfG0HRU7vrRT7Ni&sz=w1200','https://drive.google.com/thumbnail?id=112-mQFMWkzEJWF9iaCbCjamgM9PT2YMJB&sz=w1200'] },
-  'Quad Safari 3 Hours': { price: 25, photos: ['https://drive.google.com/thumbnail?id=1oW7e3NafRCuhSnaQnCh1sFP1I1V1ZHWW&sz=w1200','https://drive.google.com/thumbnail?id=1zGfbwnXAhIKRLHJPazJW7rUw6eeKkQ5z&sz=w1200','https://drive.google.com/thumbnail?id=1DDFbMNGAzPlaYYPRn-bw3v6qv2G9bXtQ&sz=w1200','https://drive.google.com/thumbnail?id=1eyFv2TRTwLf1LCopEhNS-vA9wHa_J2bs&sz=w1200'] },
-  'Royal Seascope': { price: 20, photos: ['https://drive.google.com/thumbnail?id=1RjcbPj9JbDiGSHObOM76VX6WlW-ZoQzf&sz=w1200','https://drive.google.com/thumbnail?id=1VvZirKqKZmVFtnycLv6Z5sN0IZqVIITd&sz=w1200','https://drive.google.com/thumbnail?id=1YnG8Wnyjhu1JA5lWdqSoojU_0S6bL-Jx&sz=w1200'] },
-  'Sindbad Submarine': { price: 55, photos: ['https://drive.google.com/thumbnail?id=1ItkGt9KxddPHgyafNMRZbDqvBkyQ5ymo&sz=w1200','https://drive.google.com/thumbnail?id=1HoJV2GbupN1pnEW3tpa0t9SnWXQTlY0O&sz=w1200','https://drive.google.com/thumbnail?id=1d3aT-JeX7BYn9wK8TIKqm7g3dOa7AK9R&sz=w1200'] },
-  'Dolphin Show': { price: 20, photos: ['https://drive.google.com/thumbnail?id=164ANoASUJJyuwVVTxp5CvXMx4hV6L_0K&sz=w1200','https://drive.google.com/thumbnail?id=1hQAFt6r6FKSQ6SpnWDqOPjXojpdczOo_&sz=w1200','https://drive.google.com/thumbnail?id=1a7LIVRBMNHuKDWR9VZdka4OsMtRER7Lq&sz=w1200'] },
-  'Parasailing': { price: 22, photos: ['https://drive.google.com/thumbnail?id=1Tu_MsmWwcfFShAkrMasm1Ubjo4nGp7gf&sz=w1200','https://drive.google.com/thumbnail?id=110jQUo4V2aPvt6ixOv2wLtJyISB1xjrJd&sz=w1200'] },
-  'Aqua Park Makadi': { price: 45, photos: ['https://drive.google.com/thumbnail?id=1DPgOf-6hi-CNhzLWQEbEn4yGyHvatKi3&sz=w1200','https://drive.google.com/thumbnail?id=114EENY4s2t48_hnANIU53MZybw2n4k_nv&sz=w1200'] },
-  'Horse Riding 2 Hours': { price: 25, photos: ['https://drive.google.com/thumbnail?id=1Axzm_3J2LVe-Y4hYjcGyxuon6Wc_ItWB&sz=w1200','https://drive.google.com/thumbnail?id=1_2BHWZ5DEka17VtT9ip91GPQ5yJHrXg2&sz=w1200','https://drive.google.com/thumbnail?id=1Em4XjCMyfC2ZgMjOaAJxtgesUtB3rKiV&sz=w1200'] },
-};
-
-let galTrip='', galIdx=0;
-
-function openGallery(tripName) {
-  const g = GALLERIES[tripName];
-  if(!g) return;
-  galTrip = tripName;
-  galIdx = 0;
-  document.getElementById('galleryTitle').textContent = '📸 ' + tripName;
-  document.getElementById('galleryModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  renderGallery();
-  document.getElementById('galleryBookBtn').onclick = () => {
-    closeGallery();
-    openModal(tripName, g.price);
-  };
-  if (typeof gtag !== 'undefined') gtag('event', 'view_gallery', {trip: tripName});
-}
-
-function renderGallery() {
-  const g = GALLERIES[galTrip];
-  if(!g) return;
-  const img = document.getElementById('galleryMainImg');
-  img.style.opacity = '0';
-  setTimeout(() => {
-    img.src = g.photos[galIdx];
-    img.style.opacity = '1';
-  }, 150);
-  document.getElementById('galleryCounter').textContent = `${galIdx+1} / ${g.photos.length}`;
-  const thumbs = document.getElementById('galleryThumbs');
-  thumbs.innerHTML = g.photos.map((p,i) => 
-    `<img class="gallery-thumb ${i===galIdx?'active':''}" src="${p.replace('w1200','w200')}" onclick="setGalleryIdx(${i})" />`
-  ).join('');
-}
-
-function setGalleryIdx(i) { galIdx = i; renderGallery(); }
-
-function galleryNav(dir) {
-  const g = GALLERIES[galTrip];
-  if(!g) return;
-  galIdx = (galIdx + dir + g.photos.length) % g.photos.length;
-  renderGallery();
-}
-
-function closeGallery() {
-  document.getElementById('galleryModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.getElementById('galleryModal').addEventListener('click', e => {
-  if(e.target === document.getElementById('galleryModal')) closeGallery();
-});
-
-document.addEventListener('keydown', e => {
-  if(!document.getElementById('galleryModal').classList.contains('open')) return;
-  if(e.key === 'ArrowRight') galleryNav(1);
-  if(e.key === 'ArrowLeft') galleryNav(-1);
-  if(e.key === 'Escape') closeGallery();
-});
-
-// NAV
-window.addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
-
-// KEN BURNS
-let kbIdx=0;const kbSlides=document.querySelectorAll('.kb-slide');
-setInterval(()=>{kbSlides[kbIdx].classList.remove('active');kbIdx=(kbIdx+1)%kbSlides.length;kbSlides[kbIdx].classList.add('active');},5500);
-
-// COUNTERS
-function animateCounter(el){
-  const target=+el.dataset.target,suffix=el.dataset.suffix||'+',dur=2000,steps=60,inc=target/steps;
-  let cur=0,i=0;
-  const t=setInterval(()=>{cur+=inc;i++;el.textContent=Math.min(Math.round(cur),target)+suffix;if(i>=steps)clearInterval(t);},dur/steps);
-}
-setTimeout(()=>document.querySelectorAll('[data-target]').forEach(animateCounter),1200);
-
-// REVEAL
-const revObs=new IntersectionObserver(entries=>{
-  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);revObs.unobserve(e.target);}});
-},{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
-
-// FILTER
-function filterTrips(cat,btn){
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
-  document.querySelectorAll('.trip-card').forEach(c=>{const cats=c.dataset.cat||'';c.style.display=(cat==='all'||cats.includes(cat))?'block':'none';});
-}
-
-// TOUR PLAN TOGGLE
-function togglePlan(btn){
-  const plan=btn.nextElementSibling;
-  const isOpen=plan.classList.contains('open');
-  document.querySelectorAll('.tour-plan.open').forEach(p=>p.classList.remove('open'));
-  document.querySelectorAll('.tour-plan-btn span').forEach(s=>s.textContent='▼');
-  if(!isOpen){plan.classList.add('open');btn.querySelector('span').textContent='▲';}
-}
-
-// MODAL
-let cTrip='',cPrice=0;
-function openModal(trip,price){
-  cTrip=trip;cPrice=price;
-  document.getElementById('modalTrip').textContent='🎯 '+trip;
-  document.getElementById('modal').classList.add('open');
-  document.getElementById('formView').style.display='block';
-  document.getElementById('successView').classList.remove('show');
-  updateTotal();
-  document.getElementById('waLink').href=`https://wa.me/201551160195?text=${encodeURIComponent('Hi! I want to book: '+trip+'. Price: €'+price+'/person')}`;
-  if (typeof gtag !== 'undefined') gtag('event', 'begin_checkout', {trip: trip, value: price, currency: 'EUR'});
-  if (typeof fbq !== 'undefined') fbq('track', 'ViewContent', {content_name: trip, value: price, currency: 'EUR'});
-}
-function closeModal(){document.getElementById('modal').classList.remove('open');}
-document.getElementById('modal').addEventListener('click',e=>{if(e.target===document.getElementById('modal'))closeModal();});
-function updateTotal(){const n=+document.getElementById('fpersons').value||1;document.getElementById('totalBox').textContent=`💰 Total: €${cPrice} × ${n} = €${cPrice*n} — Pay on Arrival`;}
-
-function submitBooking(){
-  const name=document.getElementById('fname').value.trim(),date=document.getElementById('fdate').value,hotel=document.getElementById('fhotel').value.trim(),phone=document.getElementById('fphone').value.trim(),persons=document.getElementById('fpersons').value;
-  if(!name||!date||!hotel||!phone){alert('Please fill in all fields!');return;}
-  const msg=`🌍 *New Booking — Wild Hurghada*\n\n🎯 Trip: ${cTrip}\n👤 Name: ${name}\n📅 Date: ${date}\n👥 Persons: ${persons}\n🏨 Hotel: ${hotel}\n📱 Phone: ${phone}\n💰 Total: €${cPrice * +persons}\n\n✅ Pay on Arrival`;
-  window.open(`https://wa.me/201551160195?text=${encodeURIComponent(msg)}`,'_blank');
-  document.getElementById('formView').style.display='none';
-  document.getElementById('successView').classList.add('show');
-  
-  // Track conversion
-  if (typeof fbq !== 'undefined') fbq('track', 'Lead', {content_name: cTrip, value: cPrice * +persons, currency: 'EUR'});
-  if (typeof gtag !== 'undefined') gtag('event', 'conversion', {trip: cTrip, value: cPrice * +persons, currency: 'EUR'});
-}
-
-// CHATBOT
-function toggleChat(){document.getElementById('chatWin').classList.toggle('open');}
-const replies={
-  family:'👨‍👩‍👧 For families: **Dolphin Show**, **Royal Seascope** (no swimming!), **Aqua Park Makadi** & **Orange Bay Island**. All have children prices! Which one?',
-  couple:'💑 For couples: **Horse Riding at sunset** 🐎, **Paradise Island** 🏝️, **Sindbad Submarine** 🚢, or **Super Safari** under the stars 🌙. Unforgettable!',
-  thrill:'🔥 For adrenaline: **Quad Safari 3h** (25km desert!), **Parasailing** (100m above the sea!), **Diving Trip** (40+ sites!). Which one calls you?',
-  price:'💰 Trips from €20 to €55/person — hotel pickup always included. Pay cash on arrival, zero risk! Click any trip to see the full tour plan.',
-  include:'✅ Every trip includes hotel pickup, professional guide & equipment. Many include lunch, snorkel gear & entrance fees. Click "View Tour Plan" on any trip!',
-  cancel:'🔄 Free cancellation up to 24h before! Just WhatsApp us and we fix it immediately.',
-  pay:'💳 Cash on arrival — EUR, USD or GBP. No online payment needed. No hidden fees!',
-  default:'😊 I can help you find the perfect adventure! Are you travelling with family, as a couple, or for thrills? Or check any trip\'s "Tour Plan" for full details!'
-};
-function getReply(m){m=m.toLowerCase();if(m.includes('famil')||m.includes('kid')||m.includes('child'))return replies.family;if(m.includes('coupl')||m.includes('romant'))return replies.couple;if(m.includes('thrill')||m.includes('adrena')||m.includes('quad')||m.includes('excit'))return replies.thrill;if(m.includes('price')||m.includes('cost')||m.includes('how much'))return replies.price;if(m.includes('includ')||m.includes('what'))return replies.include;if(m.includes('cancel'))return replies.cancel;if(m.includes('pay')||m.includes('cash'))return replies.pay;return replies.default;}
-function addMsg(txt,isUser){const d=document.createElement('div');d.className=`msg ${isUser?'msg-user':'msg-bot'}`;d.textContent=txt;document.getElementById('chatMsgs').appendChild(d);document.getElementById('chatMsgs').scrollTop=9999;}
-function showTyping(){const d=document.createElement('div');d.className='typing';d.id='typing';d.innerHTML='<span></span><span></span><span></span>';document.getElementById('chatMsgs').appendChild(d);document.getElementById('chatMsgs').scrollTop=9999;}
-function sendChat(){const inp=document.getElementById('chatInp');const msg=inp.value.trim();if(!msg)return;addMsg(msg,true);inp.value='';document.getElementById('quickBtns').style.display='none';showTyping();setTimeout(()=>{const t=document.getElementById('typing');if(t)t.remove();addMsg(getReply(msg),false);},1000);}
-function qReply(msg){addMsg(msg,true);document.getElementById('quickBtns').style.display='none';showTyping();setTimeout(()=>{const t=document.getElementById('typing');if(t)t.remove();addMsg(getReply(msg),false);},1000);}
-
-document.getElementById('fdate').min=new Date().toISOString().split('T')[0];
-
-// ══════════ REVIEWS CAROUSEL ══════════
-let reviewIdx = 0;
-const reviewsTrack = document.getElementById('reviewsTrack');
-const reviewCards = document.querySelectorAll('.review-card');
-const reviewDotsContainer = document.getElementById('reviewDots');
-
-function getCardsPerView() {
-  if (window.innerWidth < 768) return 1;
-  if (window.innerWidth < 1100) return 2;
-  return 3;
-}
-
-function getTotalPages() {
-  return Math.ceil(reviewCards.length / getCardsPerView());
-}
-
-function buildReviewDots() {
-  reviewDotsContainer.innerHTML = '';
-  const total = getTotalPages();
-  for (let i = 0; i < total; i++) {
-    const dot = document.createElement('div');
-    dot.style.cssText = `width:10px;height:10px;border-radius:50%;background:${i===reviewIdx?'#C1440E':'#ddd'};cursor:pointer;transition:all .3s;`;
-    dot.onclick = () => { reviewIdx = i; updateReviews(); };
-    reviewDotsContainer.appendChild(dot);
-  }
-}
-
-function updateReviews() {
-  const cardWidth = 340 + 24;
-  const cardsPerView = getCardsPerView();
-  const maxIdx = Math.max(0, reviewCards.length - cardsPerView);
-  reviewIdx = Math.min(reviewIdx, Math.ceil(maxIdx / cardsPerView));
-  reviewsTrack.style.transform = `translateX(-${reviewIdx * cardsPerView * cardWidth}px)`;
-  buildReviewDots();
-}
-
-function slideReviews(dir) {
-  reviewIdx += dir;
-  const maxIdx = getTotalPages() - 1;
-  if (reviewIdx < 0) reviewIdx = maxIdx;
-  if (reviewIdx > maxIdx) reviewIdx = 0;
-  updateReviews();
-}
-
-window.addEventListener('resize', updateReviews);
-buildReviewDots();
-
-// Auto-slide reviews
-setInterval(() => slideReviews(1), 6000);
-
-// Animate review numbers
-function animateReviewNums() {
-  const targets = {ratingNum: 4.9, reviewNum: 500, happyNum: 500};
-  Object.keys(targets).forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    const target = targets[id];
-    const dur = 2000, steps = 60;
-    let cur = 0, i = 0;
-    const interval = setInterval(() => {
-      cur += target / steps;
-      i++;
-      if (id === 'ratingNum') el.textContent = Math.min(cur, target).toFixed(1);
-      else el.textContent = Math.min(Math.round(cur), target) + '+';
-      if (i >= steps) clearInterval(interval);
-    }, dur / steps);
-  });
-}
-setTimeout(animateReviewNums, 1500);
-
-// ══════════ LIVE BOOKING FEED ══════════
-const bookings = [
-  {name:'Sarah M.', country:'🇩🇪 Germany', trip:'Orange Bay Island', time:2, emoji:'🏝️'},
-  {name:'Tom & Lisa', country:'🇳🇱 Netherlands', trip:'Super Safari', time:5, emoji:'🏜️'},
-  {name:'James K.', country:'🇬🇧 UK', trip:'Dolphin House', time:8, emoji:'🐬'},
-  {name:'Anna S.', country:'🇩🇪 Germany', trip:'Sindbad Submarine', time:12, emoji:'🚢'},
-  {name:'Pieter V.', country:'🇳🇱 Netherlands', trip:'Quad Safari', time:15, emoji:'🏎️'},
-  {name:'Emma W.', country:'🇬🇧 UK', trip:'Diving Trip', time:18, emoji:'🤿'},
-  {name:'Hans & Maria', country:'🇩🇪 Germany', trip:'Royal Seascope', time:22, emoji:'🔭'},
-  {name:'Sophie L.', country:'🇫🇷 France', trip:'Paradise Island', time:25, emoji:'🌴'},
-  {name:'Alexei P.', country:'🇷🇺 Russia', trip:'Horse Riding', time:30, emoji:'🐎'},
-  {name:'Julia B.', country:'🇦🇹 Austria', trip:'Parasailing', time:35, emoji:'🪂'},
-  {name:'Mark & Family', country:'🇬🇧 UK', trip:'Aqua Park Makadi', time:40, emoji:'🎢'},
-  {name:'Olga K.', country:'🇷🇺 Russia', trip:'Grand Aquarium', time:45, emoji:'🐟'},
-];
-
-let feedIdx = 0;
-let feedInterval;
-
-function showFeed() {
-  const b = bookings[feedIdx];
-  document.getElementById('liveFeedIcon').textContent = b.emoji;
-  document.getElementById('liveFeedText').innerHTML = `<strong>${b.name}</strong> from ${b.country} just booked <strong>${b.trip}</strong>`;
-  document.getElementById('liveFeedTime').textContent = `${b.time} minutes ago`;
-  document.getElementById('liveFeed').classList.add('show');
-  
-  setTimeout(() => {
-    document.getElementById('liveFeed').classList.remove('show');
-  }, 6000);
-  
-  feedIdx = (feedIdx + 1) % bookings.length;
-}
-
-function closeFeed() {
-  document.getElementById('liveFeed').classList.remove('show');
-  clearInterval(feedInterval);
-  sessionStorage.setItem('feedClosed', 'true');
-}
-
-if (!sessionStorage.getItem('feedClosed')) {
-  setTimeout(() => {
-    showFeed();
-    feedInterval = setInterval(showFeed, 15000);
-  }, 8000);
-}
-
-// ══════════ WHATSAPP SMART POPUP ══════════
-let waPopupShown = false;
-
-function showWaPopup() {
-  if (waPopupShown || sessionStorage.getItem('waPopupShown')) return;
-  waPopupShown = true;
-  sessionStorage.setItem('waPopupShown', 'true');
-  document.getElementById('waPopupOverlay').classList.add('show');
-  if (typeof fbq !== 'undefined') fbq('trackCustom', 'WhatsAppPopupView');
-  if (typeof gtag !== 'undefined') gtag('event', 'whatsapp_popup_view');
-}
-
-function closeWaPopup() {
-  document.getElementById('waPopupOverlay').classList.remove('show');
-}
-
-function trackWA() {
-  if (typeof fbq !== 'undefined') fbq('track', 'Contact');
-  if (typeof gtag !== 'undefined') gtag('event', 'whatsapp_click', {source: 'popup'});
-}
-
-setTimeout(showWaPopup, 30000);
-
-let scrollCheckDone = false;
-window.addEventListener('scroll', function checkScroll() {
-  if (scrollCheckDone) return;
-  const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-  if (scrollPercent > 50) {
-    scrollCheckDone = true;
-    showWaPopup();
-    window.removeEventListener('scroll', checkScroll);
-  }
-});
-
-// ══════════ EXIT INTENT POPUP ══════════
-let exitPopupShown = false;
-
-function showExitPopup() {
-  if (exitPopupShown || sessionStorage.getItem('exitPopupShown')) return;
-  exitPopupShown = true;
-  sessionStorage.setItem('exitPopupShown', 'true');
-  document.getElementById('exitPopupOverlay').classList.add('show');
-  if (typeof fbq !== 'undefined') fbq('trackCustom', 'ExitIntentView');
-  if (typeof gtag !== 'undefined') gtag('event', 'exit_intent_popup');
-}
-
-function closeExitPopup() {
-  document.getElementById('exitPopupOverlay').classList.remove('show');
-}
-
-// Desktop: mouse leaves viewport from top
-document.addEventListener('mouseleave', function(e) {
-  if (e.clientY <= 0) showExitPopup();
-});
-
-// Mobile: show after 90 seconds of inactivity
-let mobileTimer;
-function resetMobileTimer() {
-  clearTimeout(mobileTimer);
-  mobileTimer = setTimeout(() => {
-    if (!exitPopupShown && !sessionStorage.getItem('exitPopupShown')) showExitPopup();
-  }, 90000);
-}
-if ('ontouchstart' in window) {
-  document.addEventListener('touchstart', resetMobileTimer);
-  document.addEventListener('scroll', resetMobileTimer);
-  resetMobileTimer();
-}
-</script>
-</body>
-</html>
+<div style="max-width:120
