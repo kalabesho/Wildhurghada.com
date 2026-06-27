@@ -2,11 +2,21 @@
 <html lang="en">
 <head>
  <!-- CookieHub Code -->
-<script src="https://cdn.cookiehub.eu/c2/a97c13f0.js"></script>
+<script async src="https://cdn.cookiehub.eu/c2/a97c13f0.js" onload="initCookieHub()"></script>
 <script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function(event) {
-var cpm = {};
-window.cookiehub.load(cpm);
+function initCookieHub() {
+  if (typeof window.cookiehub !== 'undefined') {
+    var cpm = {};
+    window.cookiehub.load(cpm);
+  }
+}
+// Fallback: try again after DOM ready if onload didn't fire
+document.addEventListener("DOMContentLoaded", function() {
+  if (typeof window.cookiehub !== 'undefined' && !window._cookiehubLoaded) {
+    window._cookiehubLoaded = true;
+    var cpm = {};
+    window.cookiehub.load(cpm);
+  }
 });
 </script>
 
